@@ -1,24 +1,18 @@
 # Linear Algebra Notes
 
-Welcome to **Linear Algebra Notes**, an applied, interactive introduction to linear algebra for data science.
-
-This book develops mathematical reasoning and computational fluency together. You will learn to solve problems by hand, explain why the methods work, and use Python to investigate larger examples.
+An online Jupyter Book for **linear algebra for data science**, built around Math 279 (LACC) and enriched with ideas from Math 56 (UC Berkeley) and EECS 16A.
 
 ## How to use this book
 
-- Read each section with a notebook or scratch paper nearby.
-- Run every code cell, then change an input and predict what will happen.
-- Complete the quick checks before viewing their solutions.
-- Explain results in words; a number or an array is rarely a complete answer.
-- Use numerical tools to support mathematical reasoning, not replace it.
+- Read each chapter in order; later topics assume earlier coding and math.
+- Run the code cells yourself (Jupyter / the live book) — linear algebra here is computational as well as conceptual.
+- **Chapter 0** is required if you are new to Python or NumPy.
 
-## Course path
+## Roadmap
 
-The course begins with **Chapter 0**, a pre-course computing bootcamp. It introduces Jupyter, Python, NumPy, and plotting—the tools used throughout the book. No prior programming experience is assumed.
+| Chapter | Focus |
+|---|---|
+| 0 | Coding readiness (Jupyter, Python, NumPy, plotting) |
+| 1+ | Systems, matrices, vectors, geometry, maps, eigen, SVD *(coming next)* |
 
-The remaining chapters follow the C-ID MATH 250 Introduction to Linear Algebra content: systems of equations, matrices, determinants, vector spaces, orthogonality, linear transformations, eigenvalues, and diagonalization. Applied extensions include least squares, QR factorization, singular value decomposition, and principal component analysis.
-
-:::{admonition} Start here
-:class: tip
-If Python or Jupyter is new to you, complete every Chapter 0 section and Lab 0 before beginning Chapter 1.
-:::
+Internal curriculum notes live in the repo `docs/` folder and are not part of this published outline.

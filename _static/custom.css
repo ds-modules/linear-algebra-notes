@@ -4,3 +4,14 @@ a.reference.external {
 a.reference.external:hover {
     color: #4a88a0 !important;
 }
+
+/* Keep NumPy / Jupyter text outputs aligned */
+pre,
+code,
+.output,
+.jp-OutputArea-output,
+[class*="output"] pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
+    white-space: pre !important;
+    tab-size: 4;
+}

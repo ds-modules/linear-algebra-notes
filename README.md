@@ -1,64 +1,33 @@
-# Linear Algebra Notes
+# linear-algebra-notes
 
-An applied Jupyter Book for an introductory linear algebra course aligned with C-ID MATH 250. The book combines mathematical reasoning, executable Python examples, quick checks, and labs.
+Online Jupyter Book for linear algebra (Math 279 spine, with Math 56 / EECS 16A enrichment).
 
-## Local setup
-
-Python 3.11 or newer is recommended.
+## Local preview
 
 ```bash
-python -m venv .venv
+pip install -r requirements-build.txt
+pip install -r requirements.txt
+# Live site + execute code cells so outputs appear
+jupyter book start --execute
 ```
 
-Activate the environment on Windows:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-Or activate it on macOS/Linux:
+Build static HTML (outputs baked in via `--execute`):
 
 ```bash
-source .venv/bin/activate
+jupyter book build --html --execute
 ```
 
-Install the authoring and course dependencies:
+On the published site, use the **power button** on a page (Binder / in-page Jupyter) to re-run cells interactively.
 
-```bash
-python -m pip install -r requirements-build.txt -r requirements.txt
-```
+## Content layout
 
-## Preview and build
+| Path | Role |
+|---|---|
+| `intro.md` | Book landing page |
+| `chapters/ch00/` | Chapter 0 — coding readiness (Week 0) |
+| `docs/` | Internal curriculum notes (not in book TOC) |
+| `myst.yml` | MyST / Jupyter Book config + TOC |
 
-Start the live authoring server:
+## Chapter 0
 
-```bash
-jupyter book start
-```
-
-Build the static site:
-
-```bash
-jupyter book build --execute --html
-```
-
-The `--execute` flag runs the MyST code cells so that the published book contains current outputs. The generated site is written under `_build/`. GitHub Actions executes, builds, and deploys the book when changes reach `main`.
-
-## Content structure
-
-- `intro.md` — book landing page
-- `chapters/` — published chapters and labs
-- `docs/` — internal curriculum planning documents
-- `myst.yml` — book metadata, navigation, and site configuration
-- `_static/` — styles and site assets
-
-Chapter content uses MyST Markdown. Executable examples use the ```` ```{code-cell} python ```` directive.
-
-## Authoring checks
-
-Before opening a pull request:
-
-1. restart and run any modified notebook content from a clean kernel;
-2. run `jupyter book build --execute --html`;
-3. inspect warnings and test internal links; and
-4. preview the affected pages at desktop and narrow widths.
+Covers Jupyter, Python basics, NumPy (including `solve` / `inv`), and matplotlib vector plots — aligned with Math 279 Lab 0 and the EECS 16A Python Bootcamp.
