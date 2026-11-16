@@ -1,30 +1,33 @@
 # linear-algebra-notes
-Online JupyterBook for learning Linear Algebra
 
-## Getting Started with Jupyterbook
+Online Jupyter Book for linear algebra (Math 279 spine, with Math 56 / EECS 16A enrichment).
 
-1. **Install CLI (if not already):**
-   ```bash
-   pip install "jupyter-book>=2.0.0"
-   ```
+## Local preview
 
-2. **Create `myst.yml`:**
-   ```bash
-   jupyter book init
-   ```
+```bash
+pip install -r requirements-build.txt
+pip install -r requirements.txt
+# Live site + execute code cells so outputs appear
+jupyter book start --execute
+```
 
-3. **Add content** (manually create files like `intro.md`, `chapters/*.md`, or `.ipynb`).
+Build static HTML (outputs baked in via `--execute`):
 
-   ```bash
-   jupyter book init --write-toc
-   ```
+```bash
+jupyter book build --html --execute
+```
 
-4. **Preview locally:**
-   ```bash
-   jupyter book start
-   ```
+On the published site, use the **power button** on a page (Binder / in-page Jupyter) to re-run cells interactively.
 
-5. **Add GitHub Pages CI:**
-   ```bash
-   jupyter book init --gh-pages
-   ```
+## Content layout
+
+| Path | Role |
+|---|---|
+| `intro.md` | Book landing page |
+| `chapters/ch00/` | Chapter 0 — coding readiness (Week 0) |
+| `docs/` | Internal curriculum notes (not in book TOC) |
+| `myst.yml` | MyST / Jupyter Book config + TOC |
+
+## Chapter 0
+
+Jupyter, Python basics, NumPy arrays (create / index / slice / reshape / elementwise ops), and simple plots. Matrix multiplication, `solve`, and `inv` come later with the math.

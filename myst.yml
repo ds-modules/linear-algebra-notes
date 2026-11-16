@@ -4,12 +4,22 @@ project:
   id: 0fa41216-53f0-4115-ac6b-cdbdf6ba1143
   title: Linear Algebra Notes
   github: ds-modules/linear-algebra-notes
+  # Enables the in-page "power" button (Binder) so readers can re-run cells live.
   jupyter: true
   toc:
     - file: intro.md
+    - title: Chapter 0. Coding Readiness
+      children:
+        - file: chapters/ch00/index.md
+        - file: chapters/ch00/jupyter-python.md
+        - file: chapters/ch00/numpy.md
+          title: NumPy arrays
+        - file: chapters/ch00/matplotlib.md
+          title: Simple plots
+        - file: chapters/ch00/exercises.md
 
 site:
-  template: book-theme
+  template: https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip
   actions:
     - title: Open Issue
       url: https://github.com/ds-modules/linear-algebra-notes/issues/new

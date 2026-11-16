@@ -1,9 +1,10 @@
-# Course Comparison: Math 56 (UCB) × EECS 16A (UCB) × Math 279 (LACC)
+# Course Comparison: Math 279 (LACC) × Math 56 (UCB) × EECS 16A (UCB)
 
 **Status:** Internal working document — not part of the published Jupyter Book TOC.
 **Purpose:** Support the joint Jupyter Book effort. Goal: identify what's duplicative, what's excellent, what's CC-level vs. UCB-level, and how to sequence a shared book "by weeks."
+**Spine decision (2026-11):** **Math 279 Canvas Units 1–7** set topic order; merge complementary Math 56 / EECS 16A material where it fills gaps or strengthens applications. See [overview.md](overview.md), [calendar.md](calendar.md), [canvas/](canvas/).
 
-**Last updated:** 2026-07-13
+**Last updated:** 2026-11-16
 
 ---
 
@@ -253,19 +254,22 @@ Stated README learning outcomes not matched by any notebook exercise: **null spa
 
 ## 7. Recommendations for the Shared Jupyter Book
 
-1. **Adopt Math 56's chapter sequencing as the book's backbone**, since it's the only complete, correctly-ordered, rigor-checked progression available. Use its Part structure (Euclidean space → Linear functions → Gaussian elimination → Matrix algebra → Bases/coordinates → Eigenvalues → Geometry/orthogonality → Spectral theory/SVD) as the top-level table of contents.
-2. **Dial rigor down to Math 279's level** for prose/exposition (motivate-first, minimal proof, "why does this matter for data" framing) — but keep Math 56's topic completeness so students *aren't* missing null space, column space, rank–nullity, and QR the way Math 279 currently is.
-3. **Borrow two 16A "build-a-system" projects as flagship applied modules**, adapted to remove hardware dependency:
-   - **Least-squares GPS/positioning** (from APS Task 6) as the flagship least-squares module — self-contained, no audio hardware needed, great "why do we solve `AᵗAx=AᵗB`" motivator.
-   - **Voice/audio PCA via SVD** (VR1/VR2) is compelling but hardware/audio-dependent — consider adapting to a similar SVD-driven classification task using tabular data instead (e.g., digit or image classification with public datasets) if we want the same pedagogy without recording equipment.
-   - Skip touchscreens/op-amps/capacitors entirely — pure circuits, no LA transferability.
-4. **Keep and expand Math 279's dataset-first labs** (stocks, housing, insurance, wine, Titanic) as the primary applied thread — they're already well-matched to a DS audience and more relevant than 16A's EE-flavored applications for this audience.
-5. **Fix the two concrete Math 279 gaps directly**: add an explicit null-space lab (natural extension of the existing RREF/column-space work in Lab 4-2) and an explicit QR/Gram-Schmidt-to-QR lab (natural extension of existing Lab 5 Gram-Schmidt content) — both are "finish what's already 80% there," not new topics.
-6. **Explicitly teach SVD as a named decomposition** before/alongside PCA (Math 279 currently only reaches PCA via `sklearn.PCA` or covariance-eigendecomposition, never SVD) — this aligns Math 279 with both Math 56 (Ch 13.3) and 16A (VR1/VR2), and is a better foundation for the "PCA as a black box" material already in Labs 4-2/4-3.
-7. **Decide explicitly on theory-before-tool vs. tool-before-theory ordering** for PCA specifically, since Math 279 currently uses `sklearn.PCA` (Lab 4-2) several labs before eigenvalues are formally taught (Lab 7) — this may be intentional scaffolding (build intuition, then formalize) or an artifact of missing Lab 3/6; worth confirming with Kee before the joint book locks in an order.
-8. **Recover/request Math 279 Labs 3 and 6** from Kee — needed to know if there are already-existing materials filling the subspace/column-space gap (#3) or another topic entirely.
-9. **Use week-based pacing similar to Math 56's 17-week cadence** (roughly 1.5 topics/week with homework+quiz/project rhythm) as the default schedule template, since it's the only one of the three with an explicit, complete week-by-week calendar — but compress it to fit a CC-typical semester length if Math 279's is shorter, and confirm with Kee what LACC's term length actually is.
-10. **Reach out to Alex Paulin** (per Eric's email) about the Math 56 textbook rebuild — since Math 56 is the structural backbone here, staying in sync with the live rebuild (rather than working from this static `Math56.md` TOC snapshot) will avoid divergence as both projects evolve.
+1. **Adopt Math 279 Canvas Units 1–7 as the book's backbone** (systems → matrices → dets → vectors/spaces → geometry/QR → linear maps → eigen/SVD). Local copies live in [canvas/](canvas/). Week plan: [calendar.md](calendar.md).
+2. **Keep Math 279's DS / low-rigor delivery** (motivate-first, notebooks, real CSVs) as the default voice.
+3. **Merge Math 56 where 279 is thin or missing:** null space / rank–nullity exercises, named QR, orthogonal projections → least squares, named SVD, optional chapter projects (Sparse Vectors, Classifiers, Markov, Regression).
+4. **Borrow 16A applied modules that complement 279:**
+   - Imaging/tomography notes as the Unit 1 systems motivator
+   - APS Task 1 (correlation as inner product) with Unit 5
+   - APS Task 6 (least-squares positioning) in the inserted least-squares week
+   - PageRank with Unit 7.1
+   - VR1 SVD→PCA→classify with Unit 7.4 (adapt off audio if needed)
+   - Skip touchscreens/op-amps/capacitors and Shazam/DFT-as-core
+5. **Front-load coding tooling (Wk 0):** Jupyter, NumPy create/index/slice/reshape/elementwise, matplotlib — **not** matmul/`solve`/`inv` until those chapters. Then pandas with Unit 4; sympy.rref with systems; SciPy LU with Unit 2.3; `lstsq`/`eig`/`svd`/`sklearn.PCA` at matching units.
+6. **Insert an explicit least-squares / regression week** after Unit 5 (projections/QR) — essential LA for DS, present in 56/16A/279 labs but not a Canvas unit title.
+7. **Teach SVD by name** in Unit 7.4 before/with `sklearn.PCA` (279 Lab 7 currently can skip SVD).
+8. **Recover Math 279 Labs 3 and 6** from Kee when possible (numbering gaps in the student repo).
+9. **Pace on a ~16–17 week calendar** aligned to Canvas units (see [calendar.md](calendar.md)); compress for LACC term dates as needed.
+10. **Use Math 56 textbook as a reference companion**, not the weekly order — Paulin/Nadler/Gupta remains the rigor/completeness check ([Math56.md](Math56.md)).
 
 ---
 

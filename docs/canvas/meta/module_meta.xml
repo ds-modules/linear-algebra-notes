@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd">
+  <module identifier="g497048beaaa3fbb45015fad4c0aa3758">
+    <title>General Welcome and Information on Getting Started</title>
+    <workflow_state>unpublished</workflow_state>
+    <position>1</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <items>
+      <item identifier="gc3a486340b28761e50d6f460c33ef8c1">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>Welcome</title>
+        <identifierref>gebdc208facb8672ced970278e7901286</identifierref>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+  </module>
+  <module identifier="gfd59699a74ea0e11abbdc902f9c187f9">
+    <title>Linear Algebra for DS</title>
+    <workflow_state>active</workflow_state>
+    <position>2</position>
+    <require_sequential_progress>false</require_sequential_progress>
+    <locked>false</locked>
+    <items>
+      <item identifier="g4463d4ac0cd85a43d43eb1fb7cc25302">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 1 Introduction to Systems of Linear Equations and Gauss-Jordan Elimination</title>
+        <identifierref>g36cf32b189e4b990064d696ecd0a87c7</identifierref>
+        <position>1</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gdd4cb695a35f391f15e79fc2c8f0d078">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 2.1 Operations with Matrices and their Properties</title>
+        <identifierref>geafbe0c7585b47ded8a2299125138027</identifierref>
+        <position>2</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gcdcbba4a6bf00174b201c0773b0dc8de">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 2.2 The Inverse of a Matrix</title>
+        <identifierref>gfbab17ee081727014f52ff1ceba5e755</identifierref>
+        <position>3</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gf2ae53304f1a184b38536092b895bc8e">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 2.3 Elementary Matrices and LU Factorization</title>
+        <identifierref>g9c034a7501730222f3f978645cc53084</identifierref>
+        <position>4</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g9462e3e8e6e0dd2e8738a88fcfc9c2fc">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 3.1 Determinant of a Matrix</title>
+        <identifierref>gb8b40a98220bd9718c1713296879e8f9</identifierref>
+        <position>5</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g7ca49c80d4998b662a6dc73bfe1f610f">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 3.2 Properties of Determinants</title>
+        <identifierref>gf71b934c4b0ca23bf03879ef6b99994f</identifierref>
+        <position>6</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g11c37b88df7847c22bf06c4c3ef70606">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.1 Vectors in Rn</title>
+        <identifierref>g7fca07b65fdeabda4015b80e81eddb6b</identifierref>
+        <position>7</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g42562dadd08c9803f4e26e08cd98ff38">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.2 Vector Spaces</title>
+        <identifierref>g6a7e2e5e7daef42104c9300cec368cf4</identifierref>
+        <position>8</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gee24b9f0b5a20b13c9b6048343aadaba">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.3 Subspaces of Vector Spaces</title>
+        <identifierref>g23bfe50fe59f491522d99d78d4dd3b60</identifierref>
+        <position>9</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g5d63222a7b69948a26f02d71278a93aa">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.4 Spanning Sets and Linear Independence</title>
+        <identifierref>g5c5c935b88da4f2d754bbadb8d5d898b</identifierref>
+        <position>10</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g532e1c025bb7135e2ef12187609d9f8c">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.5 Basis and Dimension</title>
+        <identifierref>ge1496101748894a9f2b506b1a5dfd139</identifierref>
+        <position>11</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g4400ba9faaae0cfc318b0a1ed90d9cca">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.6 Rank of a Matrix and Systems of Equations</title>
+        <identifierref>gc03b72d634233f8baecb5d6a55643d29</identifierref>
+        <position>12</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g5e82ca61aebb7bbde07c8f347c97bcee">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 4.7 Coordinates and Change of Basis</title>
+        <identifierref>g4a96f73230f5cc8d0f3e50413c976319</identifierref>
+        <position>13</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g4289ac5c464b9cd2a137a73b902c4d66">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 5.1 Length and Dot Product in R^n</title>
+        <identifierref>g89b450a8640f7eac6888fca5e5e9a90b</identifierref>
+        <position>14</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g236cdd3ad5f7fbbd1cd9d550c2653057">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 5.2 Inner Product Spaces</title>
+        <identifierref>g641765674c321b8597904b782a9858a2</identifierref>
+        <position>15</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gb0fe7445827d6f86227ab9accb39216d">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 5.3 Orthonormal Bases: Gram-Schmidt Process</title>
+        <identifierref>g117469091df7f735317d43f1ea42d76c</identifierref>
+        <position>16</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g3db7a0994168c8a61bc4ec32a647476d">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 6.1 Introduction to Linear Transformations</title>
+        <identifierref>gd4a1bf16394959c2cc6130a89f4ade13</identifierref>
+        <position>17</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gb14b212f2fe081cb90cb9bda33a08175">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 6.2 The Kernel and Range of a Linear Transformation</title>
+        <identifierref>g7fe82bb9e8e767c4a4ee0c740f17fbb6</identifierref>
+        <position>18</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gf83e98f43beff3ce5ee04bec3fc1e7b0">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 6.3 Matrices for Linear Transformations</title>
+        <identifierref>g034018bbe2155335e11ee0c14cdd489a</identifierref>
+        <position>19</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g99d83b46d7658474989e5e7b44bba431">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 7.1 Eigenvalues and Eigenvectors</title>
+        <identifierref>g933d910170762e4508dc8a360653ce3e</identifierref>
+        <position>20</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gc80dff7c07610fd959a202681a355b5c">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 7.2 Diagonalization </title>
+        <identifierref>gafe1fc63bc44f76ed5de95bb6e284660</identifierref>
+        <position>21</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="gd15cf7ae86c7b0289f7a475d51e44cc2">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 7.3 Symmetric Matrices and Orthogonal Diagonalization</title>
+        <identifierref>gef75e1ad05f83c2ff99ad745e3eafc45</identifierref>
+        <position>22</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+      <item identifier="g6ed7878645f79f48fb725b88cbce33d1">
+        <content_type>WikiPage</content_type>
+        <workflow_state>active</workflow_state>
+        <title>📚Reading: Unit 7.4 Singular Value Decomposition</title>
+        <identifierref>g670d2c6e93b09b71cf9959d4291a5764</identifierref>
+        <position>23</position>
+        <new_tab>false</new_tab>
+        <indent>0</indent>
+        <link_settings_json>null</link_settings_json>
+      </item>
+    </items>
+  </module>
+</modules>

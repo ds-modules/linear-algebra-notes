@@ -34,12 +34,14 @@ jobs:
           node-version: 24.x
 
       - name: Install build dependencies
-        run: pip install -r requirements-build.txt
+        run: |
+          pip install -r requirements-build.txt
+          pip install -r requirements.txt
 
       - name: Build the book
         run: |
           set -e
-          jupyter book build --html || jupyter-book build --html
+          jupyter book build --html --execute || jupyter-book build --html --execute
           [ -d "_build/site" ] && cp -r _build/site _build/html || [ -d "_build/html" ]
 
       - name: Upload artifact
