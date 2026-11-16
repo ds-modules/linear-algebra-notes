@@ -34,8 +34,9 @@ Week-0 coding bootcamp; imaging motivator for `Ax=b`; explicit null-space lab; Q
 | Skill | When |
 |---|---|
 | Jupyter + Python basics | Wk 0 |
-| NumPy arrays, slicing, broadcasting, matmul, `solve`, `inv` | Wk 0 (reuse all term) |
-| matplotlib vector/matrix viz | Wk 0–1 |
+| NumPy create / index / slice / reshape / elementwise ops | Wk 0 (reuse all term) |
+| matplotlib (simple 2D arrows) | Wk 0 |
+| matmul `@`, `solve`, `inv` | With systems / matrix chapters — **not** Wk 0 |
 | pandas read_csv + light EDA | With Unit 4 / Lab 4 |
 | Manual row ops + `np.linalg.solve` | Unit 1 / Lab 1 |
 | `sympy.rref` | Unit 1 / Unit 4.4–4.6 |
