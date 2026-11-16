@@ -1,0 +1,321 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>📚Reading: Unit 3.1 Determinant of a Matrix</title>
+<meta name="identifier" content="gb8b40a98220bd9718c1713296879e8f9"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<meta name="editor_type" content="rce"/>
+</head>
+<body>
+<h2 class="content-box pad-box-large" style="background-color: #c13d40; color: #FFFFFF; border-radius: 5px; padding: 16px;"><strong>Determinant of a Matrix</strong></h2>
+<div class="border border-b" style="border-color: #FFFFFF; padding-left: 15px; padding-right: 15px;">
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Introduction to Determinants</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">The <strong>determinant</strong> is a scalar value that can be calculated from a square matrix and carries fundamental information about the matrix's properties. It plays a crucial role in many areas of linear algebra and its applications in data science, from solving systems of linear equations to understanding geometric transformations and analyzing multivariate data.</span></p>
+<p><span style="font-size: 14pt;">The determinant of a matrix A, denoted as <img class="equation_image" title="\displaystyle \det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29" alt="LaTeX: \det(A)" data-equation-content="\displaystyle \det(A)" data-ignore-a11y-check="" loading="lazy"> or |A|, is a special number calculated from the elements of A that tells us whether the matrix has an inverse (when <img class="equation_image" title="\displaystyle \det(A) \ne 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(A)%2520%255Cne%25200?scale=1.16666875" alt="LaTeX: \displaystyle \det(A) \ne 0" data-equation-content="\displaystyle \det(A) \ne 0" data-ignore-a11y-check="" loading="lazy">) and provides information about how linear transformations affect area and volume. The determinant helps us determine whether a matrix is invertible, find the volume of geometric shapes after linear transformations, and understand the behavior of linear systems.&nbsp;</span></p>
+<p style="text-align: center;"><img src="$IMS-CC-FILEBASE$/Uploaded%20Media%202/AdobeStock_321871791.jpeg" alt="A digital wireframe figure wearing a virtual reality headset glows blue against a dark, futuristic background." width="421" height="211" data-api-endpoint="https://ilearn.laccd.edu/api/v1/courses/341671/files/72493492" data-api-returntype="File" loading="lazy"></p>
+<figure style="text-align: center;">
+<figcaption><span style="font-size: 14pt;">Determinants help develop 3D space where the game's characters will be visually present.</span></figcaption>
+</figure>
+<p><span style="font-size: 14pt;">The effect of elementary operations on determinants provides a systematic way to compute determinants through row reduction, which is much more efficient than using cofactor expansion for large matrices.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Calculating Determinants</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="color: #000000; font-size: 14pt;"><span style="font-size: 14pt;">For a 2×2 matrix, the determinant is calculated by subtracting the product of the off-diagonal entries from the product of the main diagonal entries.</span></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>2×2 Matrices</strong></span></h4>
+<p><span style="font-size: 14pt;">For a 2×2 matrix A = <img class="equation_image" title="\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520a%2520%2526%2520b%2520%255C%255C%2520c%2520%2526%2520d%2520%255Cend%257Bbmatrix%257D" alt="2x2 matrix with elements a, b, c, d" data-equation-content="\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">, the determinant is:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) =ad-bc" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(A)%2520%253Dad-bc?scale=1.16666875" alt="LaTeX: \displaystyle \det(A) =ad-bc" data-equation-content="\displaystyle \det(A) =ad-bc" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 1: Calculating a 2×2 Determinant</strong></span></h4>
+<p><span style="font-size: 14pt;">For A = <img class="equation_image" title="\begin{bmatrix} 3 &amp; 5 \\ 2 &amp; 7 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%25203%2520%2526%25205%2520%255C%255C%25202%2520%2526%25207%2520%255Cend%257Bbmatrix%257D" alt="2x2 matrix with values 3, 5, 2, 7" data-equation-content="\begin{bmatrix} 3 &amp; 5 \\ 2 &amp; 7 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) =(3)(7)-(5)(2)=11" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(A)%2520%253D(3)(7)-(5)(2)%253D11?scale=1" alt="LaTeX: \displaystyle \det(A) =(3)(7)-(5)(2)=11" data-equation-content="\displaystyle \det(A) =(3)(7)-(5)(2)=11" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>3×3 Matrices</strong></span></h4>
+<p><span style="font-size: 14pt;">For a 3×3 matrix, there are several methods to calculate the determinant:</span></p>
+<p><span style="font-size: 14pt;"><strong>Method 1: Cofactor Expansion</strong></span></p>
+<p><span style="font-size: 14pt;">For A = <img class="equation_image" title="\begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520a_%257B11%257D%2520%2526%2520a_%257B12%257D%2520%2526%2520a_%257B13%257D%2520%255C%255C%2520a_%257B21%257D%2520%2526%2520a_%257B22%257D%2520%2526%2520a_%257B23%257D%2520%255C%255C%2520a_%257B31%257D%2520%2526%2520a_%257B32%257D%2520%2526%2520a_%257B33%257D%2520%255Cend%257Bbmatrix%257D" alt="3x3 matrix with elements a_ij" data-equation-content="\begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Expanding along the first row:</span></p>
+<p><span style="font-size: 14pt;">det(A) = a<sub>11</sub>C<sub>11</sub> + a<sub>12</sub>C<sub>12</sub> + a<sub>13</sub>C<sub>13</sub></span></p>
+<p><span style="font-size: 14pt;">where C<sub>ij</sub> is the (i,j)-cofactor of A, defined as:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle C_{ij} = (-1)^{i+j} M_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520C_%257Bij%257D%2520%253D%2520%28-1%29%255E%257Bi%252Bj%257D%2520M_%257Bij%257D?scale=1.16666875" alt="LaTeX: C_{ij} = (-1)^{i+j} M_{ij}" data-equation-content="\displaystyle C_{ij} = (-1)^{i+j} M_{ij}" data-ignore-a11y-check="" loading="lazy">, where <img class="equation_image" title="\displaystyle M_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520M_%257Bij%257D" alt="LaTeX: M_{ij}" data-equation-content="\displaystyle M_{ij}" data-ignore-a11y-check="" loading="lazy"></span><span style="font-size: 14pt;"> is the minor of A that is the determinant of the submatrix obtained by removing the i-th row and j-th column of the original matrix A.</span></p>
+<p><span style="color: #c13d40; font-size: 14pt;"><strong>Example 2: Calculating a 3×3 Determinant</strong></span></p>
+<p><span style="font-size: 14pt;">Calculate the determinant of:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    -1 &amp; 3 &amp; 2 \\
+    4 &amp; 0 &amp; 1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%2520-1%2520%2526%25203%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25204%2520%2526%25200%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    -1 &amp; 3 &amp; 2 \\
+    4 &amp; 0 &amp; 1
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    -1 &amp; 3 &amp; 2 \\
+    4 &amp; 0 &amp; 1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><strong>Solution:</strong> We will expand along the first row (because of the zero entry in <img class="equation_image" title="\displaystyle a_{13}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520a_%257B13%257D" alt="LaTeX: a_{13}" data-equation-content="\displaystyle a_{13}" data-ignore-a11y-check="" loading="lazy">).</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520a_%257B11%257DC_%257B11%257D%2520%252B%2520a_%257B12%257DC_%257B12%257D%2520%252B%2520a_%257B13%257DC_%257B13%257D?scale=1.16666875" alt="LaTeX: \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}" data-equation-content="\displaystyle \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = 1 \cdot (-1)^{1+1} M_{11} + 2 \cdot (-1)^{1+2} M_{12} + 0 \cdot (-1)^{1+3} M_{13}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%25201%2520%255Ccdot%2520%28-1%29%255E%257B1%252B1%257D%2520M_%257B11%257D%2520%252B%25202%2520%255Ccdot%2520%28-1%2529%255E%257B1%252B2%257D%2520M_%257B12%257D%2520%252B%25200%2520%255Ccdot%2520%28-1%2529%255E%257B1%252B3%257D%2520M_%257B13%257D?scale=1.16666875" alt="LaTeX: = 1 \cdot (-1)^{1+1} M_{11} + 2 \cdot (-1)^{1+2} M_{12} + 0 \cdot (-1)^{1+3} M_{13}" data-equation-content="\displaystyle = 1 \cdot (-1)^{1+1} M_{11} + 2 \cdot (-1)^{1+2} M_{12} + 0 \cdot (-1)^{1+3} M_{13}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since the last term is <img class="equation_image" title="\displaystyle 0 \cdot M_{13}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%25200%2520%255Ccdot%2520M_%257B13%257D" alt="LaTeX: 0 \cdot M_{13}" data-equation-content="\displaystyle 0 \cdot M_{13}" data-ignore-a11y-check="" loading="lazy">, it simplifies to 0.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = 1 \cdot \begin{vmatrix} 3 &amp; 2 \\ 0 &amp; 1 \end{vmatrix} - 2 \cdot \begin{vmatrix} -1 &amp; 2 \\ 4 &amp; 1 \end{vmatrix} + 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%25201%2520%255Ccdot%2520%255Cbegin%257Bvmatrix%257D%25203%2520%2526%25202%2520%255C%255C%25200%2520%2526%25201%2520%255Cend%257Bvmatrix%257D%2520-%25202%2520%255Ccdot%2520%255Cbegin%257Bvmatrix%257D%2520-1%2520%2526%25202%2520%255C%255C%25204%2520%2526%25201%2520%255Cend%257Bvmatrix%257D%2520%252B%25200?scale=1.16666875" alt="LaTeX: = 1 \cdot \begin{vmatrix} 3 &amp; 2 \\ 0 &amp; 1 \end{vmatrix} - 2 \cdot \begin{vmatrix} -1 &amp; 2 \\ 4 &amp; 1 \end{vmatrix} + 0" data-equation-content="\displaystyle = 1 \cdot \begin{vmatrix} 3 &amp; 2 \\ 0 &amp; 1 \end{vmatrix} - 2 \cdot \begin{vmatrix} -1 &amp; 2 \\ 4 &amp; 1 \end{vmatrix} + 0" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = 1 \cdot ((3)(1) - (2)(0)) - 2 \cdot ((-1)(1) - (2)(4))" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%25201%2520%255Ccdot%2520%28%283%29%281%29%2520-%2520%282%29%280%29%29%2520-%25202%2520%255Ccdot%2520%28%28-1%29%281%29%2520-%2520%282%29%284%29%29?scale=1.16666875" alt="LaTeX: = 1 \cdot ((3)(1) - (2)(0)) - 2 \cdot ((-1)(1) - (2)(4))" data-equation-content="\displaystyle = 1 \cdot ((3)(1) - (2)(0)) - 2 \cdot ((-1)(1) - (2)(4))" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = 1 \cdot 3 - 2 \cdot (-9)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%25201%2520%255Ccdot%25203%2520-%25202%2520%255Ccdot%2520%28-9%29?scale=1.16666875" alt="LaTeX: = 1 \cdot 3 - 2 \cdot (-9)" data-equation-content="\displaystyle = 1 \cdot 3 - 2 \cdot (-9)" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = 21" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%252021?scale=1.16666875" alt="LaTeX: = 21" data-equation-content="\displaystyle = 21" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The determinant of A is 21.</span></p>
+<p><span style="font-size: 14pt;"><strong>Method 2: Rule of Sarrus</strong></span></p>
+<p><span style="font-size: 14pt;">For a 3×3 matrix, the Rule of Sarrus provides a pattern for calculating the determinant:</span></p>
+<p><img class="equation_image" title="\displaystyle \det(A) = a_{11}a_{22}a_{33} + a_{12}a_{23} a_{31}+ a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(A)%2520%253D%2520a_%257B11%257Da_%257B22%257Da_%257B33%257D%2520%252B%2520a_%257B12%257Da_%257B23%257D%2520a_%257B31%257D%252B%2520a_%257B13%257Da_%257B21%257Da_%257B32%257D-a_%257B13%257Da_%257B22%257Da_%257B31%257D-a_%257B11%257Da_%257B23%257Da_%257B32%257D-a_%257B12%257Da_%257B21%257Da_%257B33%257D?scale=1" alt="LaTeX: \displaystyle \det(A) = a_{11}a_{22}a_{33} + a_{12}a_{23} a_{31}+ a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}" data-equation-content="\displaystyle \det(A) = a_{11}a_{22}a_{33} + a_{12}a_{23} a_{31}+ a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="color: #c13d40; font-size: 14pt;"><strong>Example 3: Calculating a 3×3 Determinant</strong></span></p>
+<p><span style="font-size: 14pt;">For A = <img class="equation_image" title="\begin{bmatrix} 2 &amp; 1 &amp; 3 \\ 4 &amp; -1 &amp; 2 \\ 0 &amp; 3 &amp; 1 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%25202%2520%2526%25201%2520%2526%25203%2520%255C%255C%25204%2520%2526%2520-1%2520%2526%25202%2520%255C%255C%25200%2520%2526%25203%2520%2526%25201%2520%255Cend%257Bbmatrix%257D" alt="3x3 matrix with specific values" data-equation-content="\begin{bmatrix} 2 &amp; 1 &amp; 3 \\ 4 &amp; -1 &amp; 2 \\ 0 &amp; 3 &amp; 1 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Using the Rule of Sarrus:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = 2(-1)(1)+ 1(2)(0)+ 3(4)(3)-3(-1)(0)-2(2)(3)-1(4)(1)=18" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(A)%2520%253D%25202(-1)(1)%252B%25201(2)(0)%252B%25203(4)(3)-3(-1)(0)-2(2)(3)-1(4)(1)%253D18?scale=1" alt="LaTeX: \displaystyle \det(A) = 2(-1)(1)+ 1(2)(0)+ 3(4)(3)-3(-1)(0)-2(2)(3)-1(4)(1)=18" data-equation-content="\displaystyle \det(A) = 2(-1)(1)+ 1(2)(0)+ 3(4)(3)-3(-1)(0)-2(2)(3)-1(4)(1)=18" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>n×n Matrices</strong></span></h4>
+<p><span style="font-size: 14pt;">For larger matrices, the determinant can be calculated using:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Cofactor expansion:</strong> Choose any row or column and expand using cofactors</span></li>
+<li><span style="font-size: 14pt;"><strong>Gaussian elimination:</strong> Transform the matrix to upper triangular form and multiply the diagonal elements</span></li>
+<li><span style="font-size: 14pt;"><strong>LU decomposition:</strong> If A = LU, then det(A) = det(L) × det(U) = product of diagonal elements of U (since det(L) = 1)</span></li>
+</ol>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Determinants of Triangular Matrices</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">A <strong>triangular matrix</strong> is a square matrix where all entries either above or below the main diagonal are zero.</span></p>
+<ul>
+<li><span style="font-size: 14pt;"><strong>Upper Triangular:</strong> All entries below the main diagonal are zero.</span></li>
+<li><span style="font-size: 14pt;"><strong>Lower Triangular:</strong> All entries above the main diagonal are zero.</span></li>
+<li><span style="font-size: 14pt;"><strong>Diagonal:</strong> All entries not on the main diagonal are zero.</span></li>
+</ul>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Theorem: Determinant of a Triangular Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">If A is a triangular matrix (upper triangular, lower triangular, or diagonal), then its determinant is the product of the entries on its main diagonal.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520a_%257B11%257D%2520%255Ccdot%2520a_%257B22%257D%2520%255Ccdot%2520%255Cldots%2520%255Ccdot%2520a_%257Bnn%257D?scale=1.16666875" alt="LaTeX: \det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}" data-equation-content="\displaystyle \det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 4: Determinant of a Triangular Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">Calculate the determinant of:&nbsp;</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle B = \begin{bmatrix}
+    2 &amp; 5 &amp; -1 \\
+    0 &amp; 3 &amp; 4 \\
+    0 &amp; 0 &amp; -2
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%25205%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25203%2520%2526%25204%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%2520-2%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: B = \begin{bmatrix}
+    2 &amp; 5 &amp; -1 \\
+    0 &amp; 3 &amp; 4 \\
+    0 &amp; 0 &amp; -2
+    \end{bmatrix}" data-equation-content="\displaystyle B = \begin{bmatrix}
+    2 &amp; 5 &amp; -1 \\
+    0 &amp; 3 &amp; 4 \\
+    0 &amp; 0 &amp; -2
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><strong>Solution:</strong> Since B is an upper triangular matrix, its determinant is the product of its diagonal entries.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = (2)(3)(-2)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%282%29%283%29%28-2%29?scale=1.16666875" alt="LaTeX: \det(B) = (2)(3)(-2)" data-equation-content="\displaystyle \det(B) = (2)(3)(-2)" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = -12" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520-12?scale=1.16666875" alt="LaTeX: = -12" data-equation-content="\displaystyle = -12" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The determinant of B is -12.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Elementary Row Operations and Determinants</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">There are three fundamental properties that describe how elementary row operations affect the determinant of a square matrix.</span></p>
+<h4><span style="color: #000000; font-size: 14pt;"><strong>Property 1: Row Interchange</strong></span></h4>
+<p><strong><span style="font-size: 14pt;">If matrix B is obtained from matrix A by interchanging two rows, then the determinant of B is the negative of the determinant of A.</span></strong></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = -\det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520-%255Cdet%28A%29" alt="LaTeX: \det(B) = -\det(A)" data-equation-content="\displaystyle \det(B) = -\det(A)" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt; color: #c13d40;"><strong>Example 5: Row Interchange</strong></span></p>
+<p><span style="font-size: 14pt;">Let <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25203%2520%2526%25204%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Calculate <img class="equation_image" title="\displaystyle \det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29" alt="LaTeX: \det(A)" data-equation-content="\displaystyle \det(A)" data-ignore-a11y-check="" loading="lazy">:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = (1)(4) - (2)(3) = 4 - 6 = -2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520%281%29%284%29%2520-%2520%282%29%283%29%2520%253D%25204%2520-%25206%2520%253D%2520-2?scale=1.16666875" alt="LaTeX: \det(A) = (1)(4) - (2)(3) = 4 - 6 = -2" data-equation-content="\displaystyle \det(A) = (1)(4) - (2)(3) = 4 - 6 = -2" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Now, interchange R<sub>1</sub> and R<sub>2</sub> to get <img class="equation_image" title="\displaystyle B = \begin{bmatrix} 3 &amp; 4 \\ 1 &amp; 2 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25203%2520%2526%25204%2520%255C%255C%25201%2520%2526%25202%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: B = \begin{bmatrix} 3 &amp; 4 \\ 1 &amp; 2 \end{bmatrix}" data-equation-content="\displaystyle B = \begin{bmatrix} 3 &amp; 4 \\ 1 &amp; 2 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Calculate <img class="equation_image" title="\displaystyle \det(B)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29" alt="LaTeX: \det(B)" data-equation-content="\displaystyle \det(B)" data-ignore-a11y-check="" loading="lazy">:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = (3)(2) - (4)(1) = 6 - 4 = 2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%283%29%282%29%2520-%2520%284%29%281%29%2520%253D%25206%2520-%25204%2520%253D%25202?scale=1.16666875" alt="LaTeX: \det(B) = (3)(2) - (4)(1) = 6 - 4 = 2" data-equation-content="\displaystyle \det(B) = (3)(2) - (4)(1) = 6 - 4 = 2" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">As expected, <img class="equation_image" title="\displaystyle \det(B) = 2 = -(-2) = -\det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%25202%2520%253D%2520-%28-2%29%2520%253D%2520-%255Cdet%28A%29" alt="LaTeX: \det(B) = 2 = -(-2) = -\det(A)" data-equation-content="\displaystyle \det(B) = 2 = -(-2) = -\det(A)" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<h4><span style="color: #000000; font-size: 14pt;"><strong>Property 2: Row Scaling</strong></span></h4>
+<p><strong><span style="font-size: 14pt;">If matrix B is obtained from matrix A by multiplying a row by a nonzero scalar c, then the determinant of B is c times the determinant of A.</span></strong></p>
+<p style="text-align: left;"><strong><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = c \cdot \det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520c%2520%255Ccdot%2520%255Cdet%28A%29" alt="LaTeX: \det(B) = c \cdot \det(A)" data-equation-content="\displaystyle \det(B) = c \cdot \det(A)" data-ignore-a11y-check="" loading="lazy"></span></strong></p>
+<p><span style="font-size: 14pt;"><strong><span style="font-size: 14pt; color: #c13d40;">Example 6: Row Scaling</span></strong></span></p>
+<p><span style="font-size: 14pt;">Using <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25203%2520%2526%25204%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">, where <img class="equation_image" title="\displaystyle \det(A) = -2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520-2" alt="LaTeX: \det(A) = -2" data-equation-content="\displaystyle \det(A) = -2" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Multiply R<sub>2</sub> by 5 to get <img class="equation_image" title="\displaystyle B = \begin{bmatrix} 1 &amp; 2 \\ 5 \cdot 3 &amp; 5 \cdot 4 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 \\ 15 &amp; 20 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25205%2520%255Ccdot%25203%2520%2526%25205%2520%255Ccdot%25204%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%252015%2520%2526%252020%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: B = \begin{bmatrix} 1 &amp; 2 \\ 5 \cdot 3 &amp; 5 \cdot 4 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 \\ 15 &amp; 20 \end{bmatrix}" data-equation-content="\displaystyle B = \begin{bmatrix} 1 &amp; 2 \\ 5 \cdot 3 &amp; 5 \cdot 4 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 \\ 15 &amp; 20 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Calculate <img class="equation_image" title="\displaystyle \det(B)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29" alt="LaTeX: \det(B)" data-equation-content="\displaystyle \det(B)" data-ignore-a11y-check="" loading="lazy">:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = (1)(20) - (2)(15) = 20 - 30 = -10" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%281%29%2820%29%2520-%2520%282%29%2815%29%2520%253D%252020%2520-%252030%2520%253D%2520-10?scale=1.16666875" alt="LaTeX: \det(B) = (1)(20) - (2)(15) = 20 - 30 = -10" data-equation-content="\displaystyle \det(B) = (1)(20) - (2)(15) = 20 - 30 = -10" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">As expected, <img class="equation_image" title="\displaystyle \det(B) = -10 = 5 \cdot (-2) = 5 \cdot \det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520-10%2520%253D%25205%2520%255Ccdot%2520%28-2%29%2520%253D%25205%2520%255Ccdot%2520%255Cdet%28A%29" alt="LaTeX: \det(B) = -10 = 5 \cdot (-2) = 5 \cdot \det(A)" data-equation-content="\displaystyle \det(B) = -10 = 5 \cdot (-2) = 5 \cdot \det(A)" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<h4><span style="color: #000000; font-size: 14pt;"><strong>Property 3: Row Replacement</strong></span></h4>
+<p><strong><span style="font-size: 14pt;">If matrix B is obtained from matrix A by adding a multiple of one row to another row, then the determinant of B is equal to the determinant of A.</span></strong></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = \det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%255Cdet%28A%29" alt="LaTeX: \det(B) = \det(A)" data-equation-content="\displaystyle \det(B) = \det(A)" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt; color: #c13d40;"><strong>Example 7: Row Replacement</strong></span></p>
+<p><span style="font-size: 14pt;">Using <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25203%2520%2526%25204%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">, where <img class="equation_image" title="\displaystyle \det(A) = -2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520-2" alt="LaTeX: \det(A) = -2" data-equation-content="\displaystyle \det(A) = -2" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Add 2 times R<sub>1</sub> to R<sub>2</sub> (<img class="equation_image" title="\displaystyle R_2 + 2R_1 \rightarrow R_2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_2%2520%252B%25202R_1%2520%255Crightarrow%2520R_2" alt="LaTeX: R_2 + 2R_1 \rightarrow R_2" data-equation-content="\displaystyle R_2 + 2R_1 \rightarrow R_2" data-ignore-a11y-check="" loading="lazy">) to get <img class="equation_image" title="\displaystyle B = \begin{bmatrix} 1 &amp; 2 \\ 3+2(1) &amp; 4+2(2) \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 \\ 5 &amp; 8 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25203%252B2%281%29%2520%2526%25204%252B2%282%29%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25205%2520%2526%25208%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: B = \begin{bmatrix} 1 &amp; 2 \\ 3+2(1) &amp; 4+2(2) \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 \\ 5 &amp; 8 \end{bmatrix}" data-equation-content="\displaystyle B = \begin{bmatrix} 1 &amp; 2 \\ 3+2(1) &amp; 4+2(2) \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 \\ 5 &amp; 8 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Calculate <img class="equation_image" title="\displaystyle \det(B)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29" alt="LaTeX: \det(B)" data-equation-content="\displaystyle \det(B)" data-ignore-a11y-check="" loading="lazy">:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = (1)(8) - (2)(5) = 8 - 10 = -2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%281%29%288%29%2520-%2520%282%29%285%29%2520%253D%25208%2520-%252010%2520%253D%2520-2?scale=1.16666875" alt="LaTeX: \det(B) = (1)(8) - (2)(5) = 8 - 10 = -2" data-equation-content="\displaystyle \det(B) = (1)(8) - (2)(5) = 8 - 10 = -2" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">As expected, <img class="equation_image" title="\displaystyle \det(B) = -2 = \det(A)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520-2%2520%253D%2520%255Cdet%28A%29" alt="LaTeX: \det(B) = -2 = \det(A)" data-equation-content="\displaystyle \det(B) = -2 = \det(A)" data-ignore-a11y-check="" loading="lazy">.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Using Elementary Operations to Evaluate Determinants</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">These properties are incredibly useful for evaluating determinants of larger matrices. We can use elementary row operations to transform a matrix into an easier form (like triangular form), keeping track of how each operation changes the determinant.</span></p>
+<p><span style="font-size: 14pt; color: #c13d40;"><strong>Example 8: Evaluating a 3×3 Determinant Using Row Operations</strong></span></p>
+<p><span style="font-size: 14pt;">Evaluate the determinant of <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 5 &amp; 4 \\ 1 &amp; 1 &amp; 2 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%2526%25203%2520%255C%255C%25202%2520%2526%25205%2520%2526%25204%2520%255C%255C%25201%2520%2526%25201%2520%2526%25202%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 5 &amp; 4 \\ 1 &amp; 1 &amp; 2 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 5 &amp; 4 \\ 1 &amp; 1 &amp; 2 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;"><strong>Solution:</strong> We will transform A into an upper triangular matrix and keep track of determinant changes.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 5 &amp; 4 \\
+    1 &amp; 1 &amp; 2
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25205%2520%2526%25204%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25201%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 5 &amp; 4 \\
+    1 &amp; 1 &amp; 2
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    2 &amp; 5 &amp; 4 \\
+    1 &amp; 1 &amp; 2
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Operation: <img class="equation_image" title="\displaystyle R_2 - 2R_1 \rightarrow R_2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_2%2520-%25202R_1%2520%255Crightarrow%2520R_2" alt="LaTeX: R_2 - 2R_1 \rightarrow R_2" data-equation-content="\displaystyle R_2 - 2R_1 \rightarrow R_2" data-ignore-a11y-check="" loading="lazy"> (Determinant remains unchanged)</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    1 &amp; 1 &amp; 2
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%2520-2%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25201%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    1 &amp; 1 &amp; 2
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    1 &amp; 1 &amp; 2
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Operation: <img class="equation_image" title="\displaystyle R_3 - R_1 \rightarrow R_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_3%2520-%2520R_1%2520%255Crightarrow%2520R_3" alt="LaTeX: R_3 - R_1 \rightarrow R_3" data-equation-content="\displaystyle R_3 - R_1 \rightarrow R_3" data-ignore-a11y-check="" loading="lazy"> (Determinant remains unchanged)</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    0 &amp; -1 &amp; -1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%2520-2%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%2520-1%2520%2526%2520-1%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    0 &amp; -1 &amp; -1
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    0 &amp; -1 &amp; -1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Operation: <img class="equation_image" title="\displaystyle R_3 + R_2 \rightarrow R_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_3%2520%252B%2520R_2%2520%255Crightarrow%2520R_3" alt="LaTeX: R_3 + R_2 \rightarrow R_3" data-equation-content="\displaystyle R_3 + R_2 \rightarrow R_3" data-ignore-a11y-check="" loading="lazy"> (Determinant remains unchanged)</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    0 &amp; 0 &amp; -3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%2520-2%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%2520-3%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    0 &amp; 0 &amp; -3
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 3 \\
+    0 &amp; 1 &amp; -2 \\
+    0 &amp; 0 &amp; -3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Now the matrix is in upper triangular form. The determinant is the product of its diagonal entries:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = (1)(1)(-3) = -3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520%281%29%281%29%28-3%29%2520%253D%2520-3?scale=1.16666875" alt="LaTeX: \det(A) = (1)(1)(-3) = -3" data-equation-content="\displaystyle \det(A) = (1)(1)(-3) = -3" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The determinant of A is -3.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Zero Determinants and Their Significance</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">When the determinant of a matrix equals zero, it reveals important structural information about the matrix and the system of equations it represents.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Implications of a Zero Determinant</strong></span></h4>
+<p><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle \det(A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%25200" alt="LaTeX: \displaystyle \det(A) = 0" data-equation-content="\displaystyle \det(A) = 0" data-ignore-a11y-check="" loading="lazy">, then the matrix A is <strong>singular</strong> (non-invertible), which means:</span></p>
+<ol>
+<li><span style="font-size: 14pt;">The columns (or rows) of A are linearly dependent.</span></li>
+<li><span style="font-size: 14pt;">The matrix A does not have a unique inverse.</span></li>
+<li><span style="font-size: 14pt;">The system of equations Ax = b has either no solution or infinitely many solutions (depending on b).</span></li>
+<li><span style="font-size: 14pt;">The matrix transformation represented by A maps a non-zero vector to the zero vector (i.e., A has a non-trivial null space).</span></li>
+</ol>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Detecting Zero Determinants Using Row Operations</strong></span></h4>
+<p><span style="font-size: 14pt;">Row operations provide an efficient way to determine if a determinant is zero without calculating its exact value.</span></p>
+<p><span style="font-size: 14pt;"><strong>Key Insight:</strong> If through a sequence of elementary row operations, we can produce a row of all zeros in the matrix, then the determinant is zero.</span></p>
+<p><span style="font-size: 14pt; color: #c13d40;"><strong>Example 9: Identifying a Zero Determinant</strong></span></p>
+<p><span style="font-size: 14pt;">Determine whether the determinant of <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 2 &amp; 4 &amp; 6 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25202%2520%2526%25204%2520%2526%25206%2520%255C%255C%25201%2520%2526%25203%2520%2526%25205%2520%255C%255C%25203%2520%2526%25207%2520%2526%252011%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle A = \begin{bmatrix} 2 &amp; 4 &amp; 6 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 2 &amp; 4 &amp; 6 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"> is zero.</span></p>
+<p><span style="font-size: 14pt;"><strong>Solution:</strong> We'll use row operations to attempt to create a row of zeros.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;">Operation: <img class="equation_image" title="\displaystyle R_1 - 2R_2 \rightarrow R_1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_1%2520-%25202R_2%2520%255Crightarrow%2520R_1" alt="LaTeX: \displaystyle R_1 - 2R_2 \rightarrow R_1" data-equation-content="\displaystyle R_1 - 2R_2 \rightarrow R_1" data-ignore-a11y-check="" loading="lazy"> (Determinant remains unchanged)</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-2%2520%2526%2520-4%2520%255C%255C%25201%2520%2526%25203%2520%2526%25205%2520%255C%255C%25203%2520%2526%25207%2520%2526%252011%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;">Operation: <img class="equation_image" title="\displaystyle R_3 - 3R_2 \rightarrow R_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_3%2520-%25203R_2%2520%255Crightarrow%2520R_3" alt="LaTeX: \displaystyle R_3 - 3R_2 \rightarrow R_3" data-equation-content="\displaystyle R_3 - 3R_2 \rightarrow R_3" data-ignore-a11y-check="" loading="lazy"> (Determinant remains unchanged)</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 0 &amp; -2 &amp; -4 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-2%2520%2526%2520-4%2520%255C%255C%25201%2520%2526%25203%2520%2526%25205%2520%255C%255C%25200%2520%2526%2520-2%2520%2526%2520-4%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 0 &amp; -2 &amp; -4 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 0 &amp; -2 &amp; -4 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;">Operation: <img class="equation_image" title="\displaystyle R_3 - R_1 \rightarrow R_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_3%2520-%2520R_1%2520%255Crightarrow%2520R_3" alt="LaTeX: \displaystyle R_3 - R_1 \rightarrow R_3" data-equation-content="\displaystyle R_3 - R_1 \rightarrow R_3" data-ignore-a11y-check="" loading="lazy"> (Determinant remains unchanged)</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 0 &amp; 0 &amp; 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-2%2520%2526%2520-4%2520%255C%255C%25201%2520%2526%25203%2520%2526%25205%2520%255C%255C%25200%2520%2526%25200%2520%2526%25200%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 0 &amp; 0 &amp; 0 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 0 &amp; -2 &amp; -4 \\ 1 &amp; 3 &amp; 5 \\ 0 &amp; 0 &amp; 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since we've obtained a row of all zeros, the determinant of A is zero.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Geometric Interpretation of Zero Determinants</strong></span></h4>
+<p><span style="font-size: 14pt;">The determinant represents the scaling factor of the volume transformation when A is applied to a unit cube in n-dimensional space:</span></p>
+<ul>
+<li><span style="font-size: 14pt;">For a 2×2 matrix, the determinant represents the area of the parallelogram formed by the column vectors.</span></li>
+<li><span style="font-size: 14pt;">For a 3×3 matrix, the determinant represents the volume of the parallelepiped formed by the column vectors.</span></li>
+</ul>
+<p><span style="font-size: 14pt;">When <img class="equation_image" title="\displaystyle \det(A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%25200" alt="LaTeX: \displaystyle \det(A) = 0" data-equation-content="\displaystyle \det(A) = 0" data-ignore-a11y-check="" loading="lazy">, the transformed shape has zero volume, indicating that the transformation "flattens" the space into a lower dimension.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Detecting Linear Dependence</strong></span></h4>
+<p><span style="font-size: 14pt;">A zero determinant indicates that at least one row (or column) can be expressed as a linear combination of the other rows (or columns). In Example 5, we can verify this:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle R_3 = 3R_2 - 2R_1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_3%2520%253D%25203R_2%2520-%25202R_1" alt="LaTeX: \displaystyle R_3 = 3R_2 - 2R_1" data-equation-content="\displaystyle R_3 = 3R_2 - 2R_1" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix} 3 &amp; 7 &amp; 11 \end{bmatrix} = 3\begin{bmatrix} 1 &amp; 3 &amp; 5 \end{bmatrix} - 2\begin{bmatrix} 2 &amp; 4 &amp; 6 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25203%2520%2526%25207%2520%2526%252011%2520%255Cend%257Bbmatrix%257D%2520%253D%25203%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25203%2520%2526%25205%2520%255Cend%257Bbmatrix%257D%2520-%25202%255Cbegin%257Bbmatrix%257D%25202%2520%2526%25204%2520%2526%25206%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle \begin{bmatrix} 3 &amp; 7 &amp; 11 \end{bmatrix} = 3\begin{bmatrix} 1 &amp; 3 &amp; 5 \end{bmatrix} - 2\begin{bmatrix} 2 &amp; 4 &amp; 6 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 3 &amp; 7 &amp; 11 \end{bmatrix} = 3\begin{bmatrix} 1 &amp; 3 &amp; 5 \end{bmatrix} - 2\begin{bmatrix} 2 &amp; 4 &amp; 6 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">This linear dependence confirms why the determinant is zero.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Application: Systems of Linear Equations</strong></span></h4>
+<p><span style="font-size: 14pt;">For a system of linear equations Ax = b:</span></p>
+<ul>
+<li><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle \det(A) \neq 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%255Cneq%25200" alt="LaTeX: \displaystyle \det(A) \neq 0" data-equation-content="\displaystyle \det(A) \neq 0" data-ignore-a11y-check="" loading="lazy">, the system has a unique solution: <img class="equation_image" title="\displaystyle x = A^{-1}b" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520x%2520%253D%2520A%255E%257B-1%257Db" alt="LaTeX: \displaystyle x = A^{-1}b" data-equation-content="\displaystyle x = A^{-1}b" data-ignore-a11y-check="" loading="lazy">.</span></li>
+<li><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle \det(A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%25200" alt="LaTeX: \displaystyle \det(A) = 0" data-equation-content="\displaystyle \det(A) = 0" data-ignore-a11y-check="" loading="lazy"> and the augmented matrix [A|b] has the same rank as A, the system has infinitely many solutions.</span></li>
+<li><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle \det(A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%25200" alt="LaTeX: \displaystyle \det(A) = 0" data-equation-content="\displaystyle \det(A) = 0" data-ignore-a11y-check="" loading="lazy"> and the augmented matrix [A|b] has a higher rank than A, the system has no solution.</span></li>
+</ul>
+<p><span style="font-size: 14pt; color: #c13d40;"><strong>Example 10: System with Zero Determinant</strong></span></p>
+<p><span style="font-size: 14pt;">Consider the system represented by the matrix equation Ax = b, where <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 2 &amp; 4 &amp; 6 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25202%2520%2526%25204%2520%2526%25206%2520%255C%255C%25201%2520%2526%25203%2520%2526%25205%2520%255C%255C%25203%2520%2526%25207%2520%2526%252011%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle A = \begin{bmatrix} 2 &amp; 4 &amp; 6 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 2 &amp; 4 &amp; 6 \\ 1 &amp; 3 &amp; 5 \\ 3 &amp; 7 &amp; 11 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"> and <img class="equation_image" title="\displaystyle b = \begin{bmatrix} 2 \\ 1 \\ 3 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520b%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25202%2520%255C%255C%25201%2520%255C%255C%25203%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle b = \begin{bmatrix} 2 \\ 1 \\ 3 \end{bmatrix}" data-equation-content="\displaystyle b = \begin{bmatrix} 2 \\ 1 \\ 3 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">💡 Since <img class="equation_image" title="\displaystyle \det(A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%25200" alt="LaTeX: \displaystyle \det(A) = 0" data-equation-content="\displaystyle \det(A) = 0" data-ignore-a11y-check="" loading="lazy">, the system either has no solution or infinitely many solutions. To determine which, we need to check if the third row of the augmented matrix [A|b] is consistent with the linear dependency we found.</span></p>
+<p><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle R_3 = 3R_2 - 2R_1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520R_3%2520%253D%25203R_2%2520-%25202R_1" alt="LaTeX: \displaystyle R_3 = 3R_2 - 2R_1" data-equation-content="\displaystyle R_3 = 3R_2 - 2R_1" data-ignore-a11y-check="" loading="lazy">, then for consistency, we must have <img class="equation_image" title="\displaystyle b_3 = 3b_2 - 2b_1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520b_3%2520%253D%25203b_2%2520-%25202b_1" alt="LaTeX: \displaystyle b_3 = 3b_2 - 2b_1" data-equation-content="\displaystyle b_3 = 3b_2 - 2b_1" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle 3b_2 - 2b_1 = 3(1) - 2(2) = 3 - 4 = -1 \neq 3 = b_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%25203b_2%2520-%25202b_1%2520%253D%25203%281%29%2520-%25202%282%29%2520%253D%25203%2520-%25204%2520%253D%2520-1%2520%255Cneq%25203%2520%253D%2520b_3" alt="LaTeX: \displaystyle 3b_2 - 2b_1 = 3(1) - 2(2) = 3 - 4 = -1 \neq 3 = b_3" data-equation-content="\displaystyle 3b_2 - 2b_1 = 3(1) - 2(2) = 3 - 4 = -1 \neq 3 = b_3" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since the consistency check fails, this system has no solution.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Geometric Interpretation</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">One of the most powerful aspects of determinants is their geometric meaning:</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Area and Volume</strong></span></h4>
+<ul>
+<li><span style="font-size: 14pt;"><strong>2×2 matrices:</strong> The absolute value of the determinant |det(A)| represents the area of the parallelogram formed by the column (or row) vectors of A</span></li>
+<li><span style="font-size: 14pt;"><strong>3×3 matrices:</strong> |det(A)| represents the volume of the parallelepiped formed by the column (or row) vectors</span></li>
+<li><span style="font-size: 14pt;"><strong>n×n matrices:</strong> |det(A)| represents the n-dimensional volume of the parallelotope formed by the column (or row) vectors</span></li>
+</ul>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Orientation</strong></span></h4>
+<p><span style="font-size: 14pt;">The sign of the determinant indicates the orientation of the coordinate system defined by the column vectors:</span></p>
+<ul>
+<li><span style="font-size: 14pt;">det(A) &gt; 0: The orientation is preserved (right-handed remains right-handed)</span></li>
+<li><span style="font-size: 14pt;">det(A) &lt; 0: The orientation is reversed (right-handed becomes left-handed)</span></li>
+<li><span style="font-size: 14pt;">det(A) = 0: The vectors are linearly dependent, and the parallelotope collapses to a lower dimension</span></li>
+</ul>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Linear Transformations</strong></span></h4>
+<p><span style="font-size: 14pt;">If A represents a linear transformation, then |det(A)| gives the factor by which areas/volumes are scaled under this transformation.</span></p>
+<p><span style="font-size: 14pt;"><strong>Example:</strong> If det(A) = 3, then the transformation represented by A increases areas by a factor of 3. If det(A) = -2, areas increase by a factor of 2, but orientation is reversed.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Applications in Data Science</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Multivariate Statistics</strong></span></h4>
+<p><span style="font-size: 14pt;">Determinants in multivariate statistics measure the overall dispersion (generalized variance) of data, quantify multidimensional volumes, and normal probability distributions.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Principal Component Analysis (PCA)</strong></span></h4>
+<p><span style="font-size: 14pt;">In PCA, the determinant of the covariance matrix provides information about the total variance in the data. A small determinant indicates high correlation between variables, suggesting that dimensionality reduction might be effective.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Linear Discriminant Analysis (LDA)</strong></span></h4>
+<p><span style="font-size: 14pt;"><span>LDA assumes equal covariance matrices for all classes. The determinant helps in determining the "scatter" of the data</span>.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Information Theory and Maximum Likelihood</strong></span></h4>
+<p><span style="font-size: 14pt;">Determinants appear in various information-theoretic measures and likelihood functions to measure volume, quantify uncertainty in high-dimensional distributions, and optimize model parameters.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Computational Aspects</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Efficient Calculation</strong></span></h4>
+<p><span style="font-size: 14pt;">For practical computation of determinants, especially for large matrices, several approaches are used:</span></p>
+<ul>
+<li><span style="font-size: 14pt;"><strong>LU decomposition:</strong> If A = LU, then det(A) = det(L) × det(U) = product of diagonal elements of U (since det(L) = 1)</span></li>
+<li><span style="font-size: 14pt;"><strong>QR decomposition:</strong> If A = QR, then det(A) = det(Q) × det(R) = ±product of diagonal elements of R</span></li>
+<li><span style="font-size: 14pt;"><strong>Gaussian elimination:</strong> Transform A to upper triangular form and multiply the diagonal elements</span></li>
+</ul>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Numerical Stability</strong></span></h4>
+<p><span style="font-size: 14pt;">Direct computation of determinants can be numerically unstable, especially for large matrices, due to:</span></p>
+<ul>
+<li><span style="font-size: 14pt;">Potential overflow or underflow when multiplying many numbers</span></li>
+<li><span style="font-size: 14pt;">Accumulation of round-off errors</span></li>
+<li><span style="font-size: 14pt;">Ill-conditioning of the matrix</span></li>
+</ul>
+<p><span style="font-size: 14pt;">For this reason, many numerical libraries avoid explicitly computing determinants when solving related problems like linear systems.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Logarithmic Determinant</strong></span></h4>
+<p><span style="font-size: 14pt;">For numerical stability in many applications, especially in statistics and machine learning, the logarithm of the determinant (log-determinant) is often used instead of the determinant itself:</span></p>
+<p><span style="font-size: 14pt;">log(det(A)) = sum of log(λ<sub>i</sub>), where λ<sub>i</sub> are the eigenvalues of A</span></p>
+<p><span style="font-size: 14pt;">This approach helps avoid numerical overflow/underflow issues when working with large matrices.</span></p>
+</div>
+</div>
+<div style="background: #E7F2FF; padding: 16px; border-radius: 10px; border-left: 6px solid #9fc5f8;">
+<h3 style="margin-top: 0; color: #555fa3;"><strong>&nbsp;🎥 Video:</strong></h3>
+<p>&nbsp;</p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/OI07C1HsOuc" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/umXgFjqPfsk" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/6-nnxrnnZT8" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>

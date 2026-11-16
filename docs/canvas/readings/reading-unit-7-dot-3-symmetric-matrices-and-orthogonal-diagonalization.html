@@ -1,0 +1,212 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>📚Reading: Unit 7.3 Symmetric Matrices and Orthogonal Diagonalization</title>
+<meta name="identifier" content="gef75e1ad05f83c2ff99ad745e3eafc45"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<meta name="editor_type" content="rce"/>
+</head>
+<body>
+<h2 class="content-box pad-box-large" style="background-color: #c13d40; color: white; border-radius: 5px; padding: 16px;"><strong>Symmetric Matrices and Orthogonal Diagonalization</strong></h2>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Introduction to Symmetric Matrices</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Symmetric matrices play a crucial role in many areas of mathematics and data science. They have special properties that make them particularly useful for analyzing data, optimizing functions, and solving various computational problems. One of the most important properties is that symmetric matrices can always be orthogonally diagonalized, which means they can be transformed into a diagonal matrix using a special type of change of basis. </span></p>
+<p><span style="font-size: 14pt;">The concept of <strong>orthogonal diagonalization</strong> simplifies many applications in areas like physics, engineering, and statistics, where symmetric matrices naturally arise, such as in covariance matrices. Understanding their properties and how to orthogonally diagonalize them is a key step in advanced linear algebra.</span></p>
+<p style="text-align: center;"><img src="$IMS-CC-FILEBASE$/Uploaded%20Media%202/AdobeStock_957164414-1.jpeg" alt="Abstract flowing waves in blue and red overlap on a light background, resembling layered data or sound patterns." width="519" height="259" data-api-endpoint="https://ilearn.instructure.com/api/v1/courses/236324/files/79303333" data-api-returntype="File" loading="lazy"></p>
+<figure style="text-align: center;">
+<figcaption><span style="font-size: 14pt;">In multivariate analysis, symmetric matrices represent the relationships between features.</span></figcaption>
+</figure>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Definition of a Symmetric Matrix</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">A square matrix A is said to be <strong>symmetric</strong> if it is equal to its transpose. That is:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = A^T" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520A%255ET" alt="LaTeX: A = A^T" data-equation-content="\displaystyle A = A^T" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">This implies that the entry in row <img class="equation_image" title="\displaystyle i" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520i" alt="LaTeX: i" data-equation-content="\displaystyle i" data-ignore-a11y-check="" loading="lazy">, column <img class="equation_image" title="\displaystyle j" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520j" alt="LaTeX: j" data-equation-content="\displaystyle j" data-ignore-a11y-check="" loading="lazy"> is equal to the entry in row <img class="equation_image" title="\displaystyle j" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520j" alt="LaTeX: j" data-equation-content="\displaystyle j" data-ignore-a11y-check="" loading="lazy">, column <img class="equation_image" title="\displaystyle i" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520i" alt="LaTeX: i" data-equation-content="\displaystyle i" data-ignore-a11y-check="" loading="lazy"> (i.e., <img class="equation_image" title="\displaystyle a_{ij} = a_{ji}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520a_%257Bij%257D%2520%253D%2520a_%257Bji%257D" alt="LaTeX: a_{ij} = a_{ji}" data-equation-content="\displaystyle a_{ij} = a_{ji}" data-ignore-a11y-check="" loading="lazy">).</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example: Symmetric Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">The matrix <img class="equation_image" title="\displaystyle A = \begin{bmatrix} 1 &amp; 2 &amp; 3\\ 2 &amp; 0 &amp; -1\\ 3 &amp; -1 &amp; 5 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%2526%25203%255C%255C%25202%2520%2526%25200%2520%2526%2520-1%255C%255C%25203%2520%2526%2520-1%2520%2526%25205%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle A = \begin{bmatrix} 1 &amp; 2 &amp; 3\\ 2 &amp; 0 &amp; -1\\ 3 &amp; -1 &amp; 5 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 1 &amp; 2 &amp; 3\\ 2 &amp; 0 &amp; -1\\ 3 &amp; -1 &amp; 5 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">&nbsp;is symmetric because <img class="equation_image" title="\displaystyle A^T = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 0 &amp; -1 \\ 3 &amp; -1 &amp; 5 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255ET%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%2526%25203%255C%255C%25202%2520%2526%25200%2520%2526%2520-1%255C%255C%25203%2520%2526%2520-1%2520%2526%25205%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: A^T = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 0 &amp; -1 \\ 3 &amp; -1 &amp; 5 \end{bmatrix}" data-equation-content="\displaystyle A^T = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 0 &amp; -1 \\ 3 &amp; -1 &amp; 5 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Properties of Symmetric Matrices</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Symmetric matrices have several important properties that distinguish them from general matrices:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Real Eigenvalues:</strong> All eigenvalues of a symmetric matrix are real numbers. This is a significant property, as non-symmetric matrices can have complex eigenvalues.</span></li>
+<li><span style="font-size: 14pt;"><strong>Orthogonal Eigenvectors:</strong> Eigenvectors corresponding to distinct eigenvalues of a symmetric matrix are orthogonal. This property is key to orthogonal diagonalization.</span></li>
+<li><span style="font-size: 14pt;"><strong>Diagonalizability:</strong> Every symmetric matrix is diagonalizable. This is a stronger statement than for general matrices, as symmetric matrices always have enough linearly independent eigenvectors.</span></li>
+<li><span style="font-size: 14pt;"><strong>Determinant:</strong>&nbsp;The determinant of a symmetric matrix equals the product of its eigenvalues.</span></li>
+</ol>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Orthogonal Diagonalization</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">A square matrix A is said to be <strong>orthogonally diagonalizable</strong> if there exists an orthogonal matrix P such that <img class="equation_image" title="\displaystyle A = PDP^T" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520PDP%255ET" alt="LaTeX: A = PDP^T" data-equation-content="\displaystyle A = PDP^T" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Recall that for an orthogonal matrix P, its inverse is equal to its transpose (<img class="equation_image" title="\displaystyle P^{-1} = P^T" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520P%255E%257B-1%257D%2520%253D%2520P%255ET" alt="LaTeX: P^{-1} = P^T" data-equation-content="\displaystyle P^{-1} = P^T" data-ignore-a11y-check="" loading="lazy">). This makes orthogonal diagonalization particularly convenient.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Spectral Theorem for Symmetric Matrices</strong></span></h4>
+<p><span style="font-size: 14pt;">An <img class="equation_image" title="\displaystyle n \times n" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520n%2520%255Ctimes%2520n" alt="LaTeX: n \times n" data-equation-content="\displaystyle n \times n" data-ignore-a11y-check="" loading="lazy"> matrix is orthogonally diagonalizable if and only if it is symmetric.</span></p>
+<p><span style="font-size: 14pt;">This powerful theorem establishes a direct link between the algebraic property of symmetry and the geometric property of orthogonal diagonalizability.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Steps for Orthogonal Diagonalization of a Symmetric Matrix</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">To orthogonally diagonalize a symmetric matrix A:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Find the Eigenvalues:</strong> Solve the characteristic equation <img class="equation_image" title="\displaystyle \det( A-\lambda I) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(%2520A-%255Clambda%2520I)%2520%253D%25200?scale=1.16666875" alt="LaTeX: \displaystyle \det( A-\lambda I) = 0" data-equation-content="\displaystyle \det( A-\lambda I) = 0" data-ignore-a11y-check="" loading="lazy">.</span></li>
+<li><span style="font-size: 14pt;"><strong>Find Orthonormal Eigenvectors:</strong> For each eigenvalue, find a basis for its eigenspace. Then, use the Gram-Schmidt process (if necessary, for repeated eigenvalues) to obtain an orthogonal basis for each eigenspace. Finally, normalize these vectors to form an orthonormal set of eigenvectors.</span></li>
+<li><span style="font-size: 14pt;"><strong>Construct P:</strong> Form the orthogonal matrix P whose columns are the orthonormal eigenvectors found in Step 2.</span></li>
+<li><span style="font-size: 14pt;"><strong>Construct D:</strong> Form the diagonal matrix D whose diagonal entries are the eigenvalues corresponding to the eigenvectors in P, in the same order.</span></li>
+</ol>
+<p>&nbsp;</p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 1: Orthogonally Diagonalizing a 2x2 Symmetric Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">Orthogonally diagonalize the symmetric matrix:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 \\
+    2 &amp; 1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    1 &amp; 2 \\
+    2 &amp; 1
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 \\
+    2 &amp; 1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><strong>Solution:</strong></span></p>
+<p><span style="font-size: 14pt;">Step 1: Find the eigenvalues.</span></p>
+<p style="text-align: left;"><img class="equation_image" title="\displaystyle \det(A-\lambda I) = 0\Leftrightarrow\begin{vmatrix}
+    1-\lambda &amp; 2 \\
+    2 &amp; 1-\lambda
+    \end{vmatrix} = 0\Leftrightarrow(\lambda+1)(\lambda-3)= 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet(A-%255Clambda%2520I)%2520%253D%25200%255CLeftrightarrow%255Cbegin%257Bvmatrix%257D%250A%2520%2520%2520%25201-%255Clambda%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25201-%255Clambda%250A%2520%2520%2520%2520%255Cend%257Bvmatrix%257D%2520%253D%25200%255CLeftrightarrow(%255Clambda%252B1)(%255Clambda-3)%253D%25200?scale=1" alt="LaTeX: \displaystyle \det(A-\lambda I) = 0\Leftrightarrow\begin{vmatrix}
+    1-\lambda &amp; 2 \\
+    2 &amp; 1-\lambda
+    \end{vmatrix} = 0\Leftrightarrow(\lambda+1)(\lambda-3)= 0" data-equation-content="\displaystyle \det(A-\lambda I) = 0\Leftrightarrow\begin{vmatrix}
+    1-\lambda &amp; 2 \\
+    2 &amp; 1-\lambda
+    \end{vmatrix} = 0\Leftrightarrow(\lambda+1)(\lambda-3)= 0" data-ignore-a11y-check="" loading="lazy"></p>
+<p><img class="equation_image" title="\lambda_1=-1\,\,\,and\,\,\,\lambda_2=3" src="https://ilearn.laccd.edu/equation_images/%255Clambda_1%253D-1%255C%252C%255C%252C%255C%252Cand%255C%252C%255C%252C%255C%252C%255Clambda_2%253D3?scale=1" alt="LaTeX: \lambda_1=-1\,\,\,and\,\,\,\lambda_2=3" data-equation-content="\lambda_1=-1\,\,\,and\,\,\,\lambda_2=3" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">Step 2: Find orthonormal eigenvectors.</span></p>
+<p><span style="font-size: 14pt;">For <img class="equation_image" title="\displaystyle \lambda_1 = -1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Clambda_1%2520%253D%2520-1" alt="LaTeX: \lambda_1 = -1" data-equation-content="\displaystyle \lambda_1 = -1" data-ignore-a11y-check="" loading="lazy">:&nbsp;</span></p>
+<p style="text-align: left;"><img class="equation_image" title="\begin{bmatrix}
+    -2 &amp; -2 \\
+    -2 &amp; -2
+    \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520-2%2520%2526%2520-2%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%2520-2%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%2520v_1%2520%255C%255C%2520v_2%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%255C%255C%25200%2520%255Cend%257Bbmatrix%257D?scale=1" alt="LaTeX:  \begin{bmatrix}
+    -2 &amp; -2 \\
+    -2 &amp; -2
+    \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}" data-equation-content="\begin{bmatrix}
+    -2 &amp; -2 \\
+    -2 &amp; -2
+    \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">Row-reducing gives <img class="equation_image" title="\displaystyle \begin{bmatrix} 1 &amp; 1  &amp; 0\\ 0 &amp; 0 &amp; 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25201%2520%2520%2526%25200%255C%255C%25200%2520%2526%25200%2520%2526%25200%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle \begin{bmatrix} 1 &amp; 1  &amp; 0\\ 0 &amp; 0 &amp; 0 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 1 &amp; 1  &amp; 0\\ 0 &amp; 0 &amp; 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">. </span></p>
+<p><img class="equation_image" title="x_1=-x_2" src="https://ilearn.laccd.edu/equation_images/x_1%253D-x_2?scale=1.16666875" alt="LaTeX: x_1=-x_2" data-equation-content="x_1=-x_2" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">An eigenvector corresponding to <img class="equation_image" title="\lambda_{1}=-1" src="https://ilearn.laccd.edu/equation_images/%255Clambda_%257B1%257D%253D-1?scale=1.16666875" alt="LaTeX: \lambda_{1}=-1" data-equation-content="\lambda_{1}=-1" data-ignore-a11y-check="" loading="lazy"> is <img class="equation_image" title="\begin{bmatrix} -1\\ 1 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%2520%255Cbegin%257Bbmatrix%257D%2520-1%255C%255C%25201%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX:  \begin{bmatrix} -1\\ 1 \end{bmatrix}" data-equation-content="\begin{bmatrix} -1\\ 1 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">. </span></p>
+<p><span style="font-size: 14pt;">Normalize to get &nbsp;<img class="equation_image" title="\displaystyle \mathbf{u}_1 = \begin{bmatrix} -1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cmathbf%257Bu%257D_1%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520-1%2F%255Csqrt%257B2%257D%2520%255C%255C%25201%2F%255Csqrt%257B2%257D%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \mathbf{u}_1 = \begin{bmatrix} -1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}" data-equation-content="\displaystyle \mathbf{u}_1 = \begin{bmatrix} -1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">For <img class="equation_image" title="\displaystyle \lambda_2 = 3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Clambda_2%2520%253D%25203" alt="LaTeX: \lambda_2 = 3" data-equation-content="\displaystyle \lambda_2 = 3" data-ignore-a11y-check="" loading="lazy">:&nbsp;</span></p>
+<p style="text-align: left;"><img class="equation_image" title="\begin{bmatrix}
+    2 &amp;- 2 \\
+    -2 &amp; 2
+    \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526-%25202%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%2520v_1%2520%255C%255C%2520v_2%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%255C%255C%25200%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    2 &amp;- 2 \\
+    -2 &amp; 2
+    \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}" data-equation-content="\begin{bmatrix}
+    2 &amp;- 2 \\
+    -2 &amp; 2
+    \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">Row-reducing gives <img class="equation_image" title="\displaystyle \begin{bmatrix} 1 &amp; -1  &amp; 0\\ 0 &amp; 0  &amp; 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%2520-1%2520%2520%2526%25200%255C%255C%25200%2520%2526%25200%2520%2520%2526%25200%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle \begin{bmatrix} 1 &amp; -1  &amp; 0\\ 0 &amp; 0  &amp; 0 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 1 &amp; -1  &amp; 0\\ 0 &amp; 0  &amp; 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">&nbsp;<img class="equation_image" title="\displaystyle x_1 = x_2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520x_1%2520%253D%2520x_2?scale=1.16666875" alt="LaTeX: \displaystyle x_1 = x_2" data-equation-content="\displaystyle x_1 = x_2" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">An eigenvector corresponding to <img class="equation_image" title="\lambda_{2}=3" src="https://ilearn.laccd.edu/equation_images/%255Clambda_%257B2%257D%253D3?scale=1.16666875" alt="LaTeX: \lambda_{2}=3" data-equation-content="\lambda_{2}=3" data-ignore-a11y-check="" loading="lazy">&nbsp; is &nbsp;<img class="equation_image" title="\begin{bmatrix} 1\\ 1 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%2520%255Cbegin%257Bbmatrix%257D%25201%255C%255C%25201%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX:  \begin{bmatrix} 1\\ 1 \end{bmatrix}" data-equation-content="\begin{bmatrix} 1\\ 1 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">. </span></p>
+<p><span style="font-size: 14pt;">Normalize to get <img class="equation_image" title="\displaystyle \mathbf{u}_2 = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cmathbf%257Bu%257D_2%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2F%255Csqrt%257B2%257D%2520%255C%255C%25201%2F%255Csqrt%257B2%257D%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \mathbf{u}_2 = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}" data-equation-content="\displaystyle \mathbf{u}_2 = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Step 3: Construct P.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle P = [\mathbf{u}_1 \quad \mathbf{u}_2] = \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520P%2520%253D%2520%5B%255Cmathbf%257Bu%257D_1%2520%255Cquad%2520%255Cmathbf%257Bu%257D_2%5D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520-1%2F%255Csqrt%257B2%257D%2520%2526%25201%2F%255Csqrt%257B2%257D%2520%255C%255C%250A%2520%2520%2520%25201%2F%255Csqrt%257B2%257D%2520%2526%25201%2F%255Csqrt%257B2%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: P = [\mathbf{u}_1 \quad \mathbf{u}_2] = \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix}" data-equation-content="\displaystyle P = [\mathbf{u}_1 \quad \mathbf{u}_2] = \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 4: Construct D.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle D = \begin{bmatrix}
+    -1 &amp; 0 \\
+    0 &amp; 3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520-1%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: D = \begin{bmatrix}
+    -1 &amp; 0 \\
+    0 &amp; 3
+    \end{bmatrix}" data-equation-content="\displaystyle D = \begin{bmatrix}
+    -1 &amp; 0 \\
+    0 &amp; 3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">This result can be verified by <img class="equation_image" title="\displaystyle A = PDP^T" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520PDP%255ET" alt="LaTeX: A = PDP^T" data-equation-content="\displaystyle A = PDP^T" data-ignore-a11y-check="" loading="lazy">.</span></p>
+</div>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4 style="color: #c13d40; font-size: 14pt;"><strong>Example 2: Verifying Orthogonality of P</strong></h4>
+<p><span style="font-size: 14pt;">Using the matrix P from Example 1, verify that it is orthogonal by checking if <img class="equation_image" title="\displaystyle P^T P = I" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520P%255ET%2520P%2520%253D%2520I" alt="LaTeX: P^T P = I" data-equation-content="\displaystyle P^T P = I" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;"><strong>Solution:</strong></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle P^T P = \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix} \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520P%255ET%2520P%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520-1%2F%255Csqrt%257B2%257D%2520%2526%25201%2F%255Csqrt%257B2%257D%2520%255C%255C%250A%2520%2520%2520%25201%2F%255Csqrt%257B2%257D%2520%2526%25201%2F%255Csqrt%257B2%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520-1%2F%255Csqrt%257B2%257D%2520%2526%25201%2F%255Csqrt%257B2%257D%2520%255C%255C%250A%2520%2520%2520%25201%2F%255Csqrt%257B2%257D%2520%2526%25201%2F%255Csqrt%257B2%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: P^T P = \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix} \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix}" data-equation-content="\displaystyle P^T P = \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix} \begin{bmatrix}
+    -1/\sqrt{2} &amp; 1/\sqrt{2} \\
+    1/\sqrt{2} &amp; 1/\sqrt{2}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    (-1/\sqrt{2})(-1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) &amp; (-1/\sqrt{2})(1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) \\
+    (1/\sqrt{2})(-1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) &amp; (1/\sqrt{2})(1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2})
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%28-1%2F%255Csqrt%257B2%257D%29%28-1%2F%255Csqrt%257B2%257D%29%2520%252B%2520%281%2F%255Csqrt%257B2%257D%29%281%2F%255Csqrt%257B2%257D%29%2520%2526%2520%28-1%2F%255Csqrt%257B2%257D%29%281%2F%255Csqrt%257B2%257D%29%2520%252B%2520%281%2F%255Csqrt%257B2%257D%29%281%2F%255Csqrt%257B2%257D%29%2520%255C%255C%250A%2520%2520%2520%2520%281%2F%255Csqrt%257B2%257D%29%28-1%2F%255Csqrt%257B2%257D%29%2520%252B%2520%281%2F%255Csqrt%257B2%257D%29%281%2F%255Csqrt%257B2%257D%29%2520%2526%2520%281%2F%255Csqrt%257B2%257D%29%281%2F%255Csqrt%257B2%257D%29%2520%252B%2520%281%2F%255Csqrt%257B2%257D%29%281%2F%255Csqrt%257B2%257D%29%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    (-1/\sqrt{2})(-1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) &amp; (-1/\sqrt{2})(1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) \\
+    (1/\sqrt{2})(-1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) &amp; (1/\sqrt{2})(1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2})
+    \end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+    (-1/\sqrt{2})(-1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) &amp; (-1/\sqrt{2})(1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) \\
+    (1/\sqrt{2})(-1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2}) &amp; (1/\sqrt{2})(1/\sqrt{2}) + (1/\sqrt{2})(1/\sqrt{2})
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    1/2 + 1/2 &amp; -1/2 + 1/2 \\
+    -1/2 + 1/2 &amp; 1/2 + 1/2
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+    \end{bmatrix} = I" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2F2%2520%252B%25201%2F2%2520%2526%2520-1%2F2%2520%252B%25201%2F2%2520%255C%255C%250A%2520%2520%2520%2520-1%2F2%2520%252B%25201%2F2%2520%2526%25201%2F2%2520%252B%25201%2F2%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25200%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520I?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    1/2 + 1/2 &amp; -1/2 + 1/2 \\
+    -1/2 + 1/2 &amp; 1/2 + 1/2
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+    \end{bmatrix} = I" data-equation-content="\displaystyle = \begin{bmatrix}
+    1/2 + 1/2 &amp; -1/2 + 1/2 \\
+    -1/2 + 1/2 &amp; 1/2 + 1/2
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+    \end{bmatrix} = I" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since <img class="equation_image" title="\displaystyle P^T P = I" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520P%255ET%2520P%2520%253D%2520I" alt="LaTeX: P^T P = I" data-equation-content="\displaystyle P^T P = I" data-ignore-a11y-check="" loading="lazy">, P is indeed an orthogonal matrix.</span></p>
+</div>
+<p>&nbsp;</p>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Applications in Data Science</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Principal Component Analysis (PCA)</strong></span></h4>
+<p><span style="font-size: 14pt;">PCA is one of the most important applications of orthogonal diagonalization in data science. The key steps in PCA are:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Center the data:</strong> Subtract the mean from each feature.</span></li>
+<li><span style="font-size: 14pt;"><strong>Compute the covariance matrix:</strong> This matrix is symmetric and positive semidefinite.</span></li>
+<li><span style="font-size: 14pt;"><strong>Find the eigenvalues and eigenvectors of the covariance matrix:</strong> This is the orthogonal diagonalization step.</span></li>
+<li><span style="font-size: 14pt;"><strong>Sort the eigenvectors by their corresponding eigenvalues:</strong> The eigenvectors with the largest eigenvalues are the principal components that capture the most variance in the data.</span></li>
+<li><span style="font-size: 14pt;"><strong>Project the data onto the principal components:</strong> This reduces the dimensionality while preserving as much variance as possible.</span></li>
+</ol>
+<p><span style="font-size: 14pt;">The eigenvalues represent the variance explained by each principal component, and the eigenvectors provide the directions of maximum variance in the data.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Covariance and Correlation Analysis</strong></span></h4>
+<p><span style="font-size: 14pt;">Covariance and correlation matrices are symmetric matrices that capture the relationships between variables:</span></p>
+<ul>
+<li><span style="font-size: 14pt;"><strong>Covariance Matrix:</strong> Measures how variables change together. The eigenvalues and eigenvectors of the covariance matrix reveal the directions and magnitudes of maximum variance in the data.</span></li>
+<li><span style="font-size: 14pt;"><strong>Correlation Matrix:</strong> A normalized version of the covariance matrix. Its orthogonal diagonalization helps identify independent factors in the data.</span></li>
+</ul>
+</div>
+</body>
+</html>

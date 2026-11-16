@@ -1,0 +1,672 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>📚Reading: Unit 2.2 The Inverse of a Matrix</title>
+<meta name="identifier" content="gfbab17ee081727014f52ff1ceba5e755"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<meta name="editor_type" content="rce"/>
+</head>
+<body>
+<h2 class="content-box pad-box-large" style="background-color: #c13d40; color: #FFFFFF; border-radius: 5px; padding: 16px;"><strong>The Inverse of a Matrix</strong></h2>
+<div class="border border-b" style="border-color: #FFFFFF; padding-left: 15px; padding-right: 15px;">
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Introduction to Matrix Inverses</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Matrix inverse is a fundamental concept in linear algebra with extensive applications in data science. Just as division is the inverse operation of multiplication for real numbers, matrix inverse provides a way to "undo" matrix multiplication. Understanding matrix inverses is crucial for solving systems of linear equations, performing data transformations, and implementing various machine learning algorithms.</span></p>
+<p style="text-align: center;"><img src="$IMS-CC-FILEBASE$/Uploaded%20Media%202/AdobeStock_1251958942.jpeg" alt="A math diagram showing a 2×2 matrix A and its inverse formula using the determinant." width="372" height="372" data-api-endpoint="https://ilearn.laccd.edu/api/v1/courses/341671/files/72457036" data-api-returntype="File" loading="lazy"></p>
+<figure style="text-align: center;">
+<figcaption><span style="font-size: 14pt;">Matrix inverses are fundamental in solving systems of linear equations and many other applications.</span></figcaption>
+</figure>
+<p><span style="font-size: 14pt;">The inverse of a square matrix A is denoted as A<sup>-1</sup> and has the property that A × A<sup>-1</sup> = A<sup>-1</sup> × A = I, where I is the identity matrix.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Definition and Properties</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Let A be a square matrix of order n. If there exists an n × n matrix A<sup>-1</sup> such that:</span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A A^{-1} = A^{-1} A = I_n" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520A%255E%257B-1%257D%2520%253D%2520A%255E%257B-1%257D%2520A%2520%253D%2520I_n" alt="LaTeX: A A^{-1} = A^{-1} A = I_n" data-equation-content="\displaystyle A A^{-1} = A^{-1} A = I_n" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">where I<sub>n</sub> is the n × n identity matrix, then A<sup>-1</sup> is called the <strong>inverse</strong> of A, and A is said to be <strong>invertible</strong> or <strong>nonsingular</strong>.</span></p>
+<p><span style="font-size: 14pt;">If no such matrix exists, then A is called <strong>noninvertible</strong> or <strong>singular</strong>.</span></p>
+<p><span style="font-size: 14pt;">In machine learning, singular (non-invertible) matrices can indicate multicollinearity among features, which can cause problems in regression models. Techniques like regularization help address this issue.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Important Note</strong></span></h4>
+<p><span style="font-size: 14pt;">Only square matrices can have inverses. However, not all square matrices have inverses. A key condition for a square matrix to be invertible is that its determinant must be non-zero.</span></p>
+<p><span style="font-size: 14pt;"><strong>Example:</strong></span></p>
+<p><span style="font-size: 14pt;">If <img class="equation_image" title="A=\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%253D%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25203%2520%2526%25204%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A=\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-equation-content="A=\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Then&nbsp;<img class="equation_image" title="A^{-1}=\begin{bmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%255E%257B-1%257D%253D%255Cbegin%257Bbmatrix%257D%2520-2%2520%2526%25201%2520%255C%255C%2520%255Cfrac%257B3%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^{-1}=\begin{bmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{bmatrix}" data-equation-content="A^{-1}=\begin{bmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">We can verify this by calculating <img class="equation_image" title=" A A^{-1}" src="https://ilearn.laccd.edu/equation_images/%2520A%2520A%255E%257B-1%257D?scale=1.16666875" alt="LaTeX:  A A^{-1}" data-equation-content=" A A^{-1}" data-ignore-a11y-check="" loading="lazy">:</span></p>
+<p><img class="equation_image" title="\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix} \begin{bmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{bmatrix}= \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255C%255C%25203%2520%2526%25204%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%2520-2%2520%2526%25201%2520%255C%255C%2520%255Cfrac%257B3%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%255Cend%257Bbmatrix%257D%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25200%2520%255C%255C%25200%2520%2526%25201%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix} \begin{bmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{bmatrix}= \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}" data-equation-content="\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix} \begin{bmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{bmatrix}= \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Finding the Inverse of a 2×2 Matrix</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">For a 2×2 matrix, there is a simple formula to find its inverse. Given:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    a &amp; b \\
+    c &amp; d
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520a%2520%2526%2520b%2520%255C%255C%250A%2520%2520%2520%2520c%2520%2526%2520d%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    a &amp; b \\
+    c &amp; d
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    a &amp; b \\
+    c &amp; d
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The inverse of A is given by:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^{-1} = \frac{1}{\det(A)} \begin{bmatrix}
+    d &amp; -b \\
+    -c &amp; a
+    \end{bmatrix} = \frac{1}{ad - bc} \begin{bmatrix}
+    d &amp; -b \\
+    -c &amp; a
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257B%255Cdet%28A%29%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520d%2520%2526%2520-b%2520%255C%255C%250A%2520%2520%2520%2520-c%2520%2526%2520a%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cfrac%257B1%257D%257Bad%2520-%2520bc%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520d%2520%2526%2520-b%2520%255C%255C%250A%2520%2520%2520%2520-c%2520%2526%2520a%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^{-1} = \frac{1}{\det(A)} \begin{bmatrix}
+    d &amp; -b \\
+    -c &amp; a
+    \end{bmatrix} = \frac{1}{ad - bc} \begin{bmatrix}
+    d &amp; -b \\
+    -c &amp; a
+    \end{bmatrix}" data-equation-content="\displaystyle A^{-1} = \frac{1}{\det(A)} \begin{bmatrix}
+    d &amp; -b \\
+    -c &amp; a
+    \end{bmatrix} = \frac{1}{ad - bc} \begin{bmatrix}
+    d &amp; -b \\
+    -c &amp; a
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">where <img class="equation_image" title="\displaystyle \det(A) = ad - bc" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520ad%2520-%2520bc" alt="LaTeX: \det(A) = ad - bc" data-equation-content="\displaystyle \det(A) = ad - bc" data-ignore-a11y-check="" loading="lazy"> is the determinant of A.</span></p>
+<p><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle \det(A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%25200" alt="LaTeX: \det(A) = 0" data-equation-content="\displaystyle \det(A) = 0" data-ignore-a11y-check="" loading="lazy">, then A is singular and does not have an inverse.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 1: Finding the Inverse of a 2×2 Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">Find the inverse of:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 4
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 4
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 4
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 1: Calculate the determinant of A.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = (3)(4) - (1)(2) = 12 - 2 = 10" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520%283%29%284%29%2520-%2520%281%29%282%29%2520%253D%252012%2520-%25202%2520%253D%252010?scale=1.16666875" alt="LaTeX: \det(A) = (3)(4) - (1)(2) = 12 - 2 = 10" data-equation-content="\displaystyle \det(A) = (3)(4) - (1)(2) = 12 - 2 = 10" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since <img class="equation_image" title="\displaystyle \det(A) = 10 \neq 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%252010%2520%255Cneq%25200" alt="LaTeX: \det(A) = 10 \neq 0" data-equation-content="\displaystyle \det(A) = 10 \neq 0" data-ignore-a11y-check="" loading="lazy">, A is invertible.</span></p>
+<p><span style="font-size: 14pt;">Step 2: Apply the formula for the inverse.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^{-1} = \frac{1}{10} \begin{bmatrix}
+    4 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257B10%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25204%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^{-1} = \frac{1}{10} \begin{bmatrix}
+    4 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix}" data-equation-content="\displaystyle A^{-1} = \frac{1}{10} \begin{bmatrix}
+    4 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^{-1} = \begin{bmatrix}
+    \frac{4}{10} &amp; -\frac{1}{10} \\
+    -\frac{2}{10} &amp; \frac{3}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{10} \\
+    -\frac{1}{5} &amp; \frac{3}{10}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B4%257D%257B10%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B10%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B2%257D%257B10%257D%2520%2526%2520%255Cfrac%257B3%257D%257B10%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B2%257D%257B5%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B10%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B1%257D%257B5%257D%2520%2526%2520%255Cfrac%257B3%257D%257B10%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^{-1} = \frac{1}{10} \begin{bmatrix}
+    \frac{4}{10} &amp; -\frac{1}{10} \\
+    -\frac{2}{10} &amp; \frac{3}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{10} \\
+    -\frac{1}{5} &amp; \frac{3}{10}
+    \end{bmatrix}" data-equation-content="\displaystyle A^{-1} = \frac{1}{10} \begin{bmatrix}
+    \frac{4}{10} &amp; -\frac{1}{10} \\
+    -\frac{2}{10} &amp; \frac{3}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{10} \\
+    -\frac{1}{5} &amp; \frac{3}{10}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 3: Verify that <img class="equation_image" title="\displaystyle AA^{-1} = I" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AA%255E%257B-1%257D%2520%253D%2520I" alt="LaTeX: AA^{-1} = I" data-equation-content="\displaystyle AA^{-1} = I" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle AA^{-1} = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 4
+    \end{bmatrix} \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{10} \\
+    -\frac{1}{5} &amp; \frac{3}{10}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AA%255E%257B-1%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B2%257D%257B5%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B10%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B1%257D%257B5%257D%2520%2526%2520%255Cfrac%257B3%257D%257B10%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: AA^{-1} = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 4
+    \end{bmatrix} \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{10} \\
+    -\frac{1}{5} &amp; \frac{3}{10}
+    \end{bmatrix}" data-equation-content="\displaystyle AA^{-1} = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 4
+    \end{bmatrix} \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{10} \\
+    -\frac{1}{5} &amp; \frac{3}{10}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    3 \cdot \frac{2}{5} + 1 \cdot (-\frac{1}{5}) &amp; 3 \cdot (-\frac{1}{10}) + 1 \cdot \frac{3}{10} \\
+    2 \cdot \frac{2}{5} + 4 \cdot (-\frac{1}{5}) &amp; 2 \cdot (-\frac{1}{10}) + 4 \cdot \frac{3}{10}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%255Ccdot%2520%255Cfrac%257B2%257D%257B5%257D%2520%252B%25201%2520%255Ccdot%2520%28-%255Cfrac%257B1%257D%257B5%257D%29%2520%2526%25203%2520%255Ccdot%2520%28-%255Cfrac%257B1%257D%257B10%257D%29%2520%252B%25201%2520%255Ccdot%2520%255Cfrac%257B3%257D%257B10%257D%2520%255C%255C%250A%2520%2520%2520%25202%2520%255Ccdot%2520%255Cfrac%257B2%257D%257B5%257D%2520%252B%25204%2520%255Ccdot%2520%2528-%255Cfrac%257B1%257D%257B5%257D%29%2520%2526%25202%2520%255Ccdot%2520%28-%255Cfrac%257B1%257D%257B10%257D%29%2520%252B%25204%2520%255Ccdot%2520%255Cfrac%257B3%257D%257B10%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    3 \cdot \frac{2}{5} + 1 \cdot (-\frac{1}{5}) &amp; 3 \cdot (-\frac{1}{10}) + 1 \cdot \frac{3}{10} \\
+    2 \cdot \frac{2}{5} + 4 \cdot (-\frac{1}{5}) &amp; 2 \cdot (-\frac{1}{10}) + 4 \cdot \frac{3}{10}
+    \end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+    3 \cdot \frac{2}{5} + 1 \cdot (-\frac{1}{5}) &amp; 3 \cdot (-\frac{1}{10}) + 1 \cdot \frac{3}{10} \\
+    2 \cdot \frac{2}{5} + 4 \cdot (-\frac{1}{5}) &amp; 2 \cdot (-\frac{1}{10}) + 4 \cdot \frac{3}{10}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    \frac{6}{5} - \frac{1}{5} &amp; -\frac{3}{10} + \frac{3}{10} \\
+    \frac{4}{5} - \frac{4}{5} &amp; -\frac{2}{10} + \frac{12}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{5}{5} &amp; \frac{0}{10} \\
+    \frac{0}{5} &amp; \frac{10}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+    \end{bmatrix} = I" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B6%257D%257B5%257D%2520-%2520%255Cfrac%257B1%257D%257B5%257D%2520%2526%2520-%255Cfrac%257B3%257D%257B10%257D%2520%252B%2520%255Cfrac%257B3%257D%257B10%257D%2520%255C%255C%250A%2520%2520%2520%2520%255Cfrac%257B4%257D%257B5%257D%2520-%2520%255Cfrac%257B4%257D%257B5%257D%2520%2526%2520-%255Cfrac%257B2%257D%257B10%257D%2520%252B%2520%255Cfrac%257B12%257D%257B10%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B5%257D%257B5%257D%2520%2526%2520%255Cfrac%257B0%257D%257B10%257D%2520%255C%255C%250A%2520%2520%2520%2520%255Cfrac%257B0%257D%257B5%257D%2520%2526%2520%255Cfrac%257B10%257D%257B10%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520I?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    \frac{6}{5} - \frac{1}{5} &amp; -\frac{3}{10} + \frac{3}{10} \\
+    \frac{4}{5} - \frac{4}{5} &amp; -\frac{2}{10} + \frac{12}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{5}{5} &amp; \frac{0}{10} \\
+    \frac{0}{5} &amp; \frac{10}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+    \end{bmatrix} = I" data-equation-content="\displaystyle = \begin{bmatrix}
+    \frac{6}{5} - \frac{1}{5} &amp; -\frac{3}{10} + \frac{3}{10} \\
+    \frac{4}{5} - \frac{4}{5} &amp; -\frac{2}{10} + \frac{12}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{5}{5} &amp; \frac{0}{10} \\
+    \frac{0}{5} &amp; \frac{10}{10}
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 0 \\
+    0 &amp; 1
+    \end{bmatrix} = I" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Similarly, we can verify that <img class="equation_image" title="\displaystyle A^{-1}A = I" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257DA%2520%253D%2520I" alt="LaTeX: A^{-1}A = I" data-equation-content="\displaystyle A^{-1}A = I" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 2: A Singular Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">Determine if the following matrix has an inverse:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle B = \begin{bmatrix}
+    2 &amp; 4 \\
+    1 &amp; 2
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%25204%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: B = \begin{bmatrix}
+    2 &amp; 4 \\
+    1 &amp; 2
+    \end{bmatrix}" data-equation-content="\displaystyle B = \begin{bmatrix}
+    2 &amp; 4 \\
+    1 &amp; 2
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Calculate the determinant of B:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = (2)(2) - (4)(1) = 4 - 4 = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%282%29%282%29%2520-%2520%284%29%281%29%2520%253D%25204%2520-%25204%2520%253D%25200?scale=1.16666875" alt="LaTeX: \det(B) = (2)(2) - (4)(1) = 4 - 4 = 0" data-equation-content="\displaystyle \det(B) = (2)(2) - (4)(1) = 4 - 4 = 0" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since <img class="equation_image" title="\displaystyle \det(B) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%25200" alt="LaTeX: \det(B) = 0" data-equation-content="\displaystyle \det(B) = 0" data-ignore-a11y-check="" loading="lazy">, the matrix B is singular and does not have an inverse.</span></p>
+<p><span style="font-size: 14pt;">Notice that the second row of B is half of the first row: <img class="equation_image" title="\displaystyle \begin{bmatrix} 1 &amp; 2 \end{bmatrix} = \frac{1}{2} \cdot \begin{bmatrix} 2 &amp; 4 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25202%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cfrac%257B1%257D%257B2%257D%2520%255Ccdot%2520%255Cbegin%257Bbmatrix%257D%25202%2520%2526%25204%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \begin{bmatrix} 1 &amp; 2 \end{bmatrix} = \frac{1}{2} \cdot \begin{bmatrix} 2 &amp; 4 \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix} 1 &amp; 2 \end{bmatrix} = \frac{1}{2} \cdot \begin{bmatrix} 2 &amp; 4 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy">. This linear dependency between rows is what makes the matrix singular.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Finding the Inverse Using Row Operations (Gauss-Jordan Elimination)</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">For larger matrices (n × n where n &gt; 2), we typically find the inverse using the Gauss-Jordan elimination method. This method involves transforming the augmented matrix <img class="equation_image" title="\displaystyle [A | I_n]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255BA%2520%257C%2520I_n%255D" alt="LaTeX: [A | I_n]" data-equation-content="\displaystyle [A | I_n]" data-ignore-a11y-check="" loading="lazy"> into <img class="equation_image" title="\displaystyle [I_n | A^{-1}]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255BI_n%2520%257C%2520A%255E%257B-1%257D%255D" alt="LaTeX: [I_n | A^{-1}]" data-equation-content="\displaystyle [I_n | A^{-1}]" data-ignore-a11y-check="" loading="lazy"> using elementary row operations.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Steps for Finding the Inverse</strong></span></h4>
+<ol>
+<li><span style="font-size: 14pt;">Form the augmented matrix <img class="equation_image" title="\displaystyle [A | I_n]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255BA%2520%257C%2520I_n%255D" alt="LaTeX: [A | I_n]" data-equation-content="\displaystyle [A | I_n]" data-ignore-a11y-check="" loading="lazy">, where I<sub>n</sub> is the n × n identity matrix.</span></li>
+<li><span style="font-size: 14pt;">Perform elementary row operations on <img class="equation_image" title="\displaystyle [A | I_n]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255BA%2520%257C%2520I_n%255D" alt="LaTeX: [A | I_n]" data-equation-content="\displaystyle [A | I_n]" data-ignore-a11y-check="" loading="lazy"> to transform the left side (A) into the identity matrix I<sub>n</sub>.</span></li>
+<li><span style="font-size: 14pt;">If A can be transformed into I<sub>n</sub>, then the resulting matrix on the right side is A<sup>-1</sup>, so the final form is <img class="equation_image" title="\displaystyle [I_n | A^{-1}]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255BI_n%2520%257C%2520A%255E%257B-1%257D%255D" alt="LaTeX: [I_n | A^{-1}]" data-equation-content="\displaystyle [I_n | A^{-1}]" data-ignore-a11y-check="" loading="lazy">.</span></li>
+<li><span style="font-size: 14pt;">If, at any point, a row of zeros appears on the left side of the augmented matrix, then A is not invertible.</span></li>
+</ol>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 3: Finding the Inverse Using Row Operations</strong></span></h4>
+<p><span style="font-size: 14pt;">Find the inverse of:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    2 &amp; 1 &amp; 1 \\
+    0 &amp; 1 &amp; 1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25201%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    2 &amp; 1 &amp; 1 \\
+    0 &amp; 1 &amp; 1
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    2 &amp; 1 &amp; 1 \\
+    0 &amp; 1 &amp; 1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 1: Form the augmented matrix <img class="equation_image" title="\displaystyle [A | I_3]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255BA%2520%257C%2520I_3%255D" alt="LaTeX: [A | I_3]" data-equation-content="\displaystyle [A | I_3]" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    2 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25201%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25200%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    2 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    2 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 2: Perform row operations to transform the left side to <img class="equation_image" title="\displaystyle I_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520I_3" alt="LaTeX: I_3" data-equation-content="\displaystyle I_3" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">R<sub>2</sub> = R<sub>2</sub> - 2R<sub>1</sub>:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; -3 &amp; 1 &amp; | &amp; -2 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%2520-3%2520%2526%25201%2520%2526%2520%257C%2520%2526%2520-2%2520%2526%25201%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25200%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; -3 &amp; 1 &amp; | &amp; -2 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; -3 &amp; 1 &amp; | &amp; -2 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">R<sub>2</sub> <img class="equation_image" title="\displaystyle \leftrightarrow" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cleftrightarrow" alt="LaTeX: \leftrightarrow" data-equation-content="\displaystyle \leftrightarrow" data-ignore-a11y-check="" loading="lazy"> R<sub>3</sub> (Swap Row 2 and Row 3 to get a 1 in position (2,2)):</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; -3 &amp; 1 &amp; | &amp; -2 &amp; 1 &amp; 0
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25200%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%2520-3%2520%2526%25201%2520%2526%2520%257C%2520%2526%2520-2%2520%2526%25201%2520%2526%25200%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; -3 &amp; 1 &amp; | &amp; -2 &amp; 1 &amp; 0
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; -3 &amp; 1 &amp; | &amp; -2 &amp; 1 &amp; 0
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">R<sub>3</sub> = R<sub>3</sub> + 3R<sub>2</sub> (Add 3 times the second row to the third row):</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 4 &amp; | &amp; -2 &amp; 1 &amp; 3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25200%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25204%2520%2526%2520%257C%2520%2526%2520-2%2520%2526%25201%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 4 &amp; | &amp; -2 &amp; 1 &amp; 3
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 4 &amp; | &amp; -2 &amp; 1 &amp; 3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">R<sub>3</sub> = ¼R<sub>3</sub> (Multiply the third row by ¼ to get a 1 in position (3,3)):</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{2}{4} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25200%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25201%2520%2526%2520%257C%2520%2526%2520-%255Cfrac%257B2%257D%257B4%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B3%257D%257B4%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25201%2520%2526%2520%257C%2520%2526%25200%2520%2526%25200%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25201%2520%2526%2520%257C%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B3%257D%257B4%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{2}{4} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{2}{4} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 1 &amp; | &amp; 0 &amp; 0 &amp; 1 \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">R<sub>2</sub> = R<sub>2</sub> - R<sub>3</sub> (Subtract the third row from the second row):</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 &amp; | &amp; \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%2526%25200%2520%2526%2520%257C%2520%2526%25201%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25200%2520%2526%2520%257C%2520%2526%2520%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25201%2520%2526%2520%257C%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B3%257D%257B4%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 &amp; | &amp; \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 2 &amp; 0 &amp; | &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 &amp; | &amp; \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">R<sub>1</sub> = R<sub>1</sub> - 2R<sub>2</sub> (Subtract 2 times the second row from the first row):</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; | &amp; 0 &amp; \frac{1}{2} &amp; -\frac{1}{2} \\
+    0 &amp; 1 &amp; 0 &amp; | &amp; \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25200%2520%2526%25200%2520%2526%2520%257C%2520%2526%25200%2520%2526%2520%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25201%2520%2526%25200%2520%2526%2520%257C%2520%2526%2520%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25201%2520%2526%2520%257C%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B3%257D%257B4%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; | &amp; 0 &amp; \frac{1}{2} &amp; -\frac{1}{2} \\
+    0 &amp; 1 &amp; 0 &amp; | &amp; \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; | &amp; 0 &amp; \frac{1}{2} &amp; -\frac{1}{2} \\
+    0 &amp; 1 &amp; 0 &amp; | &amp; \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    0 &amp; 0 &amp; 1 &amp; | &amp; -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The left side is now the identity matrix, so the right side is <img class="equation_image" title="\displaystyle A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D" alt="LaTeX: A^{-1}" data-equation-content="\displaystyle A^{-1}" data-ignore-a11y-check="" loading="lazy">:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^{-1} = \begin{bmatrix}
+    0 &amp; \frac{1}{2} &amp; -\frac{1}{2} \\
+    \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%2520%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B2%257D%2520%255C%255C%250A%2520%2520%2520%2520%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B1%257D%257B2%257D%2520%2526%2520%255Cfrac%257B1%257D%257B4%257D%2520%2526%2520%255Cfrac%257B3%257D%257B4%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^{-1} = \begin{bmatrix}
+    0 &amp; \frac{1}{2} &amp; -\frac{1}{2} \\
+    \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-equation-content="\displaystyle A^{-1} = \begin{bmatrix}
+    0 &amp; \frac{1}{2} &amp; -\frac{1}{2} \\
+    \frac{1}{2} &amp; -\frac{1}{4} &amp; \frac{1}{4} \\
+    -\frac{1}{2} &amp; \frac{1}{4} &amp; \frac{3}{4}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">To verify, we can check that <img class="equation_image" title="\displaystyle AA^{-1} = I_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AA%255E%257B-1%257D%2520%253D%2520I_3" alt="LaTeX: AA^{-1} = I_3" data-equation-content="\displaystyle AA^{-1} = I_3" data-ignore-a11y-check="" loading="lazy"> and <img class="equation_image" title="\displaystyle A^{-1}A = I_3" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257DA%2520%253D%2520I_3" alt="LaTeX: A^{-1}A = I_3" data-equation-content="\displaystyle A^{-1}A = I_3" data-ignore-a11y-check="" loading="lazy">.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Applications in Data Science</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Solving Systems of Linear Equations</strong></span></h4>
+<p><span style="font-size: 14pt;">For a system of equations <img class="equation_image" title="Ax=b" src="https://ilearn.laccd.edu/equation_images/Ax%253Db?scale=1.16666875" alt="LaTeX: Ax=b" data-equation-content="Ax=b" data-ignore-a11y-check="" loading="lazy">, if A is invertible, the solution is:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="x=A^{-1}b" src="https://ilearn.laccd.edu/equation_images/x%253DA%255E%257B-1%257Db?scale=1.16666875" alt="LaTeX: x=A^{-1}b" data-equation-content="x=A^{-1}b" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><strong>Example:</strong></span></p>
+<p><span style="font-size: 14pt;">Consider the system:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{align}
+    3x + y &amp;= 7 \\
+    x + 2y &amp;= 8
+    \end{align}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Balign%257D%250A%2520%2520%2520%25203x%2520%252B%2520y%2520%2526%253D%25207%2520%255C%255C%250A%2520%2520%2520%2520x%2520%252B%25202y%2520%2526%253D%25208%250A%2520%2520%2520%2520%255Cend%257Balign%257D?scale=1.16666875" alt="LaTeX: \begin{align}
+    3x + y &amp;= 7 \\
+    x + 2y &amp;= 8
+    \end{align}" data-equation-content="\displaystyle \begin{align}
+    3x + y &amp;= 7 \\
+    x + 2y &amp;= 8
+    \end{align}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"> Write the system in matrix form <img class="equation_image" title="\displaystyle A\mathbf{x} = \mathbf{b}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255Cmathbf%257Bx%257D%2520%253D%2520%255Cmathbf%257Bb%257D" alt="LaTeX: A\mathbf{x} = \mathbf{b}" data-equation-content="\displaystyle A\mathbf{x} = \mathbf{b}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \begin{bmatrix}
+    3 &amp; 1 \\
+    1 &amp; 2
+    \end{bmatrix} \begin{bmatrix}
+    x \\
+    y
+    \end{bmatrix} = \begin{bmatrix}
+    7 \\
+    8
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520x%2520%255C%255C%250A%2520%2520%2520%2520y%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25207%2520%255C%255C%250A%2520%2520%2520%25208%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+    3 &amp; 1 \\
+    1 &amp; 2
+    \end{bmatrix} \begin{bmatrix}
+    x \\
+    y
+    \end{bmatrix} = \begin{bmatrix}
+    7 \\
+    8
+    \end{bmatrix}" data-equation-content="\displaystyle \begin{bmatrix}
+    3 &amp; 1 \\
+    1 &amp; 2
+    \end{bmatrix} \begin{bmatrix}
+    x \\
+    y
+    \end{bmatrix} = \begin{bmatrix}
+    7 \\
+    8
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Calculate the determinant of A:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = (3)(2) - (1)(1) = 6 - 1 = 5" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520%283%29%282%29%2520-%2520%281%29%281%29%2520%253D%25206%2520-%25201%2520%253D%25205?scale=1.16666875" alt="LaTeX: \det(A) = (3)(2) - (1)(1) = 6 - 1 = 5" data-equation-content="\displaystyle \det(A) = (3)(2) - (1)(1) = 6 - 1 = 5" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Using the inverse <img class="equation_image" title="\displaystyle A^{-1} = \frac{1}{5} \begin{bmatrix}
+    2 &amp; -1 \\
+    -1 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{5} \\
+    -\frac{1}{5} &amp; \frac{3}{5}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257B5%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-1%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B2%257D%257B5%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B5%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B1%257D%257B5%257D%2520%2526%2520%255Cfrac%257B3%257D%257B5%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle A^{-1} = \frac{1}{5} \begin{bmatrix}
+    2 &amp; -1 \\
+    -1 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{5} \\
+    -\frac{1}{5} &amp; \frac{3}{5}
+    \end{bmatrix}" data-equation-content="\displaystyle A^{-1} = \frac{1}{5} \begin{bmatrix}
+    2 &amp; -1 \\
+    -1 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{5} \\
+    -\frac{1}{5} &amp; \frac{3}{5}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The solution is:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \mathbf{x} = \begin{bmatrix}
+    x \\
+    y
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{5} \\
+    -\frac{1}{5} &amp; \frac{3}{5}
+    \end{bmatrix} \begin{bmatrix}
+    7 \\
+    8
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cmathbf%257Bx%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520x%2520%255C%255C%250A%2520%2520%2520%2520y%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B2%257D%257B5%257D%2520%2526%2520-%255Cfrac%257B1%257D%257B5%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B1%257D%257B5%257D%2520%2526%2520%255Cfrac%257B3%257D%257B5%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25207%2520%255C%255C%250A%2520%2520%2520%25208%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \mathbf{x} = \begin{bmatrix}
+    x \\
+    y
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{5} \\
+    -\frac{1}{5} &amp; \frac{3}{5}
+    \end{bmatrix} \begin{bmatrix}
+    7 \\
+    8
+    \end{bmatrix}" data-equation-content="\displaystyle \mathbf{x} = \begin{bmatrix}
+    x \\
+    y
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{2}{5} &amp; -\frac{1}{5} \\
+    -\frac{1}{5} &amp; \frac{3}{5}
+    \end{bmatrix} \begin{bmatrix}
+    7 \\
+    8
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    \frac{2}{5} \cdot 7 + (-\frac{1}{5}) \cdot 8 \\
+    (-\frac{1}{5}) \cdot 7 + \frac{3}{5} \cdot 8
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B2%257D%257B5%257D%2520%255Ccdot%25207%2520%252B%2520%28-%255Cfrac%257B1%257D%257B5%257D%29%2520%255Ccdot%25208%2520%255C%255C%250A%2520%2520%2520%2520%28-%255Cfrac%257B1%257D%257B5%257D%29%2520%255Ccdot%25207%2520%252B%2520%255Cfrac%257B3%257D%257B5%257D%2520%255Ccdot%25208%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    \frac{2}{5} \cdot 7 + (-\frac{1}{5}) \cdot 8 \\
+    (-\frac{1}{5}) \cdot 7 + \frac{3}{5} \cdot 8
+    \end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+    \frac{2}{5} \cdot 7 + (-\frac{1}{5}) \cdot 8 \\
+    (-\frac{1}{5}) \cdot 7 + \frac{3}{5} \cdot 8
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    \frac{14}{5} - \frac{8}{5} \\
+    -\frac{7}{5} + \frac{24}{5}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{6}{5} \\
+    \frac{17}{5}
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B14%257D%257B5%257D%2520-%2520%255Cfrac%257B8%257D%257B5%257D%2520%255C%255C%250A%2520%2520%2520%2520-%255Cfrac%257B7%257D%257B5%257D%2520%252B%2520%255Cfrac%257B24%257D%257B5%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%255Cfrac%257B6%257D%257B5%257D%2520%255C%255C%250A%2520%2520%2520%2520%255Cfrac%257B17%257D%257B5%257D%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    \frac{14}{5} - \frac{8}{5} \\
+    -\frac{7}{5} + \frac{24}{5}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{6}{5} \\
+    \frac{17}{5}
+    \end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+    \frac{14}{5} - \frac{8}{5} \\
+    -\frac{7}{5} + \frac{24}{5}
+    \end{bmatrix} = \begin{bmatrix}
+    \frac{6}{5} \\
+    \frac{17}{5}
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Therefore, the solution is <img class="equation_image" title="\displaystyle x = \frac{6}{5}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520x%2520%253D%2520%255Cfrac%257B6%257D%257B5%257D" alt="LaTeX: x = \frac{6}{5}" data-equation-content="\displaystyle x = \frac{6}{5}" data-ignore-a11y-check="" loading="lazy"> and <img class="equation_image" title="\displaystyle y = \frac{17}{5}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520y%2520%253D%2520%255Cfrac%257B17%257D%257B5%257D" alt="LaTeX: y = \frac{17}{5}" data-equation-content="\displaystyle y = \frac{17}{5}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">Verify the solution by substituting back into the original equations.</span></p>
+<p><span style="font-size: 14pt;">Equation 1: <img class="equation_image" title="\displaystyle 3\left(\frac{6}{5}\right) + \frac{17}{5} = \frac{18}{5} + \frac{17}{5} = \frac{35}{5} = 7" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%25203%255Cleft%28%255Cfrac%257B6%257D%257B5%257D%255Cright%29%2520%252B%2520%255Cfrac%257B17%257D%257B5%257D%2520%253D%2520%255Cfrac%257B18%257D%257B5%257D%2520%252B%2520%255Cfrac%257B17%257D%257B5%257D%2520%253D%2520%255Cfrac%257B35%257D%257B5%257D%2520%253D%25207" alt="LaTeX: 3\left(\frac{6}{5}\right) + \frac{17}{5} = \frac{18}{5} + \frac{17}{5} = \frac{35}{5} = 7" data-equation-content="\displaystyle 3\left(\frac{6}{5}\right) + \frac{17}{5} = \frac{18}{5} + \frac{17}{5} = \frac{35}{5} = 7" data-ignore-a11y-check="" loading="lazy"> ✓</span></p>
+<p><span style="font-size: 14pt;">Equation 2: <img class="equation_image" title="\displaystyle \frac{6}{5} + 2\left(\frac{17}{5}\right) = \frac{6}{5} + \frac{34}{5} = \frac{40}{5} = 8" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cfrac%257B6%257D%257B5%257D%2520%252B%25202%255Cleft%28%255Cfrac%257B17%257D%257B5%257D%255Cright%29%2520%253D%2520%255Cfrac%257B6%257D%257B5%257D%2520%252B%2520%255Cfrac%257B34%257D%257B5%257D%2520%253D%2520%255Cfrac%257B40%257D%257B5%257D%2520%253D%25208" alt="LaTeX: \frac{6}{5} + 2\left(\frac{17}{5}\right) = \frac{6}{5} + \frac{34}{5} = \frac{40}{5} = 8" data-equation-content="\displaystyle \frac{6}{5} + 2\left(\frac{17}{5}\right) = \frac{6}{5} + \frac{34}{5} = \frac{40}{5} = 8" data-ignore-a11y-check="" loading="lazy"> ✓</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Properties of the Inverse Matrix</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">The inverse of a matrix has several important properties:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Uniqueness:</strong> If A is invertible, then A<sup>-1</sup> is unique.</span></li>
+<li><span style="font-size: 14pt;"><strong>Inverse of a Product:</strong> <img class="equation_image" title="\displaystyle (AB)^{-1} = B^{-1}A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29%255E%257B-1%257D%2520%253D%2520B%255E%257B-1%257DA%255E%257B-1%257D" alt="LaTeX: (AB)^{-1} = B^{-1}A^{-1}" data-equation-content="\displaystyle (AB)^{-1} = B^{-1}A^{-1}" data-ignore-a11y-check="" loading="lazy">, provided A and B are both invertible.</span></li>
+<li><span style="font-size: 14pt;"><strong>Inverse of a Transpose:</strong> <img class="equation_image" title="\displaystyle (A^{T})^{-1} = (A^{-1})^{T}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28A%255E%257BT%257D%29%255E%257B-1%257D%2520%253D%2520%28A%255E%257B-1%257D%29%255ET" alt="LaTeX: (A^{T})^{-1} = (A^{-1})^{T}" data-equation-content="\displaystyle (A^{T})^{-1} = (A^{-1})^{T}" data-ignore-a11y-check="" loading="lazy">, provided A is invertible.</span></li>
+<li><span style="font-size: 14pt;"><strong>Inverse of an Inverse:</strong> <img class="equation_image" title="\displaystyle (A^{-1})^{-1} = A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28A%255E%257B-1%257D%29%255E%257B-1%257D%2520%253D%2520A" alt="LaTeX: (A^{-1})^{-1} = A" data-equation-content="\displaystyle (A^{-1})^{-1} = A" data-ignore-a11y-check="" loading="lazy">.</span></li>
+<li><span style="font-size: 14pt;"><strong>Inverse of a Scalar Multiple:</strong> <img class="equation_image" title="\displaystyle (cA)^{-1} = \frac{1}{c}A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520(cA)%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257Bc%257DA%255E%257B-1%257D?scale=1.16666875" alt="LaTeX: \displaystyle (cA)^{-1} = \frac{1}{c}A^{-1}" data-equation-content="\displaystyle (cA)^{-1} = \frac{1}{c}A^{-1}" data-ignore-a11y-check="" loading="lazy">, where <img class="equation_image" title="\displaystyle c \neq 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520c%2520%255Cneq%25200" alt="LaTeX: c \neq 0" data-equation-content="\displaystyle c \neq 0" data-ignore-a11y-check="" loading="lazy">.</span></li>
+<li><span style="font-size: 14pt;"><strong>Determinant of Inverse of a Matrix:</strong> <img class="equation_image" title="\det\left(A^{-1}\right)=\frac{1}{\det\left(A\right)}" src="https://ilearn.laccd.edu/equation_images/%255Cdet%255Cleft(A%255E%257B-1%257D%255Cright)%253D%255Cfrac%257B1%257D%257B%255Cdet%255Cleft(A%255Cright)%257D?scale=1.16666875" alt="LaTeX: \det\left(A^{-1}\right)=\frac{1}{\det\left(A\right)}" data-equation-content="\det\left(A^{-1}\right)=\frac{1}{\det\left(A\right)}" data-ignore-a11y-check="" loading="lazy"></span></li>
+</ol>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 4: Inverse of a Product</strong></span></h4>
+<p><span style="font-size: 14pt;">Let's verify the property <img class="equation_image" title="\displaystyle (AB)^{-1} = B^{-1}A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29%255E%257B-1%257D%2520%253D%2520B%255E%257B-1%257DA%255E%257B-1%257D" alt="LaTeX: (AB)^{-1} = B^{-1}A^{-1}" data-equation-content="\displaystyle (AB)^{-1} = B^{-1}A^{-1}" data-ignore-a11y-check="" loading="lazy"> for the matrices:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    2 &amp; 1 \\
+    1 &amp; 1
+    \end{bmatrix}, \quad B = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 1
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    2 &amp; 1 \\
+    1 &amp; 1
+    \end{bmatrix}, \quad B = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 1
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    2 &amp; 1 \\
+    1 &amp; 1
+    \end{bmatrix}, \quad B = \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 1
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 1: Calculate AB.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle AB = \begin{bmatrix}
+    2 &amp; 1 \\
+    1 &amp; 1
+    \end{bmatrix} \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 1
+    \end{bmatrix} = \begin{bmatrix}
+    (2)(3) + (1)(2) &amp; (2)(1) + (1)(1) \\
+    (1)(3) + (1)(2) &amp; (1)(1) + (1)(1)
+    \end{bmatrix} = \begin{bmatrix}
+    6+2 &amp; 2+1 \\
+    3+2 &amp; 1+1
+    \end{bmatrix} = \begin{bmatrix}
+    8 &amp; 3 \\
+    5 &amp; 2
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AB%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25201%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%282%29%283%29%2520%252B%2520%281%29%282%29%2520%2526%2520%282%29%281%29%2520%252B%2520%281%29%281%29%2520%255C%255C%250A%2520%2520%2520%2520%281%29%283%29%2520%252B%2520%281%29%282%29%2520%2526%2520%281%29%281%29%2520%252B%2520%281%29%281%29%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25208%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25205%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: AB = \begin{bmatrix}
+    2 &amp; 1 \\
+    1 &amp; 1
+    \end{bmatrix} \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 1
+    \end{bmatrix} = \begin{bmatrix}
+    (2)(3) + (1)(2) &amp; (2)(1) + (1)(1) \\
+    (1)(3) + (1)(2) &amp; (1)(1) + (1)(1)
+    \end{bmatrix} = \begin{bmatrix}
+    8 &amp; 3 \\
+    5 &amp; 2
+    \end{bmatrix}" data-equation-content="\displaystyle AB = \begin{bmatrix}
+    2 &amp; 1 \\
+    1 &amp; 1
+    \end{bmatrix} \begin{bmatrix}
+    3 &amp; 1 \\
+    2 &amp; 1
+    \end{bmatrix} = \begin{bmatrix}
+    8 &amp; 3 \\
+    5 &amp; 2
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 2: Calculate <img class="equation_image" title="\displaystyle (AB)^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29%255E%257B-1%257D" alt="LaTeX: (AB)^{-1}" data-equation-content="\displaystyle (AB)^{-1}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">First, calculate the determinant of AB:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(AB) = (8)(2) - (3)(5) = 16 - 15 = 1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28AB%29%2520%253D%2520%288%29%282%29%2520-%2520%283%29%285%29%2520%253D%252016%2520-%252015%2520%253D%25201?scale=1.16666875" alt="LaTeX: \det(AB) = (8)(2) - (3)(5) = 16 - 15 = 1" data-equation-content="\displaystyle \det(AB) = (8)(2) - (3)(5) = 16 - 15 = 1" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Now, apply the formula for the inverse of a 2×2 matrix:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)^{-1} = \frac{1}{1} \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix} = \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257B1%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%2520-3%2520%255C%255C%250A%2520%2520%2520%2520-5%2520%2526%25208%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%2520-3%2520%255C%255C%250A%2520%2520%2520%2520-5%2520%2526%25208%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: (AB)^{-1} = \frac{1}{1} \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix} = \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix}" data-equation-content="\displaystyle (AB)^{-1} = \frac{1}{1} \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix} = \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 3: Calculate <img class="equation_image" title="\displaystyle A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D" alt="LaTeX: A^{-1}" data-equation-content="\displaystyle A^{-1}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">First, calculate the determinant of A:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(A) = (2)(1) - (1)(1) = 2 - 1 = 1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28A%29%2520%253D%2520%282%29%281%29%2520-%2520%281%29%281%29%2520%253D%25202%2520-%25201%2520%253D%25201?scale=1.16666875" alt="LaTeX: \det(A) = (2)(1) - (1)(1) = 2 - 1 = 1" data-equation-content="\displaystyle \det(A) = (2)(1) - (1)(1) = 2 - 1 = 1" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Apply the formula for the inverse of a 2×2 matrix:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^{-1} = \frac{1}{1} \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257B1%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-1%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-1%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^{-1} = \frac{1}{1} \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix}" data-equation-content="\displaystyle A^{-1} = \frac{1}{1} \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 4: Calculate <img class="equation_image" title="\displaystyle B^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%255E%257B-1%257D" alt="LaTeX: B^{-1}" data-equation-content="\displaystyle B^{-1}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p><span style="font-size: 14pt;">First, calculate the determinant of B:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle \det(B) = (3)(1) - (1)(2) = 3 - 2 = 1" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cdet%28B%29%2520%253D%2520%283%29%281%29%2520-%2520%281%29%282%29%2520%253D%25203%2520-%25202%2520%253D%25201?scale=1.16666875" alt="LaTeX: \det(B) = (3)(1) - (1)(2) = 3 - 2 = 1" data-equation-content="\displaystyle \det(B) = (3)(1) - (1)(2) = 3 - 2 = 1" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Apply the formula for the inverse of a 2×2 matrix:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle B^{-1} = \frac{1}{1} \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%255E%257B-1%257D%2520%253D%2520%255Cfrac%257B1%257D%257B1%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: B^{-1} = \frac{1}{1} \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix}" data-equation-content="\displaystyle B^{-1} = \frac{1}{1} \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Step 5: Calculate <img class="equation_image" title="\displaystyle B^{-1}A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%255E%257B-1%257DA%255E%257B-1%257D" alt="LaTeX: B^{-1}A^{-1}" data-equation-content="\displaystyle B^{-1}A^{-1}" data-ignore-a11y-check="" loading="lazy">.</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle B^{-1}A^{-1} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix} \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix} = \begin{bmatrix}
+    (1)(1) + (-1)(-1) &amp; (1)(-1) + (-1)(2) \\
+    (-2)(1) + (3)(-1) &amp; (-2)(-1) + (3)(2)
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%255E%257B-1%257DA%255E%257B-1%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%2520-1%2520%255C%255C%250A%2520%2520%2520%2520-1%2520%2526%25202%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%2520%281%29%25281%2529%2520%252B%2520%28-1%29%2528-1%29%2520%2526%2520%281%29%2528-1%2529%2520%252B%2520%28-1%2529%25282%29%2520%255C%255C%250A%2520%2520%2520%2520%28-2%29%25281%2529%2520%252B%2520%283%29%2528-1%2529%2520%2526%2520%28-2%29%2528-1%2529%2520%252B%2520%283%29%25282%29%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: B^{-1}A^{-1} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix} \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix} = \begin{bmatrix}
+    (1)(1) + (-1)(-1) &amp; (1)(-1) + (-1)(2) \\
+    (-2)(1) + (3)(-1) &amp; (-2)(-1) + (3)(2)
+    \end{bmatrix}" data-equation-content="\displaystyle B^{-1}A^{-1} = \begin{bmatrix}
+    1 &amp; -1 \\
+    -2 &amp; 3
+    \end{bmatrix} \begin{bmatrix}
+    1 &amp; -1 \\
+    -1 &amp; 2
+    \end{bmatrix} = \begin{bmatrix}
+    (1)(1) + (-1)(-1) &amp; (1)(-1) + (-1)(2) \\
+    (-2)(1) + (3)(-1) &amp; (-2)(-1) + (3)(2)
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+    1 + 1 &amp; -1 - 2 \\
+    -2 - 3 &amp; 2 + 6
+    \end{bmatrix} = \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%252B%25201%2520%2526%2520-1%2520-%25202%2520%255C%255C%250A%2520%2520%2520%2520-2%2520-%25203%2520%2526%25202%2520%252B%25206%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25202%2520%2526%2520-3%2520%255C%255C%250A%2520%2520%2520%2520-5%2520%2526%25208%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: = \begin{bmatrix}
+    1 + 1 &amp; -1 - 2 \\
+    -2 - 3 &amp; 2 + 6
+    \end{bmatrix} = \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+    1 + 1 &amp; -1 - 2 \\
+    -2 - 3 &amp; 2 + 6
+    \end{bmatrix} = \begin{bmatrix}
+    2 &amp; -3 \\
+    -5 &amp; 8
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since <img class="equation_image" title="\displaystyle (AB)^{-1} = B^{-1}A^{-1}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29%255E%257B-1%257D%2520%253D%2520B%255E%257B-1%257DA%255E%257B-1%257D" alt="LaTeX: (AB)^{-1} = B^{-1}A^{-1}" data-equation-content="\displaystyle (AB)^{-1} = B^{-1}A^{-1}" data-ignore-a11y-check="" loading="lazy">, the property is verified.</span></p>
+</div>
+</div>
+<div style="background: #E7F2FF; padding: 16px; border-radius: 10px; border-left: 6px solid #9fc5f8;">
+<h3 style="margin-top: 0; color: #555fa3;"><strong>&nbsp;🎥 Video:</strong></h3>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/HjAgFchTOG0" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/NXCz9dw5Ce0" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/ieFpNMrd9kU" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+</div>
+</body>
+</html>

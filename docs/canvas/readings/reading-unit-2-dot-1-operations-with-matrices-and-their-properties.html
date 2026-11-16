@@ -1,0 +1,755 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>📚Reading: Unit 2.1 Operations with Matrices and their Properties</title>
+<meta name="identifier" content="geafbe0c7585b47ded8a2299125138027"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<meta name="editor_type" content="rce"/>
+</head>
+<body>
+<h2 class="content-box pad-box-large" style="background-color: #c13d40; color: white; border-radius: 5px; padding: 16px;"><strong>Operations with Matrices and their Properties</strong></h2>
+<div class="border border-b" style="border-color: #FFFFFF; padding-left: 15px; padding-right: 15px;">
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Introduction to Matrix Operations</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Matrices are powerful mathematical objects that allow us to compactly represent and manipulate systems of linear equations. In data science, matrices are fundamental for representing datasets, transformations, and algorithms.</span></p>
+<p style="text-align: center;"><img src="$IMS-CC-FILEBASE$/Uploaded%20Media%202/AdobeStock_1614605193.jpeg" alt="A futuristic scene of glowing green binary code streaming downward over a grid-like digital floor." width="496" height="280" data-api-endpoint="https://ilearn.laccd.edu/api/v1/courses/341671/files/72452263" data-api-returntype="File" loading="lazy"></p>
+<figure style="text-align: center;">
+<figcaption><span style="font-size: 14pt;">Matrix operations are fundamental tools in linear algebra with numerous applications.</span></figcaption>
+</figure>
+<h4><span style="color: #c13d40;"><strong>Matrix Notation</strong></span></h4>
+<p><span style="font-size: 14pt;">A matrix is a rectangular array of numbers arranged in rows and columns. It is typically denoted by a capital letter.&nbsp;</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520a_%257B11%257D%2520%2526%2520a_%257B12%257D%2520%2526%2520%255Ccdots%2520%2526%2520a_%257B1n%257D%2520%255C%255C%2520a_%257B21%257D%2520%2526%2520a_%257B22%257D%2520%2526%2520%255Ccdots%2520%2526%2520a_%257B2n%257D%2520%255C%255C%2520%255Cvdots%2520%2526%2520%255Cvdots%2520%2526%2520%255Cddots%2520%2526%2520%255Cvdots%2520%255C%255C%2520a_%257Bm1%257D%2520%2526%2520a_%257Bm2%257D%2520%2526%2520%255Ccdots%2520%2526%2520a_%257Bmn%257D%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">where <img class="equation_image" title="\displaystyle a_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520a_%257Bij%257D" alt="LaTeX: \displaystyle a_{ij}" data-equation-content="\displaystyle a_{ij}" data-ignore-a11y-check="" loading="lazy"> represents the element in the <img class="equation_image" title="\displaystyle i^{th}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520i%255E%257Bth%257D" alt="LaTeX: \displaystyle i^{th}" data-equation-content="\displaystyle i^{th}" data-ignore-a11y-check="" loading="lazy"> row and <img class="equation_image" title="\displaystyle j^{th}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520j%255E%257Bth%257D" alt="LaTeX: \displaystyle j^{th}" data-equation-content="\displaystyle j^{th}" data-ignore-a11y-check="" loading="lazy"> column.</span></p>
+<p><span style="font-size: 14pt;">The <strong>size</strong> or <strong>dimension</strong> of a matrix is described as m × n (read as "m by n"), where m is the number of rows and n is the number of columns.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Matrix Equality</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Two matrices are <strong>equal</strong> if and only if they have the same size and their corresponding entries are equal.</span></p>
+<p><span style="font-size: 14pt;">If <img class="equation_image" title="\displaystyle A = [a_{ij}]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Ba_%257Bij%257D%255D" alt="LaTeX: A = [a_{ij}]" data-equation-content="\displaystyle A = [a_{ij}]" data-ignore-a11y-check="" loading="lazy"> and <img class="equation_image" title="\displaystyle B = [b_{ij}]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%2520%253D%2520%255Bb_%257Bij%257D%255D" alt="LaTeX: B = [b_{ij}]" data-equation-content="\displaystyle B = [b_{ij}]" data-ignore-a11y-check="" loading="lazy">, then A = B if and only if <img class="equation_image" title="\displaystyle a_{ij} = b_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520a_%257Bij%257D%2520%253D%2520b_%257Bij%257D" alt="LaTeX: a_{ij} = b_{ij}" data-equation-content="\displaystyle a_{ij} = b_{ij}" data-ignore-a11y-check="" loading="lazy"> for all valid i and j.</span></p>
+<p><span style="font-size: 14pt;"><strong>Example:</strong></span></p>
+<p style="text-align: center;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; -4
+\end{bmatrix}, \quad B = \begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; -4
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%25203%2520%255C%255C%250A1%2520%2526%2520-4%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%25203%2520%255C%255C%250A1%2520%2526%2520-4%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle A = \begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; -4
+\end{bmatrix}, \quad B = \begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; -4
+\end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; -4
+\end{bmatrix}, \quad B = \begin{bmatrix}
+2 &amp; 3 \\
+1 &amp; -4
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">Since A and B have the same dimensions and all corresponding entries are equal, A = B.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Matrix Addition and Subtraction</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Two matrices can be added or subtracted only if they have the same dimensions.</span></p>
+<h4><span style="color: #c13d40;"><strong>Matrix Addition</strong></span></h4>
+<p><span style="font-size: 14pt;">If A and B are both m × n matrices, their sum or difference is the m × n matrix obtained by adding or subtracting corresponding elements:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (A + B)_{ij} = A_{ij} + B_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528A%2520%252B%2520B%2529_%257Bij%257D%2520%253D%2520A_%257Bij%257D%2520%252B%2520B_%257Bij%257D" alt="LaTeX: \displaystyle (A + B)_{ij} = A_{ij} + B_{ij}" data-equation-content="\displaystyle (A + B)_{ij} = A_{ij} + B_{ij}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (A - B)_{ij} = A_{ij} - B_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528A%2520-%2520B%2529_%257Bij%257D%2520%253D%2520A_%257Bij%257D%2520-%2520B_%257Bij%257D" alt="LaTeX: \displaystyle (A - B)_{ij} = A_{ij} - B_{ij}" data-equation-content="\displaystyle (A - B)_{ij} = A_{ij} - B_{ij}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 1: Matrix Addition</strong></span></h4>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix} 2 &amp; -3 \\ 5 &amp; 1 \end{bmatrix}, \quad B = \begin{bmatrix} 4 &amp; 0 \\ -2 &amp; 7 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25202%2520%2526%2520-3%2520%255C%255C%25205%2520%2526%25201%2520%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25204%2520%2526%25200%2520%255C%255C%2520-2%2520%2526%25207%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle A = \begin{bmatrix} 2 &amp; -3 \\ 5 &amp; 1 \end{bmatrix}, \quad B = \begin{bmatrix} 4 &amp; 0 \\ -2 &amp; 7 \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix} 2 &amp; -3 \\ 5 &amp; 1 \end{bmatrix}, \quad B = \begin{bmatrix} 4 &amp; 0 \\ -2 &amp; 7 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A + B = \begin{bmatrix} 2+4 &amp; -3+0 \\ 5+(-2) &amp; 1+7 \end{bmatrix} = \begin{bmatrix} 6 &amp; -3 \\ 3 &amp; 8 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%252B%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25202%252B4%2520%2526%2520-3%252B0%2520%255C%255C%25205%252B%2528-2%2529%2520%2526%25201%252B7%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25206%2520%2526%2520-3%2520%255C%255C%25203%2520%2526%25208%2520%255Cend%257Bbmatrix%257D" alt="LaTeX: \displaystyle A + B = \begin{bmatrix} 2+4 &amp; -3+0 \\ 5+(-2) &amp; 1+7 \end{bmatrix} = \begin{bmatrix} 6 &amp; -3 \\ 3 &amp; 8 \end{bmatrix}" data-equation-content="\displaystyle A + B = \begin{bmatrix} 2+4 &amp; -3+0 \\ 5+(-2) &amp; 1+7 \end{bmatrix} = \begin{bmatrix} 6 &amp; -3 \\ 3 &amp; 8 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 2: Matrix Subtraction</strong></span></h4>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="A = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}, \quad B = \begin{bmatrix}
+-1 &amp; 2 &amp; 7 \\
+3 &amp; 6 &amp; -2
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A3%2520%2526%2520-2%2520%2526%25205%2520%255C%255C%250A1%2520%2526%25200%2520%2526%25204%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A-1%2520%2526%25202%2520%2526%25207%2520%255C%255C%250A3%2520%2526%25206%2520%2526%2520-2%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}, \quad B = \begin{bmatrix}
+-1 &amp; 2 &amp; 7 \\
+3 &amp; 6 &amp; -2
+\end{bmatrix}" data-equation-content="A = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}, \quad B = \begin{bmatrix}
+-1 &amp; 2 &amp; 7 \\
+3 &amp; 6 &amp; -2
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A - B = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix} - \begin{bmatrix}
+-1 &amp; 2 &amp; 7 \\
+3 &amp; 6 &amp; -2
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520-%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A3%2520%2526%2520-2%2520%2526%25205%2520%255C%255C%250A1%2520%2526%25200%2520%2526%25204%250A%255Cend%257Bbmatrix%257D%2520-%2520%255Cbegin%257Bbmatrix%257D%250A-1%2520%2526%25202%2520%2526%25207%2520%255C%255C%250A3%2520%2526%25206%2520%2526%2520-2%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle A - B = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix} - \begin{bmatrix}
+-1 &amp; 2 &amp; 7 \\
+3 &amp; 6 &amp; -2
+\end{bmatrix}" data-equation-content="\displaystyle A - B = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix} - \begin{bmatrix}
+-1 &amp; 2 &amp; 7 \\
+3 &amp; 6 &amp; -2
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+3-(-1) &amp; -2-2 &amp; 5-7 \\
+1-3 &amp; 0-6 &amp; 4-(-2)
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A3-(-1)%2520%2526%2520-2-2%2520%2526%25205-7%2520%255C%255C%250A1-3%2520%2526%25200-6%2520%2526%25204-(-2)%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle = \begin{bmatrix}
+3-(-1) &amp; -2-2 &amp; 5-7 \\
+1-3 &amp; 0-6 &amp; 4-(-2)
+\end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+3-(-1) &amp; -2-2 &amp; 5-7 \\
+1-3 &amp; 0-6 &amp; 4-(-2)
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+4 &amp; -4 &amp; -2 \\
+-2 &amp; -6 &amp; 6
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A4%2520%2526%2520-4%2520%2526%2520-2%2520%255C%255C%250A-2%2520%2526%2520-6%2520%2526%25206%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle = \begin{bmatrix}
+4 &amp; -4 &amp; -2 \\
+-2 &amp; -6 &amp; 6
+\end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+4 &amp; -4 &amp; -2 \\
+-2 &amp; -6 &amp; 6
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40;"><strong>Properties of Matrix Addition</strong></span></h4>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Commutative Property:</strong> <img class="equation_image" title="\displaystyle A + B = B + A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%252B%2520B%2520%253D%2520B%2520%252B%2520A" alt="LaTeX: \displaystyle A + B = B + A" data-equation-content="\displaystyle A + B = B + A" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Associative Property:</strong> <img class="equation_image" title="\displaystyle (A + B) + C = A + (B + C)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528A%2520%252B%2520B%2529%2520%252B%2520C%2520%253D%2520A%2520%252B%2520%2528B%2520%252B%2520C%2529" alt="LaTeX: \displaystyle (A + B) + C = A + (B + C)" data-equation-content="\displaystyle (A + B) + C = A + (B + C)" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Additive Identity:</strong> <img class="equation_image" title="\displaystyle A + 0 = A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%252B%25200%2520%253D%2520A" alt="LaTeX: \displaystyle A + 0 = A" data-equation-content="\displaystyle A + 0 = A" data-ignore-a11y-check="" loading="lazy">, where 0 is the zero matrix</span></li>
+<li><span style="font-size: 14pt;"><strong>Additive Inverse:</strong> <img class="equation_image" title="\displaystyle A + (-A) = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%252B%2520%2528-A%2529%2520%253D%25200" alt="LaTeX: \displaystyle A + (-A) = 0" data-equation-content="\displaystyle A + (-A) = 0" data-ignore-a11y-check="" loading="lazy"></span></li>
+</ol>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Scalar Multiplication</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;"><strong>Scalar multiplication</strong> involves multiplying a matrix by a scalar (a single number). The result is obtained by multiplying each entry of the matrix by the scalar.</span></p>
+<p><span style="font-size: 14pt;">If c is a scalar and A is a matrix, then:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (cA)_{ij} = c \cdot A_{ij}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528cA%2529_%257Bij%257D%2520%253D%2520c%2520%255Ccdot%2520A_%257Bij%257D" alt="LaTeX: \displaystyle (cA)_{ij} = c \cdot A_{ij}" data-equation-content="\displaystyle (cA)_{ij} = c \cdot A_{ij}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40;"><strong>Example 3: Scalar Multiplication</strong></span></h4>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}, \quad c = -2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A3%2520%2526%2520-2%2520%2526%25205%2520%255C%255C%250A1%2520%2526%25200%2520%2526%25204%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520c%2520%253D%2520-2?scale=1.16666875" alt="LaTeX: \displaystyle A = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}, \quad c = -2" data-equation-content="\displaystyle A = \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}, \quad c = -2" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle cA = -2 \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520cA%2520%253D%2520-2%2520%255Cbegin%257Bbmatrix%257D%250A3%2520%2526%2520-2%2520%2526%25205%2520%255C%255C%250A1%2520%2526%25200%2520%2526%25204%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle cA = -2 \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}" data-equation-content="\displaystyle cA = -2 \begin{bmatrix}
+3 &amp; -2 &amp; 5 \\
+1 &amp; 0 &amp; 4
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+-2 \cdot 3 &amp; -2 \cdot (-2) &amp; -2 \cdot 5 \\
+-2 \cdot 1 &amp; -2 \cdot 0 &amp; -2 \cdot 4
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A-2%2520%255Ccdot%25203%2520%2526%2520-2%2520%255Ccdot%2520(-2)%2520%2526%2520-2%2520%255Ccdot%25205%2520%255C%255C%250A-2%2520%255Ccdot%25201%2520%2526%2520-2%2520%255Ccdot%25200%2520%2526%2520-2%2520%255Ccdot%25204%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle = \begin{bmatrix}
+-2 \cdot 3 &amp; -2 \cdot (-2) &amp; -2 \cdot 5 \\
+-2 \cdot 1 &amp; -2 \cdot 0 &amp; -2 \cdot 4
+\end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+-2 \cdot 3 &amp; -2 \cdot (-2) &amp; -2 \cdot 5 \\
+-2 \cdot 1 &amp; -2 \cdot 0 &amp; -2 \cdot 4
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle = \begin{bmatrix}
+-6 &amp; 4 &amp; -10 \\
+-2 &amp; 0 &amp; -8
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A-6%2520%2526%25204%2520%2526%2520-10%2520%255C%255C%250A-2%2520%2526%25200%2520%2526%2520-8%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle = \begin{bmatrix}
+-6 &amp; 4 &amp; -10 \\
+-2 &amp; 0 &amp; -8
+\end{bmatrix}" data-equation-content="\displaystyle = \begin{bmatrix}
+-6 &amp; 4 &amp; -10 \\
+-2 &amp; 0 &amp; -8
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40;"><strong>Properties of Scalar Multiplication</strong></span></h4>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Distributive Property: </strong><img class="equation_image" title="\displaystyle c(A + B) = cA + cB" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520c%2528A%2520%252B%2520B%2529%2520%253D%2520cA%2520%252B%2520cB" alt="LaTeX: \displaystyle c(A + B) = cA + cB" data-equation-content="\displaystyle c(A + B) = cA + cB" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Distributive Property: </strong><img class="equation_image" title="\displaystyle (c + d)A = cA + dA" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528c%2520%252B%2520d%2529A%2520%253D%2520cA%2520%252B%2520dA" alt="LaTeX: \displaystyle (c + d)A = cA + dA" data-equation-content="\displaystyle (c + d)A = cA + dA" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Associative Property: </strong><img class="equation_image" title="\displaystyle c(dA) = (cd)A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520c%2528dA%2529%2520%253D%2520%2528cd%2529A" alt="LaTeX: \displaystyle c(dA) = (cd)A" data-equation-content="\displaystyle c(dA) = (cd)A" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Identity Property: </strong><img class="equation_image" title="\displaystyle 1 \cdot A = A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%25201%2520%255Ccdot%2520A%2520%253D%2520A" alt="LaTeX: \displaystyle 1 \cdot A = A" data-equation-content="\displaystyle 1 \cdot A = A" data-ignore-a11y-check="" loading="lazy"></span></li>
+</ol>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Matrix Multiplication</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Matrix multiplication is more complex than addition or scalar multiplication. For two matrices to be multiplied, the number of columns in the first matrix must equal the number of rows in the second matrix.</span></p>
+<p><span style="font-size: 14pt;">If A is an m × n matrix and B is an n × p matrix, then their product AB is an m × p matrix.</span></p>
+<p><span style="font-size: 14pt;">The element in the <img class="equation_image" title="\displaystyle i^{th}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520i%255E%257Bth%257D" alt="LaTeX: \displaystyle i^{th}" data-equation-content="\displaystyle i^{th}" data-ignore-a11y-check="" loading="lazy"> row and <img class="equation_image" title="\displaystyle j^{th}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520j%255E%257Bth%257D" alt="LaTeX: \displaystyle j^{th}" data-equation-content="\displaystyle j^{th}" data-ignore-a11y-check="" loading="lazy"> column of AB is calculated as:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)_{ij} = \sum_{k=1}^{n} A_{ik}B_{kj} = A_{i1}B_{1j} + A_{i2}B_{2j} + \cdots + A_{in}B_{nj}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528AB%2529_%257Bij%257D%2520%253D%2520%255Csum_%257Bk%253D1%257D%255E%257Bn%257D%2520A_%257Bik%257DB_%257Bkj%257D%2520%253D%2520A_%257Bi1%257DB_%257B1j%257D%2520%252B%2520A_%257Bi2%257DB_%257B2j%257D%2520%252B%2520%255Ccdots%2520%252B%2520A_%257Bin%257DB_%257Bnj%257D" alt="LaTeX: \displaystyle (AB)_{ij} = \sum_{k=1}^{n} A_{ik}B_{kj} = A_{i1}B_{1j} + A_{i2}B_{2j} + \cdots + A_{in}B_{nj}" data-equation-content="\displaystyle (AB)_{ij} = \sum_{k=1}^{n} A_{ik}B_{kj} = A_{i1}B_{1j} + A_{i2}B_{2j} + \cdots + A_{in}B_{nj}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">In simpler terms, to find the entry in row i and column j of the product:</span></p>
+<ol>
+<li><span style="font-size: 14pt;">Take the ith row of A and the jth column of B.</span></li>
+<li><span style="font-size: 14pt;">Multiply corresponding entries.</span></li>
+<li><span style="font-size: 14pt;">Add the products.</span></li>
+</ol>
+<h4><span style="color: #c13d40;"><strong>Example 4: Matrix Multiplication</strong></span></h4>
+<p><img class="equation_image" title="A = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}, \quad B = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%2520-1%2520%2526%25203%2520%255C%255C%250A0%2520%2526%25204%2520%2526%25201%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25205%2520%255C%255C%250A-2%2520%2526%25200%2520%255C%255C%250A3%2520%2526%25202%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}, \quad B = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" data-equation-content="A = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}, \quad B = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">To find AB, first check if multiplication is possible: A is 2 × 3 and B is 3 × 2, so the number of columns in A (3) equals the number of rows in B (3). Therefore, AB will be a 2 × 2 matrix.</span></p>
+<p><img class="equation_image" title="AB = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/AB%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%2520-1%2520%2526%25203%2520%255C%255C%250A0%2520%2526%25204%2520%2526%25201%250A%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25205%2520%255C%255C%250A-2%2520%2526%25200%2520%255C%255C%250A3%2520%2526%25202%250A%255Cend%257Bbmatrix%257D?scale=1" alt="LaTeX: AB = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" data-equation-content="AB = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix} \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">Now, compute each entry:</span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)_{11} = a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} = 2 \cdot 1 + (-1) \cdot (-2) + 3 \cdot 3 = 2 + 2 + 9 = 13" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29_%257B11%257D%2520%253D%2520a_%257B11%257Db_%257B11%257D%2520%252B%2520a_%257B12%257Db_%257B21%257D%2520%252B%2520a_%257B13%257Db_%257B31%257D%2520%253D%25202%2520%255Ccdot%25201%2520%252B%2520%28-1%29%2520%255Ccdot%2520%28-2%29%2520%252B%25203%2520%255Ccdot%25203%2520%253D%25202%2520%252B%25202%2520%252B%25209%2520%253D%252013" alt="LaTeX: (AB)_{11} = a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} = 2 \cdot 1 + (-1) \cdot (-2) + 3 \cdot 3 = 2 + 2 + 9 = 13" data-equation-content="\displaystyle (AB)_{11} = a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} = 2 \cdot 1 + (-1) \cdot (-2) + 3 \cdot 3 = 2 + 2 + 9 = 13" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)_{12} = a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} = 2 \cdot 5 + (-1) \cdot 0 + 3 \cdot 2 = 10 + 0 + 6 = 16" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29_%257B12%257D%2520%253D%2520a_%257B11%257Db_%257B12%257D%2520%252B%2520a_%257B12%257Db_%257B22%257D%2520%252B%2520a_%257B13%257Db_%257B32%257D%2520%253D%25202%2520%255Ccdot%25205%2520%252B%2520%28-1%29%2520%255Ccdot%25200%2520%252B%25203%2520%255Ccdot%25202%2520%253D%252010%2520%252B%25200%2520%252B%25206%2520%253D%252016" alt="LaTeX: (AB)_{12} = a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} = 2 \cdot 5 + (-1) \cdot 0 + 3 \cdot 2 = 10 + 0 + 6 = 16" data-equation-content="\displaystyle (AB)_{12} = a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} = 2 \cdot 5 + (-1) \cdot 0 + 3 \cdot 2 = 10 + 0 + 6 = 16" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)_{21} = a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31} = 0 \cdot 1 + 4 \cdot (-2) + 1 \cdot 3 = 0 + (-8) + 3 = -5" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29_%257B21%257D%2520%253D%2520a_%257B21%257Db_%257B11%257D%2520%252B%2520a_%257B22%257Db_%257B21%257D%2520%252B%2520a_%257B23%257Db_%257B31%257D%2520%253D%25200%2520%255Ccdot%25201%2520%252B%25204%2520%255Ccdot%2520%28-2%29%2520%252B%25201%2520%255Ccdot%25203%2520%253D%25200%2520%252B%2520%28-8%29%2520%252B%25203%2520%253D%2520-5" alt="LaTeX: (AB)_{21} = a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31} = 0 \cdot 1 + 4 \cdot (-2) + 1 \cdot 3 = 0 + (-8) + 3 = -5" data-equation-content="\displaystyle (AB)_{21} = a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31} = 0 \cdot 1 + 4 \cdot (-2) + 1 \cdot 3 = 0 + (-8) + 3 = -5" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)_{22} = a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} = 0 \cdot 5 + 4 \cdot 0 + 1 \cdot 2 = 0 + 0 + 2 = 2" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29_%257B22%257D%2520%253D%2520a_%257B21%257Db_%257B12%257D%2520%252B%2520a_%257B22%257Db_%257B22%257D%2520%252B%2520a_%257B23%257Db_%257B32%257D%2520%253D%25200%2520%255Ccdot%25205%2520%252B%25204%2520%255Ccdot%25200%2520%252B%25201%2520%255Ccdot%25202%2520%253D%25200%2520%252B%25200%2520%252B%25202%2520%253D%25202" alt="LaTeX: (AB)_{22} = a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} = 0 \cdot 5 + 4 \cdot 0 + 1 \cdot 2 = 0 + 0 + 2 = 2" data-equation-content="\displaystyle (AB)_{22} = a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} = 0 \cdot 5 + 4 \cdot 0 + 1 \cdot 2 = 0 + 0 + 2 = 2" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Therefore:</span></p>
+<p><img class="equation_image" title="AB = \begin{bmatrix}
+13 &amp; 16 \\
+-5 &amp; 2
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/AB%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A13%2520%2526%252016%2520%255C%255C%250A-5%2520%2526%25202%250A%255Cend%257Bbmatrix%257D?scale=1" alt="LaTeX: AB = \begin{bmatrix}
+13 &amp; 16 \\
+-5 &amp; 2
+\end{bmatrix}" data-equation-content="AB = \begin{bmatrix}
+13 &amp; 16 \\
+-5 &amp; 2
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Properties of Matrix Multiplication</strong></span></h4>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Not Commutative:</strong> In general, <img class="equation_image" title="\displaystyle AB \neq BA" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AB%2520%255Cneq%2520BA" alt="LaTeX: \displaystyle AB \neq BA" data-equation-content="\displaystyle AB \neq BA" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Associative:</strong> <img class="equation_image" title="\displaystyle (AB)C = A(BC)" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528AB%2529C%2520%253D%2520A%2528BC%2529" alt="LaTeX: \displaystyle (AB)C = A(BC)" data-equation-content="\displaystyle (AB)C = A(BC)" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Distributive over Addition:</strong> <img class="equation_image" title="\displaystyle A(B+C) = AB + AC" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2528B%252BC%2529%2520%253D%2520AB%2520%252B%2520AC" alt="LaTeX: \displaystyle A(B+C) = AB + AC" data-equation-content="\displaystyle A(B+C) = AB + AC" data-ignore-a11y-check="" loading="lazy"> and <img class="equation_image" title="\displaystyle (B+C)A = BA + CA" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2528B%252BC%2529A%2520%253D%2520BA%2520%252B%2520CA" alt="LaTeX: \displaystyle (B+C)A = BA + CA" data-equation-content="\displaystyle (B+C)A = BA + CA" data-ignore-a11y-check="" loading="lazy"></span></li>
+<li><span style="font-size: 14pt;"><strong>Multiplicative Identity:</strong> <img class="equation_image" title="\displaystyle AI = IA = A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AI%2520%253D%2520IA%2520%253D%2520A" alt="LaTeX: \displaystyle AI = IA = A" data-equation-content="\displaystyle AI = IA = A" data-ignore-a11y-check="" loading="lazy">, where I is the identity matrix</span></li>
+</ol>
+<h4><span style="color: #c13d40;"><strong>Verifying Non-Commutativity</strong></span></h4>
+<p><span style="font-size: 14pt;">Using our previous example:</span></p>
+<p><img class="equation_image" title="A = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}, \quad B = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%2520-1%2520%2526%25203%2520%255C%255C%250A0%2520%2526%25204%2520%2526%25201%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25205%2520%255C%255C%250A-2%2520%2526%25200%2520%255C%255C%250A3%2520%2526%25202%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}, \quad B = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" data-equation-content="A = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}, \quad B = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle BA = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix} \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix} " src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520BA%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25205%2520%255C%255C%250A-2%2520%2526%25200%2520%255C%255C%250A3%2520%2526%25202%250A%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%2520-1%2520%2526%25203%2520%255C%255C%250A0%2520%2526%25204%2520%2526%25201%250A%255Cend%257Bbmatrix%257D%2520?scale=1.16666875" alt="LaTeX: \displaystyle BA = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix} \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix} " data-equation-content="\displaystyle BA = \begin{bmatrix}
+1 &amp; 5 \\
+-2 &amp; 0 \\
+3 &amp; 2
+\end{bmatrix} \begin{bmatrix}
+2 &amp; -1 &amp; 3 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix} " data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle  = \begin{bmatrix}
+2 \cdot 1 + 0 \cdot 5 &amp; -1 \cdot 1 + 4 \cdot 5 &amp; 3 \cdot 1 + 1 \cdot 5 \\
+2 \cdot (-2) + 0 \cdot 0 &amp; -1 \cdot (-2) + 4 \cdot 0 &amp; 3 \cdot (-2) + 1 \cdot 0 \\
+2 \cdot 3 + 0 \cdot 2 &amp; -1 \cdot 3 + 4 \cdot 2 &amp; 3 \cdot 3 + 1 \cdot 2
+\end{bmatrix} " src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%255Ccdot%25201%2520%252B%25200%2520%255Ccdot%25205%2520%2526%2520-1%2520%255Ccdot%25201%2520%252B%25204%2520%255Ccdot%25205%2520%2526%25203%2520%255Ccdot%25201%2520%252B%25201%2520%255Ccdot%25205%2520%255C%255C%250A2%2520%255Ccdot%2520(-2)%2520%252B%25200%2520%255Ccdot%25200%2520%2526%2520-1%2520%255Ccdot%2520(-2)%2520%252B%25204%2520%255Ccdot%25200%2520%2526%25203%2520%255Ccdot%2520(-2)%2520%252B%25201%2520%255Ccdot%25200%2520%255C%255C%250A2%2520%255Ccdot%25203%2520%252B%25200%2520%255Ccdot%25202%2520%2526%2520-1%2520%255Ccdot%25203%2520%252B%25204%2520%255Ccdot%25202%2520%2526%25203%2520%255Ccdot%25203%2520%252B%25201%2520%255Ccdot%25202%250A%255Cend%257Bbmatrix%257D%2520?scale=1.16666875" alt="LaTeX: \displaystyle  = \begin{bmatrix}
+2 \cdot 1 + 0 \cdot 5 &amp; -1 \cdot 1 + 4 \cdot 5 &amp; 3 \cdot 1 + 1 \cdot 5 \\
+2 \cdot (-2) + 0 \cdot 0 &amp; -1 \cdot (-2) + 4 \cdot 0 &amp; 3 \cdot (-2) + 1 \cdot 0 \\
+2 \cdot 3 + 0 \cdot 2 &amp; -1 \cdot 3 + 4 \cdot 2 &amp; 3 \cdot 3 + 1 \cdot 2
+\end{bmatrix} " data-equation-content="\displaystyle  = \begin{bmatrix}
+2 \cdot 1 + 0 \cdot 5 &amp; -1 \cdot 1 + 4 \cdot 5 &amp; 3 \cdot 1 + 1 \cdot 5 \\
+2 \cdot (-2) + 0 \cdot 0 &amp; -1 \cdot (-2) + 4 \cdot 0 &amp; 3 \cdot (-2) + 1 \cdot 0 \\
+2 \cdot 3 + 0 \cdot 2 &amp; -1 \cdot 3 + 4 \cdot 2 &amp; 3 \cdot 3 + 1 \cdot 2
+\end{bmatrix} " data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle  = \begin{bmatrix}
+2 &amp; 19 &amp; 8 \\
+-4 &amp; 2 &amp; -6 \\
+6 &amp; 5 &amp; 11
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%252019%2520%2526%25208%2520%255C%255C%250A-4%2520%2526%25202%2520%2526%2520-6%2520%255C%255C%250A6%2520%2526%25205%2520%2526%252011%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \displaystyle  = \begin{bmatrix}
+2 &amp; 19 &amp; 8 \\
+-4 &amp; 2 &amp; -6 \\
+6 &amp; 5 &amp; 11
+\end{bmatrix}" data-equation-content="\displaystyle  = \begin{bmatrix}
+2 &amp; 19 &amp; 8 \\
+-4 &amp; 2 &amp; -6 \\
+6 &amp; 5 &amp; 11
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since <img class="equation_image" title="\displaystyle AB = \begin{bmatrix}
+13 &amp; 16 \\
+-5 &amp; 2
+\end{bmatrix} \neq \begin{bmatrix}
+2 &amp; 19 &amp; 8 \\
+-4 &amp; 2 &amp; -6 \\
+6 &amp; 5 &amp; 11
+\end{bmatrix} = BA" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AB%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A13%2520%2526%252016%2520%255C%255C%250A-5%2520%2526%25202%250A%255Cend%257Bbmatrix%257D%2520%255Cneq%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%252019%2520%2526%25208%2520%255C%255C%250A-4%2520%2526%25202%2520%2526%2520-6%2520%255C%255C%250A6%2520%2526%25205%2520%2526%252011%250A%255Cend%257Bbmatrix%257D%2520%253D%2520BA?scale=1.16666875" alt="LaTeX: \displaystyle AB = \begin{bmatrix}
+13 &amp; 16 \\
+-5 &amp; 2
+\end{bmatrix} \neq \begin{bmatrix}
+2 &amp; 19 &amp; 8 \\
+-4 &amp; 2 &amp; -6 \\
+6 &amp; 5 &amp; 11
+\end{bmatrix} = BA" data-equation-content="\displaystyle AB = \begin{bmatrix}
+13 &amp; 16 \\
+-5 &amp; 2
+\end{bmatrix} \neq \begin{bmatrix}
+2 &amp; 19 &amp; 8 \\
+-4 &amp; 2 &amp; -6 \\
+6 &amp; 5 &amp; 11
+\end{bmatrix} = BA" data-ignore-a11y-check="" loading="lazy">, this confirms that matrix multiplication is not commutative.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Properties of Matrix Multiplication</strong></span></h4>
+<p><span style="font-size: 14pt;">For matrices of appropriate dimensions:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Not Commutative:</strong> In general, AB ≠ BA</span></li>
+<li><span style="font-size: 14pt;"><strong>Associative Property:</strong> (AB)C = A(BC)</span></li>
+<li><span style="font-size: 14pt;"><strong>Distributive Property:</strong> A(B + C) = AB + AC</span></li>
+<li><span style="font-size: 14pt;"><strong>Distributive Property:</strong> (A + B)C = AC + BC</span></li>
+<li><span style="font-size: 14pt;"><strong>Scalar Multiplication:</strong> c(AB) = (cA)B = A(cB)</span></li>
+</ol>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Special Matrices</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>Identity Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">The <strong>identity matrix</strong> of order n, denoted I<sub>n</sub>, is an n × n square matrix with 1s on the main diagonal and 0s elsewhere.</span></p>
+<p style="text-align: center;"><img class="equation_image" title="I_n = \begin{bmatrix}
+1 &amp; 0 &amp; \ldots &amp; 0 \\
+0 &amp; 1 &amp; \ldots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \ldots &amp; 1
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/I_n%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25200%2520%2526%2520%255Cldots%2520%2526%25200%2520%255C%255C%250A0%2520%2526%25201%2520%2526%2520%255Cldots%2520%2526%25200%2520%255C%255C%250A%255Cvdots%2520%2526%2520%255Cvdots%2520%2526%2520%255Cddots%2520%2526%2520%255Cvdots%2520%255C%255C%250A0%2520%2526%25200%2520%2526%2520%255Cldots%2520%2526%25201%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: I_n = \begin{bmatrix}
+1 &amp; 0 &amp; \ldots &amp; 0 \\
+0 &amp; 1 &amp; \ldots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \ldots &amp; 1
+\end{bmatrix}" data-equation-content="I_n = \begin{bmatrix}
+1 &amp; 0 &amp; \ldots &amp; 0 \\
+0 &amp; 1 &amp; \ldots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \ldots &amp; 1
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">For example, the 2 × 2 and 3 × 3 identity matrices are:</span></p>
+<p style="text-align: center;"><img class="equation_image" title="I_2 = \begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}, \quad I_3 = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/I_2%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25200%2520%255C%255C%250A0%2520%2526%25201%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520I_3%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A1%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A0%2520%2526%25201%2520%2526%25200%2520%255C%255C%250A0%2520%2526%25200%2520%2526%25201%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: I_2 = \begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}, \quad I_3 = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}" data-equation-content="I_2 = \begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}, \quad I_3 = \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">The identity matrix has the property that for any matrix A of appropriate size:</span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle AI_n = A \quad \text{and} \quad I_m A = A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AI_n%2520%253D%2520A%2520%255Cquad%2520%255Ctext%257Band%257D%2520%255Cquad%2520I_m%2520A%2520%253D%2520A" alt="LaTeX: AI_n = A \quad \text{and} \quad I_m A = A" data-equation-content="\displaystyle AI_n = A \quad \text{and} \quad I_m A = A" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Zero Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">The <strong>zero matrix</strong>, denoted by 0, has all its elements equal to zero. For any matrix A of compatible size:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A + 0 = 0 + A = A" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%252B%25200%2520%253D%25200%2520%252B%2520A%2520%253D%2520A" alt="LaTeX: \displaystyle A + 0 = 0 + A = A" data-equation-content="\displaystyle A + 0 = 0 + A = A" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A \cdot 0 = 0 \cdot A = 0" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%255Ccdot%25200%2520%253D%25200%2520%255Ccdot%2520A%2520%253D%25200" alt="LaTeX: \displaystyle A \cdot 0 = 0 \cdot A = 0" data-equation-content="\displaystyle A \cdot 0 = 0 \cdot A = 0" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Examples of zero matrices:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle 0_{2 \times 2} = \begin{bmatrix}
+    0 &amp; 0 \\
+    0 &amp; 0
+    \end{bmatrix}, \quad 0_{2 \times 3} = \begin{bmatrix}
+    0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%25200_%257B2%2520%255Ctimes%25202%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%25200_%257B2%2520%255Ctimes%25203%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25200%2520%2526%25200%2520%2526%25200%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: 0_{2 \times 2} = \begin{bmatrix}
+    0 &amp; 0 \\
+    0 &amp; 0
+    \end{bmatrix}, \quad 0_{2 \times 3} = \begin{bmatrix}
+    0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0
+    \end{bmatrix}" data-equation-content="\displaystyle 0_{2 \times 2} = \begin{bmatrix}
+    0 &amp; 0 \\
+    0 &amp; 0
+    \end{bmatrix}, \quad 0_{2 \times 3} = \begin{bmatrix}
+    0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Diagonal Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">A diagonal matrix D has non-zero elements only on the main diagonal:</span></p>
+<p><span style="font-size: 14pt;">D = diag(d<sub>1</sub>, d<sub>2</sub>, ..., d<sub>n</sub>)</span></p>
+<p><span style="font-size: 14pt;"><strong>Example:</strong></span></p>
+<p><span style="font-size: 14pt;">D = <img class="equation_image" title="\begin{bmatrix} 5 &amp; 0 &amp; 0 \\ 0 &amp; 7 &amp; 0 \\ 0 &amp; 0 &amp; 9 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%25205%2520%2526%25200%2520%2526%25200%2520%255C%255C%25200%2520%2526%25207%2520%2526%25200%2520%255C%255C%25200%2520%2526%25200%2520%2526%25209%2520%255Cend%257Bbmatrix%257D" alt="Diagonal matrix with values 5, 7, 9 on diagonal" data-equation-content="\begin{bmatrix} 5 &amp; 0 &amp; 0 \\ 0 &amp; 7 &amp; 0 \\ 0 &amp; 0 &amp; 9 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Block Matrices</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Definition and Structure</strong></span></h4>
+<p><span style="font-size: 14pt;">A block matrix is a matrix that is interpreted as having been broken into sections called blocks or submatrices. For example, a matrix can be partitioned as:</span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520A%2520%2526%2520B%2520%255C%255C%2520C%2520%2526%2520D%2520%255Cend%257Bbmatrix%257D" alt="Block matrix with submatrices A, B, C, D" data-equation-content="\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">where A, B, C, and D are themselves matrices of appropriate dimensions.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Operations with Block Matrices</strong></span></h4>
+<p><span style="font-size: 14pt;">Block matrices can be added, subtracted, and multiplied using the same rules as regular matrices, treating each block as a single element.</span></p>
+<p><span style="font-size: 14pt;"><strong>Block Matrix Addition:</strong></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} + \begin{bmatrix} E &amp; F \\ G &amp; H \end{bmatrix} = \begin{bmatrix} A+E &amp; B+F \\ C+G &amp; D+H \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520A%2520%2526%2520B%2520%255C%255C%2520C%2520%2526%2520D%2520%255Cend%257Bbmatrix%257D%2520%252B%2520%255Cbegin%257Bbmatrix%257D%2520E%2520%2526%2520F%2520%255C%255C%2520G%2520%2526%2520H%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520A%252BE%2520%2526%2520B%252BF%2520%255C%255C%2520C%252BG%2520%2526%2520D%252BH%2520%255Cend%257Bbmatrix%257D" alt="Block matrix addition formula" data-equation-content="\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} + \begin{bmatrix} E &amp; F \\ G &amp; H \end{bmatrix} = \begin{bmatrix} A+E &amp; B+F \\ C+G &amp; D+H \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;"><strong>Block Matrix Multiplication:</strong></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} \begin{bmatrix} E &amp; F \\ G &amp; H \end{bmatrix} = \begin{bmatrix} AE+BG &amp; AF+BH \\ CE+DG &amp; CF+DH \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520A%2520%2526%2520B%2520%255C%255C%2520C%2520%2526%2520D%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%2520E%2520%2526%2520F%2520%255C%255C%2520G%2520%2526%2520H%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520AE%252BBG%2520%2526%2520AF%252BBH%2520%255C%255C%2520CE%252BDG%2520%2526%2520CF%252BDH%2520%255Cend%257Bbmatrix%257D" alt="Block matrix multiplication formula" data-equation-content="\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} \begin{bmatrix} E &amp; F \\ G &amp; H \end{bmatrix} = \begin{bmatrix} AE+BG &amp; AF+BH \\ CE+DG &amp; CF+DH \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Special Block Matrix Forms</strong></span></h4>
+<p><span style="font-size: 14pt;"><strong>Block Diagonal Matrix:</strong></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\begin{bmatrix} A_1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; A_2 &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; A_k \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520A_1%2520%2526%25200%2520%2526%2520%255Ccdots%2520%2526%25200%2520%255C%255C%25200%2520%2526%2520A_2%2520%2526%2520%255Ccdots%2520%2526%25200%2520%255C%255C%2520%255Cvdots%2520%2526%2520%255Cvdots%2520%2526%2520%255Cddots%2520%2526%2520%255Cvdots%2520%255C%255C%25200%2520%2526%25200%2520%2526%2520%255Ccdots%2520%2526%2520A_k%2520%255Cend%257Bbmatrix%257D" alt="Block diagonal matrix structure" data-equation-content="\begin{bmatrix} A_1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; A_2 &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; A_k \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Block diagonal matrices are useful for representing independent systems or clusters within data.</span></p>
+<p><span style="font-size: 14pt;"><strong>Block Triangular Matrix:</strong></span></p>
+<p><span style="font-size: 14pt;"><img class="equation_image" title="\begin{bmatrix} A_1 &amp; B_{12} &amp; \cdots &amp; B_{1k} \\ 0 &amp; A_2 &amp; \cdots &amp; B_{2k} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; A_k \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%2520A_1%2520%2526%2520B_%257B12%257D%2520%2526%2520%255Ccdots%2520%2526%2520B_%257B1k%257D%2520%255C%255C%25200%2520%2526%2520A_2%2520%2526%2520%255Ccdots%2520%2526%2520B_%257B2k%257D%2520%255C%255C%2520%255Cvdots%2520%2526%2520%255Cvdots%2520%2526%2520%255Cddots%2520%2526%2520%255Cvdots%2520%255C%255C%25200%2520%2526%25200%2520%2526%2520%255Ccdots%2520%2526%2520A_k%2520%255Cend%257Bbmatrix%257D" alt="Block triangular matrix structure" data-equation-content="\begin{bmatrix} A_1 &amp; B_{12} &amp; \cdots &amp; B_{1k} \\ 0 &amp; A_2 &amp; \cdots &amp; B_{2k} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; A_k \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Block triangular matrices represent hierarchical relationships in data or systems with one-way dependencies.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Application: Solving Systems of Linear Equations</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Matrix operations can be used to solve systems of linear equations efficiently. A system of linear equations can be written in matrix form as:</span></p>
+<p style="text-align: center;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A\mathbf{x} = \mathbf{b}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255Cmathbf%257Bx%257D%2520%253D%2520%255Cmathbf%257Bb%257D" alt="LaTeX: A\mathbf{x} = \mathbf{b}" data-equation-content="\displaystyle A\mathbf{x} = \mathbf{b}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">where:</span></p>
+<ul>
+<li><span style="font-size: 14pt;">A is the coefficient matrix</span></li>
+<li><span style="font-size: 14pt;">x is the vector of variables</span></li>
+<li><span style="font-size: 14pt;">b is the vector of constants</span></li>
+</ul>
+<p><span style="font-size: 14pt; color: #c71f23;"><strong>Example 5: Matrix Representation of a System</strong></span></p>
+<p><span style="font-size: 14pt;">Consider the system:</span></p>
+<p style="text-align: center;"><img class="equation_image" title="\begin{align}
+2x + y - z &amp;= 8 \\
+-3x - y + 2z &amp;= -11 \\
+-2x + y + 2z &amp;= -3
+\end{align}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Balign%257D%250A2x%2520%252B%2520y%2520-%2520z%2520%2526%253D%25208%2520%255C%255C%250A-3x%2520-%2520y%2520%252B%25202z%2520%2526%253D%2520-11%2520%255C%255C%250A-2x%2520%252B%2520y%2520%252B%25202z%2520%2526%253D%2520-3%250A%255Cend%257Balign%257D?scale=1.16666875" alt="LaTeX: \begin{align}
+2x + y - z &amp;= 8 \\
+-3x - y + 2z &amp;= -11 \\
+-2x + y + 2z &amp;= -3
+\end{align}" data-equation-content="\begin{align}
+2x + y - z &amp;= 8 \\
+-3x - y + 2z &amp;= -11 \\
+-2x + y + 2z &amp;= -3
+\end{align}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">This can be represented in matrix form as:</span></p>
+<p style="text-align: center;"><img class="equation_image" title="\begin{bmatrix}
+2 &amp; 1 &amp; -1 \\
+-3 &amp; -1 &amp; 2 \\
+-2 &amp; 1 &amp; 2
+\end{bmatrix} \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix} = \begin{bmatrix}
+8 \\
+-11 \\
+-3
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%25201%2520%2526%2520-1%2520%255C%255C%250A-3%2520%2526%2520-1%2520%2526%25202%2520%255C%255C%250A-2%2520%2526%25201%2520%2526%25202%250A%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250Ax%2520%255C%255C%250Ay%2520%255C%255C%250Az%250A%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A8%2520%255C%255C%250A-11%2520%255C%255C%250A-3%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: \begin{bmatrix}
+2 &amp; 1 &amp; -1 \\
+-3 &amp; -1 &amp; 2 \\
+-2 &amp; 1 &amp; 2
+\end{bmatrix} \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix} = \begin{bmatrix}
+8 \\
+-11 \\
+-3
+\end{bmatrix}" data-equation-content="\begin{bmatrix}
+2 &amp; 1 &amp; -1 \\
+-3 &amp; -1 &amp; 2 \\
+-2 &amp; 1 &amp; 2
+\end{bmatrix} \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix} = \begin{bmatrix}
+8 \\
+-11 \\
+-3
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">This can be written as Ax = b, where:</span></p>
+<p style="text-align: center;"><img class="equation_image" title="A = \begin{bmatrix}
+2 &amp; 1 &amp; -1 \\
+-3 &amp; -1 &amp; 2 \\
+-2 &amp; 1 &amp; 2
+\end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix}
+8 \\
+-11 \\
+-3
+\end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A2%2520%2526%25201%2520%2526%2520-1%2520%255C%255C%250A-3%2520%2526%2520-1%2520%2526%25202%2520%255C%255C%250A-2%2520%2526%25201%2520%2526%25202%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520%255Cmathbf%257Bx%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250Ax%2520%255C%255C%250Ay%2520%255C%255C%250Az%250A%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520%255Cmathbf%257Bb%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A8%2520%255C%255C%250A-11%2520%255C%255C%250A-3%250A%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+2 &amp; 1 &amp; -1 \\
+-3 &amp; -1 &amp; 2 \\
+-2 &amp; 1 &amp; 2
+\end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix}
+8 \\
+-11 \\
+-3
+\end{bmatrix}" data-equation-content="A = \begin{bmatrix}
+2 &amp; 1 &amp; -1 \\
+-3 &amp; -1 &amp; 2 \\
+-2 &amp; 1 &amp; 2
+\end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix}
+8 \\
+-11 \\
+-3
+\end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><span style="font-size: 14pt;">As we've seen in previous sections, this system can be solved using Gaussian elimination or Gauss-Jordan elimination, which involve performing row operations on the augmented matrix [A | b].</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Transpose of a Matrix</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">The <strong>transpose</strong> of an m × n matrix A, denoted A<sup>T</sup>, is the n × m matrix obtained by interchanging the rows and columns of A.</span></p>
+<p><span style="font-size: 14pt;">If A = [a<sub>ij</sub>], then A<sup>T</sup> = [a<sub>ji</sub>].</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 6: Matrix Transpose</strong></span></h4>
+<p><span style="font-size: 14pt;">Find the transpose of:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    3 &amp; -2 &amp; 5 \\
+    1 &amp; 0 &amp; 4
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%2520-2%2520%2526%25205%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25200%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    3 &amp; -2 &amp; 5 \\
+    1 &amp; 0 &amp; 4
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    3 &amp; -2 &amp; 5 \\
+    1 &amp; 0 &amp; 4
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">The transpose of A is:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^T = \begin{bmatrix}
+    3 &amp; 1 \\
+    -2 &amp; 0 \\
+    5 &amp; 4
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255ET%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25203%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%2520-2%2520%2526%25200%2520%255C%255C%250A%2520%2520%2520%25205%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^T = \begin{bmatrix}
+    3 &amp; 1 \\
+    -2 &amp; 0 \\
+    5 &amp; 4
+    \end{bmatrix}" data-equation-content="\displaystyle A^T = \begin{bmatrix}
+    3 &amp; 1 \\
+    -2 &amp; 0 \\
+    5 &amp; 4
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Notice that A is a 2 × 3 matrix, while A<sup>T</sup> is a 3 × 2 matrix.</span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Properties of Transpose</strong></span></h4>
+<p><span style="font-size: 14pt;">For matrices of appropriate sizes:</span></p>
+<ol>
+<li><span style="font-size: 14pt;"><strong>Double Transpose:</strong> (A<sup>T</sup>)<sup>T</sup> = A</span></li>
+<li><span style="font-size: 14pt;"><strong>Transpose of Sum:</strong> (A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup></span></li>
+<li><span style="font-size: 14pt;"><strong>Transpose of Product:</strong> (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup> (note the reversal of order)</span></li>
+<li><span style="font-size: 14pt;"><strong>Transpose of Scalar Multiple:</strong> (cA)<sup>T</sup> = cA<sup>T</sup></span></li>
+</ol>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Example 7: Transpose of a Product</strong></span></h4>
+<p><span style="font-size: 14pt;">Verify the property (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup> for:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 \\
+    3 &amp; 4
+    \end{bmatrix}, \quad B = \begin{bmatrix}
+    0 &amp; 1 \\
+    2 &amp; 3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25203%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A = \begin{bmatrix}
+    1 &amp; 2 \\
+    3 &amp; 4
+    \end{bmatrix}, \quad B = \begin{bmatrix}
+    0 &amp; 1 \\
+    2 &amp; 3
+    \end{bmatrix}" data-equation-content="\displaystyle A = \begin{bmatrix}
+    1 &amp; 2 \\
+    3 &amp; 4
+    \end{bmatrix}, \quad B = \begin{bmatrix}
+    0 &amp; 1 \\
+    2 &amp; 3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">First, calculate AB:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle AB = \begin{bmatrix}
+    1 &amp; 2 \\
+    3 &amp; 4
+    \end{bmatrix} \begin{bmatrix}
+    0 &amp; 1 \\
+    2 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    4 &amp; 7 \\
+    8 &amp; 15
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520AB%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25203%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%25201%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25204%2520%2526%25207%2520%255C%255C%250A%2520%2520%2520%25208%2520%2526%252015%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: AB = \begin{bmatrix}
+    1 &amp; 2 \\
+    3 &amp; 4
+    \end{bmatrix} \begin{bmatrix}
+    0 &amp; 1 \\
+    2 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    4 &amp; 7 \\
+    8 &amp; 15
+    \end{bmatrix}" data-equation-content="\displaystyle AB = \begin{bmatrix}
+    1 &amp; 2 \\
+    3 &amp; 4
+    \end{bmatrix} \begin{bmatrix}
+    0 &amp; 1 \\
+    2 &amp; 3
+    \end{bmatrix} = \begin{bmatrix}
+    4 &amp; 7 \\
+    8 &amp; 15
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Then, find the transpose of AB:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle (AB)^T = \begin{bmatrix}
+    4 &amp; 8 \\
+    7 &amp; 15
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%28AB%29%255ET%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25204%2520%2526%25208%2520%255C%255C%250A%2520%2520%2520%25207%2520%2526%252015%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: (AB)^T = \begin{bmatrix}
+    4 &amp; 8 \\
+    7 &amp; 15
+    \end{bmatrix}" data-equation-content="\displaystyle (AB)^T = \begin{bmatrix}
+    4 &amp; 8 \\
+    7 &amp; 15
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Now, find A<sup>T</sup> and B<sup>T</sup>:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A^T = \begin{bmatrix}
+    1 &amp; 3 \\
+    2 &amp; 4
+    \end{bmatrix}, \quad B^T = \begin{bmatrix}
+    0 &amp; 2 \\
+    1 &amp; 3
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%255ET%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%252C%2520%255Cquad%2520B%255ET%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: A^T = \begin{bmatrix}
+    1 &amp; 3 \\
+    2 &amp; 4
+    \end{bmatrix}, \quad B^T = \begin{bmatrix}
+    0 &amp; 2 \\
+    1 &amp; 3
+    \end{bmatrix}" data-equation-content="\displaystyle A^T = \begin{bmatrix}
+    1 &amp; 3 \\
+    2 &amp; 4
+    \end{bmatrix}, \quad B^T = \begin{bmatrix}
+    0 &amp; 2 \\
+    1 &amp; 3
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Calculate B<sup>T</sup>A<sup>T</sup>:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle B^T A^T = \begin{bmatrix}
+    0 &amp; 2 \\
+    1 &amp; 3
+    \end{bmatrix} \begin{bmatrix}
+    1 &amp; 3 \\
+    2 &amp; 4
+    \end{bmatrix} = \begin{bmatrix}
+    0 \cdot 1 + 2 \cdot 2 &amp; 0 \cdot 3 + 2 \cdot 4 \\
+    1 \cdot 1 + 3 \cdot 2 &amp; 1 \cdot 3 + 3 \cdot 4
+    \end{bmatrix} = \begin{bmatrix}
+    4 &amp; 8 \\
+    7 &amp; 15
+    \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520B%255ET%2520A%255ET%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%2526%25202%2520%255C%255C%250A%2520%2520%2520%25201%2520%2526%25203%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25201%2520%2526%25203%2520%255C%255C%250A%2520%2520%2520%25202%2520%2526%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25200%2520%255Ccdot%25201%2520%252B%25202%2520%255Ccdot%25202%2520%2526%25200%2520%255Ccdot%25203%2520%252B%25202%2520%255Ccdot%25204%2520%255C%255C%250A%2520%2520%2520%25201%2520%255Ccdot%25201%2520%252B%25203%2520%255Ccdot%25202%2520%2526%25201%2520%255Ccdot%25203%2520%252B%25203%2520%255Ccdot%25204%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%250A%2520%2520%2520%25204%2520%2526%25208%2520%255C%255C%250A%2520%2520%2520%25207%2520%2526%252015%250A%2520%2520%2520%2520%255Cend%257Bbmatrix%257D?scale=1.16666875" alt="LaTeX: B^T A^T = \begin{bmatrix}
+    0 &amp; 2 \\
+    1 &amp; 3
+    \end{bmatrix} \begin{bmatrix}
+    1 &amp; 3 \\
+    2 &amp; 4
+    \end{bmatrix} = \begin{bmatrix}
+    0 \cdot 1 + 2 \cdot 2 &amp; 0 \cdot 3 + 2 \cdot 4 \\
+    1 \cdot 1 + 3 \cdot 2 &amp; 1 \cdot 3 + 3 \cdot 4
+    \end{bmatrix} = \begin{bmatrix}
+    4 &amp; 8 \\
+    7 &amp; 15
+    \end{bmatrix}" data-equation-content="\displaystyle B^T A^T = \begin{bmatrix}
+    0 &amp; 2 \\
+    1 &amp; 3
+    \end{bmatrix} \begin{bmatrix}
+    1 &amp; 3 \\
+    2 &amp; 4
+    \end{bmatrix} = \begin{bmatrix}
+    0 \cdot 1 + 2 \cdot 2 &amp; 0 \cdot 3 + 2 \cdot 4 \\
+    1 \cdot 1 + 3 \cdot 2 &amp; 1 \cdot 3 + 3 \cdot 4
+    \end{bmatrix} = \begin{bmatrix}
+    4 &amp; 8 \\
+    7 &amp; 15
+    \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">Since (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>, the property is verified.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Applications in Data Science</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>Merging or Combining Datasets</strong></span></h4>
+<p><span style="font-size: 14pt;"><span>Matrix addition and subtraction allow for the efficient combination of two or more datasets that share the same structure (same number of rows and columns), such as combining datasets from different time periods or sources.</span></span></p>
+<h4><span style="color: #c13d40;"><strong>Normalizing Data</strong></span></h4>
+<p><span style="font-size: 14pt;"><span>Normalizing data involves scaling input features to a similar range (often 0 to 1) or centering them around zero to improve model convergence.</span><span class="uJ19be notranslate" data-wiz-uids="YJR6qb_1c,YJR6qb_1d" data-processed="true"><span class="vKEkVd" data-animation-atomic="" data-wiz-attrbind="class=YJR6qb_1b/TKHnVd" data-processed="true"><span aria-hidden="true" data-processed="true">&nbsp;</span></span></span></span></p>
+<h4><span style="color: #c13d40;"><strong>Optimization and Modeling</strong></span></h4>
+<p><span style="font-size: 14pt;">In machine learning and neural networks, weight matrices are constantly updated to minimize error. <span>Block matrices are&nbsp;</span><span>widely used in data science and numerical optimization to efficiently handle large-scale datasets, optimizing computations, and modeling complex relationships, particularly in machine learning, statistics, and parallel computing.<span class="uJ19be notranslate" data-wiz-uids="CyLspd_b,CyLspd_c" data-processed="true"><span class="vKEkVd" data-animation-atomic="" data-wiz-attrbind="class=CyLspd_a/TKHnVd" data-processed="true"><span aria-hidden="true" data-processed="true">&nbsp;</span></span></span></span></span></p>
+<h4><span style="color: #c13d40; font-size: 14pt;"><strong>Feature Engineering</strong></span></h4>
+<p><span style="font-size: 14pt;">Matrix operations are fundamental in feature engineering:</span></p>
+<ul>
+<li><span style="font-size: 14pt;">Data normalization using matrix multiplication and addition</span></li>
+<li><span style="font-size: 14pt;">Feature scaling through diagonal matrices</span></li>
+<li><span style="font-size: 14pt;">One-hot encoding represented as block matrices</span></li>
+</ul>
+<h4><span style="color: #c13d40;"><strong>Data Preprocessing and Manipulation</strong></span></h4>
+<p><span style="font-size: 14pt;"><span class="T286Pc" data-sfc-cp="" data-processed="true">In data analysis, transposing can reorient tables to better fit plotting libraries, such as switching from a wide format to a long format to create bar charts or time-series plots.</span><span class="uJ19be notranslate" data-wiz-uids="G1Wqcd_13,G1Wqcd_14" data-processed="true"><span class="vKEkVd" data-animation-atomic="" data-wiz-attrbind="class=G1Wqcd_12/TKHnVd" data-processed="true"><span aria-hidden="true" data-processed="true">&nbsp;</span></span></span></span></p>
+<h4><span style="color: #c13d40;"><strong>Linear Regression</strong></span></h4>
+<p><span style="font-size: 14pt;"><span class="T286Pc" data-sfc-cp="" data-processed="true">Compute optimal parameters <span>that minimizes the squared residuals.</span></span></span></p>
+</div>
+</div>
+<div style="background: #E7F2FF; padding: 16px; border-radius: 10px; border-left: 6px solid #9fc5f8;">
+<h3 style="margin-top: 0; color: #555fa3;"><strong>&nbsp;🎥 Video:</strong></h3>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/SYzQPWMUhV8" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/6Hmzu-WKCjc" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+<p><strong><span><iframe title="YouTube video player" src="https://www.youtube.com/embed/hPAS6H6xFa0" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></span></strong></p>
+<p><iframe title="YouTube video player" src="https://www.youtube.com/embed/OYFImHK0jQA" width="560" height="315" loading="lazy" data-mce-fragment="1"></iframe></p>
+</div>
+</body>
+</html>

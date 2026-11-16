@@ -1,0 +1,263 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>📚Reading: Unit 6.3 Matrices for Linear Transformations</title>
+<meta name="identifier" content="g034018bbe2155335e11ee0c14cdd489a"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+<meta name="editor_type" content="rce"/>
+</head>
+<body>
+<h2 class="content-box pad-box-large" style="background-color: #c13d40; color: white; border-radius: 5px; padding: 16px;"><strong>Matrices for Linear Transformations</strong></h2>
+<div class="border border-b" style="border-color: #FFFFFF; padding-left: 15px; padding-right: 15px;">
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Introduction</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p><span style="font-size: 14pt;">Linear transformations map vectors from one space to another while preserving vector addition and scalar multiplication. A remarkable property of linear transformations between finite-dimensional vector spaces is that they can always be represented by a matrix. This means that applying a linear transformation to a vector is equivalent to multiplying that vector by a specific matrix. This matrix representation allows us to use all the tools of matrix algebra to analyze and compute linear transformations, providing a powerful and efficient computational framework.</span></p>
+<p><span style="font-size: 14pt;">Matrix transformations are linear algebra techniques used in data science to manipulate, project, and transform data points (vectors) within a vector space, effectively performing operations like scaling, rotation, reflection, and shearing. We will</span>&nbsp;<span style="font-size: 14pt;">explore how matrices represent linear transformations, how to find the matrix representation of a given transformation, and how different bases affect these representations as well as how these concepts apply to practical problems in data science.</span></p>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Matrix Representation of Linear Transformations</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>The Standard Matrix</strong></span></h4>
+<p><span style="font-size: 14pt;">Let <img class="equation_image" title="\displaystyle T: {R}^n \rightarrow {R}^m" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520T%253A%2520%257BR%257D%255En%2520%255Crightarrow%2520%257BR%257D%255Em?scale=1.16666875" alt="LaTeX: \displaystyle T: {R}^n \rightarrow {R}^m" data-equation-content="\displaystyle T: {R}^n \rightarrow {R}^m" data-ignore-a11y-check="" loading="lazy">&nbsp;be a linear transformation. </span><span style="font-size: 14pt;">There exists a unique <img class="equation_image" title="\displaystyle m \times n" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520m%2520%255Ctimes%2520n" alt="LaTeX: m \times n" data-equation-content="\displaystyle m \times n" data-ignore-a11y-check="" loading="lazy"> matrix A such that <img class="equation_image" title="\displaystyle T(\mathbf{x}) = A\mathbf{x}" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520T%28%255Cmathbf%257Bx%257D%29%2520%253D%2520A%255Cmathbf%257Bx%257D" alt="LaTeX: T(\mathbf{x}) = A\mathbf{x}" data-equation-content="\displaystyle T(\mathbf{x}) = A\mathbf{x}" data-ignore-a11y-check="" loading="lazy"> for all <img class="equation_image" title="\displaystyle \mathbf{x} \in \mathbb{R}^n" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cmathbf%257Bx%257D%2520%255Cin%2520%255Cmathbb%257BR%257D%255En" alt="LaTeX: \mathbf{x} \in \mathbb{R}^n" data-equation-content="\displaystyle \mathbf{x} \in \mathbb{R}^n" data-ignore-a11y-check="" loading="lazy">. This matrix A is called the <strong>standard matrix for T</strong>.</span></p>
+<p><span style="font-size: 14pt;">The columns of A are the images of the standard basis vectors of R<sup>n</sup> under T:</span></p>
+<p style="text-align: left;"><span style="font-size: 14pt;"><img class="equation_image" title="\displaystyle A = [T(\mathbf{e}_1) \quad T(\mathbf{e}_2) \quad \ldots \quad T(\mathbf{e}_n)]" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520A%2520%253D%2520%5BT%28%255Cmathbf%257Be%257D_1%29%2520%255Cquad%2520T%28%255Cmathbf%257Be%257D_2%29%2520%255Cquad%2520%255Cldots%2520%255Cquad%2520T%28%255Cmathbf%257Be%257D_n%29%5D" alt="LaTeX: A = [T(\mathbf{e}_1) \quad T(\mathbf{e}_2) \quad \ldots \quad T(\mathbf{e}_n)]" data-equation-content="\displaystyle A = [T(\mathbf{e}_1) \quad T(\mathbf{e}_2) \quad \ldots \quad T(\mathbf{e}_n)]" data-ignore-a11y-check="" loading="lazy"></span></p>
+<p><span style="font-size: 14pt;">where <img class="equation_image" title="\displaystyle \mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n" src="https://ilearn.laccd.edu/equation_images/%255Cdisplaystyle%2520%255Cmathbf%257Be%257D_1%252C%2520%255Cmathbf%257Be%257D_2%252C%2520%255Cldots%252C%2520%255Cmathbf%257Be%257D_n" alt="LaTeX: \mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n" data-equation-content="\displaystyle \mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n" data-ignore-a11y-check="" loading="lazy"> are the standard basis vectors of R<sup>n</sup>.</span></p>
+<h4><span style="color: #c13d40;"><strong>Example: Finding the Standard Matrix</strong></span></h4>
+<p>Consider the linear transformation T: R<sup>2</sup> → R<sup>3</sup> defined by:</p>
+<p><img class="equation_image" title="T\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x + y \\ x - y \\ 2y \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/T%255Cbegin%257Bpmatrix%257D%2520x%2520%255C%255C%2520y%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%2520x%2520%252B%2520y%2520%255C%255C%2520x%2520-%2520y%2520%255C%255C%25202y%2520%255Cend%257Bpmatrix%257D" alt="Example linear transformation" data-equation-content="T\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x + y \\ x - y \\ 2y \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>The standard basis vectors in R<sup>2</sup> are:</p>
+<p><img class="equation_image" title="e_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad e_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/e_1%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25200%2520%255Cend%257Bpmatrix%257D%252C%2520%255Cquad%2520e_2%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25200%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D" alt="Standard basis vectors in R^2" data-equation-content="e_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad e_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Applying T to these basis vectors:</p>
+<p><img class="equation_image" title="T(e_1) = T\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/T%2528e_1%2529%2520%253D%2520T%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25200%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255C%255C%25200%2520%255Cend%257Bpmatrix%257D" alt="T applied to e_1" data-equation-content="T(e_1) = T\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><img class="equation_image" title="T(e_2) = T\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \\ 2 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/T%2528e_2%2529%2520%253D%2520T%255Cbegin%257Bpmatrix%257D%25200%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255C%255C%25202%2520%255Cend%257Bpmatrix%257D" alt="T applied to e_2" data-equation-content="T(e_2) = T\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \\ 2 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Therefore, the standard matrix for T is:</p>
+<p><img class="equation_image" title="A = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 0 &amp; 2 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/A%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25201%2520%255C%255C%25201%2520%2526%2520-1%2520%255C%255C%25200%2520%2526%25202%2520%255Cend%257Bbmatrix%257D" alt="Standard matrix for the example" data-equation-content="A = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 0 &amp; 2 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>We can verify this works for any vector in R<sup>2</sup>. For example:</p>
+<p><img class="equation_image" title="T\begin{pmatrix} 3 \\ 2 \end{pmatrix} = \begin{pmatrix} 3 + 2 \\ 3 - 2 \\ 2 \cdot 2 \end{pmatrix} = \begin{pmatrix} 5 \\ 1 \\ 4 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/T%255Cbegin%257Bpmatrix%257D%25203%2520%255C%255C%25202%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25203%2520%252B%25202%2520%255C%255C%25203%2520-%25202%2520%255C%255C%25202%2520%255Ccdot%25202%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25205%2520%255C%255C%25201%2520%255C%255C%25204%2520%255Cend%257Bpmatrix%257D" alt="T applied to a vector" data-equation-content="T\begin{pmatrix} 3 \\ 2 \end{pmatrix} = \begin{pmatrix} 3 + 2 \\ 3 - 2 \\ 2 \cdot 2 \end{pmatrix} = \begin{pmatrix} 5 \\ 1 \\ 4 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>And using the matrix A:</p>
+<p><img class="equation_image" title="A\begin{pmatrix} 3 \\ 2 \end{pmatrix} = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 0 &amp; 2 \end{bmatrix} \begin{pmatrix} 3 \\ 2 \end{pmatrix} = \begin{pmatrix} 1 \cdot 3 + 1 \cdot 2 \\ 1 \cdot 3 + (-1) \cdot 2 \\ 0 \cdot 3 + 2 \cdot 2 \end{pmatrix} = \begin{pmatrix} 5 \\ 1 \\ 4 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/A%255Cbegin%257Bpmatrix%257D%25203%2520%255C%255C%25202%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25201%2520%255C%255C%25201%2520%2526%2520-1%2520%255C%255C%25200%2520%2526%25202%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bpmatrix%257D%25203%2520%255C%255C%25202%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255Ccdot%25203%2520%252B%25201%2520%255Ccdot%25202%2520%255C%255C%25201%2520%255Ccdot%25203%2520%252B%2520%2528-1%2529%2520%255Ccdot%25202%2520%255C%255C%25200%2520%255Ccdot%25203%2520%252B%25202%2520%255Ccdot%25202%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25205%2520%255C%255C%25201%2520%255C%255C%25204%2520%255Cend%257Bpmatrix%257D" alt="Matrix multiplication example" data-equation-content="A\begin{pmatrix} 3 \\ 2 \end{pmatrix} = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 0 &amp; 2 \end{bmatrix} \begin{pmatrix} 3 \\ 2 \end{pmatrix} = \begin{pmatrix} 1 \cdot 3 + 1 \cdot 2 \\ 1 \cdot 3 + (-1) \cdot 2 \\ 0 \cdot 3 + 2 \cdot 2 \end{pmatrix} = \begin{pmatrix} 5 \\ 1 \\ 4 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<div style="background-color: #f8f9fa; border-left: 5px solid #C13D40; padding: 10px; margin: 15px 0;">
+<p><strong>Key Procedure:</strong> To find the standard matrix for a linear transformation T: R<sup>n</sup> → R<sup>m</sup>, apply T to each standard basis vector in R<sup>n</sup> and use the resulting vectors as the columns of the matrix.</p>
+</div>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Matrix Representations with Respect to Different Bases</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>Non-Standard Bases</strong></span></h4>
+<p>The standard matrix represents a linear transformation with respect to the standard bases of the domain and codomain. However, we can also represent linear transformations with respect to other bases.</p>
+<p>Let T: V → W be a linear transformation between vector spaces V and W. If B = {v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n</sub>} is a basis for V and C = {w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>m</sub>} is a basis for W, then we can find a matrix [T]<sub>C,B</sub> that represents T with respect to these bases.</p>
+<h4><span style="color: #c13d40;"><strong>Finding the Matrix Representation</strong></span></h4>
+<p>To find [T]<sub>C,B</sub>, we apply T to each basis vector v<sub>j</sub> in B, express the result as a linear combination of the basis vectors in C, and use the coefficients as the columns of the matrix:</p>
+<p><img class="equation_image" title="T(v_j) = \sum_{i=1}^{m} a_{ij} w_i" src="https://ilearn.laccd.edu/equation_images/T%2528v_j%2529%2520%253D%2520%255Csum_%257Bi%253D1%257D%255E%257Bm%257D%2520a_%257Bij%257D%2520w_i" alt="T(v_j) as a linear combination" data-equation-content="T(v_j) = \sum_{i=1}^{m} a_{ij} w_i" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Then, the matrix [T]<sub>C,B</sub> is:</p>
+<p><img class="equation_image" title="[T]_{C,B} = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255BT%255D_%257BC%252CB%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520a_%257B11%257D%2520%2526%2520a_%257B12%257D%2520%2526%2520%255Ccdots%2520%2526%2520a_%257B1n%257D%2520%255C%255C%2520a_%257B21%257D%2520%2526%2520a_%257B22%257D%2520%2526%2520%255Ccdots%2520%2526%2520a_%257B2n%257D%2520%255C%255C%2520%255Cvdots%2520%2526%2520%255Cvdots%2520%2526%2520%255Cddots%2520%2526%2520%255Cvdots%2520%255C%255C%2520a_%257Bm1%257D%2520%2526%2520a_%257Bm2%257D%2520%2526%2520%255Ccdots%2520%2526%2520a_%257Bmn%257D%2520%255Cend%257Bbmatrix%257D" alt="Matrix representation with respect to bases" data-equation-content="[T]_{C,B} = \begin{bmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<h4><span style="color: #c13d40;"><strong>Example: Matrix Representation in Different Bases</strong></span></h4>
+<p>Consider the linear transformation T: R<sup>2</sup> → R<sup>2</sup> that rotates vectors counterclockwise by 90°. The standard matrix for T is:</p>
+<p><img class="equation_image" title="[T]_{E,E} = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255BT%255D_%257BE%252CE%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-1%2520%255C%255C%25201%2520%2526%25200%2520%255Cend%257Bbmatrix%257D" alt="Standard matrix for 90-degree rotation" data-equation-content="[T]_{E,E} = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>where E denotes the standard basis.</p>
+<p>Now, let's find the matrix representation with respect to the basis B = {b<sub>1</sub>, b<sub>2</sub>} where:</p>
+<p><img class="equation_image" title="b_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/b_1%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%252C%2520%255Cquad%2520b_2%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D" alt="Basis B vectors" data-equation-content="b_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Step 1: Apply T to each basis vector in B.</p>
+<p>For b<sub>1</sub> = (1, 1):</p>
+<p><img class="equation_image" title="T(b_1) = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/T%2528b_1%2529%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-1%2520%255C%255C%25201%2520%2526%25200%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%2520-1%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D" alt="T applied to b_1" data-equation-content="T(b_1) = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>For b<sub>2</sub> = (1, -1):</p>
+<p><img class="equation_image" title="T(b_2) = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/T%2528b_2%2529%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-1%2520%255C%255C%25201%2520%2526%25200%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D" alt="T applied to b_2" data-equation-content="T(b_2) = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Step 2: Express T(b<sub>1</sub>) and T(b<sub>2</sub>) as linear combinations of b<sub>1</sub> and b<sub>2</sub>.</p>
+<p>We need to find coefficients c<sub>11</sub>, c<sub>21</sub>, c<sub>12</sub>, c<sub>22</sub> such that:</p>
+<p><img class="equation_image" title="T(b_1) = c_{11}b_1 + c_{21}b_2" src="https://ilearn.laccd.edu/equation_images/T%2528b_1%2529%2520%253D%2520c_%257B11%257Db_1%2520%252B%2520c_%257B21%257Db_2" alt="T(b_1) as linear combination" data-equation-content="T(b_1) = c_{11}b_1 + c_{21}b_2" data-ignore-a11y-check="" loading="lazy"></p>
+<p><img class="equation_image" title="T(b_2) = c_{12}b_1 + c_{22}b_2" src="https://ilearn.laccd.edu/equation_images/T%2528b_2%2529%2520%253D%2520c_%257B12%257Db_1%2520%252B%2520c_%257B22%257Db_2" alt="T(b_2) as linear combination" data-equation-content="T(b_2) = c_{12}b_1 + c_{22}b_2" data-ignore-a11y-check="" loading="lazy"></p>
+<p>For T(b<sub>1</sub>) = (-1, 1):</p>
+<p><img class="equation_image" title="\begin{pmatrix} -1 \\ 1 \end{pmatrix} = c_{11}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{21}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bpmatrix%257D%2520-1%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%253D%2520c_%257B11%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%252B%2520c_%257B21%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D" alt="Equation for coefficients of T(b_1)" data-equation-content="\begin{pmatrix} -1 \\ 1 \end{pmatrix} = c_{11}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{21}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>This gives us the system:</p>
+<p>c<sub>11</sub> + c<sub>21</sub> = -1</p>
+<p>c<sub>11</sub> - c<sub>21</sub> = 1</p>
+<p>Solving this system: c<sub>11</sub> = 0, c<sub>21</sub> = -1</p>
+<p>For T(b<sub>2</sub>) = (1, 1):</p>
+<p><img class="equation_image" title="\begin{pmatrix} 1 \\ 1 \end{pmatrix} = c_{12}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{22}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%253D%2520c_%257B12%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%252B%2520c_%257B22%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D" alt="Equation for coefficients of T(b_2)" data-equation-content="\begin{pmatrix} 1 \\ 1 \end{pmatrix} = c_{12}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{22}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>This gives us the system:</p>
+<p>c<sub>12</sub> + c<sub>22</sub> = 1</p>
+<p>c<sub>12</sub> - c<sub>22</sub> = 1</p>
+<p>Solving this system: c<sub>12</sub> = 1, c<sub>22</sub> = 0</p>
+<p>Step 3: Form the matrix representation [T]<sub>B,B</sub>.</p>
+<p><img class="equation_image" title="[T]_{B,B} = \begin{bmatrix} c_{11} &amp; c_{12} \\ c_{21} &amp; c_{22} \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255BT%255D_%257BB%252CB%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520c_%257B11%257D%2520%2526%2520c_%257B12%257D%2520%255C%255C%2520c_%257B21%257D%2520%2526%2520c_%257B22%257D%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%25201%2520%255C%255C%2520-1%2520%2526%25200%2520%255Cend%257Bbmatrix%257D" alt="Matrix representation with respect to basis B" data-equation-content="[T]_{B,B} = \begin{bmatrix} c_{11} &amp; c_{12} \\ c_{21} &amp; c_{22} \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Note that this matrix is different from the standard matrix [T]<sub>E,E</sub>, even though they represent the same linear transformation. The difference arises because we're using different bases to express the vectors.</p>
+<div style="background-color: #f8f9fa; border-left: 5px solid #C13D40; padding: 10px; margin: 15px 0;">
+<p><strong>Important Insight:</strong> The matrix representation of a linear transformation depends on the choice of bases for the domain and codomain. Different bases lead to different matrices representing the same transformation. This is why it's crucial to specify the bases when discussing matrix representations.</p>
+</div>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Change of Basis Matrices</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>Coordinate Vectors</strong></span></h4>
+<p>Given a basis B = {v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>n</sub>} for a vector space V, any vector v in V can be uniquely expressed as a linear combination of the basis vectors:</p>
+<p><img class="equation_image" title="v = c_1v_1 + c_2v_2 + \cdots + c_nv_n" src="https://ilearn.laccd.edu/equation_images/v%2520%253D%2520c_1v_1%2520%252B%2520c_2v_2%2520%252B%2520%255Ccdots%2520%252B%2520c_nv_n" alt="Vector as linear combination of basis vectors" data-equation-content="v = c_1v_1 + c_2v_2 + \cdots + c_nv_n" data-ignore-a11y-check="" loading="lazy"></p>
+<p>The coordinate vector of v with respect to the basis B, denoted [v]<sub>B</sub>, is:</p>
+<p><img class="equation_image" title="[v]_B = \begin{pmatrix} c_1 \\ c_2 \\ \vdots \\ c_n \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Bv%255D_B%2520%253D%2520%255Cbegin%257Bpmatrix%257D%2520c_1%2520%255C%255C%2520c_2%2520%255C%255C%2520%255Cvdots%2520%255C%255C%2520c_n%2520%255Cend%257Bpmatrix%257D" alt="Coordinate vector" data-equation-content="[v]_B = \begin{pmatrix} c_1 \\ c_2 \\ \vdots \\ c_n \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<h4><span style="color: #c13d40;"><strong>Change of Basis Matrix</strong></span></h4>
+<p>If B and C are two bases for a vector space V, then there exists a change of basis matrix P<sub>B→C</sub> such that:</p>
+<p><img class="equation_image" title="[v]_C = P_{B \to C} [v]_B" src="https://ilearn.laccd.edu/equation_images/%255Bv%255D_C%2520%253D%2520P_%257BB%2520%255Cto%2520C%257D%2520%255Bv%255D_B" alt="Change of basis equation" data-equation-content="[v]_C = P_{B \to C} [v]_B" data-ignore-a11y-check="" loading="lazy"></p>
+<p>for all vectors v in V.</p>
+<p>To find P<sub>B→C</sub>, we express each basis vector in B as a linear combination of the basis vectors in C. Specifically, if:</p>
+<p><img class="equation_image" title="v_j = \sum_{i=1}^{n} p_{ij} w_i" src="https://ilearn.laccd.edu/equation_images/v_j%2520%253D%2520%255Csum_%257Bi%253D1%257D%255E%257Bn%257D%2520p_%257Bij%257D%2520w_i" alt="Basis vector as linear combination" data-equation-content="v_j = \sum_{i=1}^{n} p_{ij} w_i" data-ignore-a11y-check="" loading="lazy"></p>
+<p>where v<sub>j</sub> is the jth basis vector in B and w<sub>i</sub> is the ith basis vector in C, then:</p>
+<p><img class="equation_image" title="P_{B \to C} = \begin{bmatrix} p_{11} &amp; p_{12} &amp; \cdots &amp; p_{1n} \\ p_{21} &amp; p_{22} &amp; \cdots &amp; p_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ p_{n1} &amp; p_{n2} &amp; \cdots &amp; p_{nn} \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/P_%257BB%2520%255Cto%2520C%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520p_%257B11%257D%2520%2526%2520p_%257B12%257D%2520%2526%2520%255Ccdots%2520%2526%2520p_%257B1n%257D%2520%255C%255C%2520p_%257B21%257D%2520%2526%2520p_%257B22%257D%2520%2526%2520%255Ccdots%2520%2526%2520p_%257B2n%257D%2520%255C%255C%2520%255Cvdots%2520%2526%2520%255Cvdots%2520%2526%2520%255Cddots%2520%2526%2520%255Cvdots%2520%255C%255C%2520p_%257Bn1%257D%2520%2526%2520p_%257Bn2%257D%2520%2526%2520%255Ccdots%2520%2526%2520p_%257Bnn%257D%2520%255Cend%257Bbmatrix%257D" alt="Change of basis matrix" data-equation-content="P_{B \to C} = \begin{bmatrix} p_{11} &amp; p_{12} &amp; \cdots &amp; p_{1n} \\ p_{21} &amp; p_{22} &amp; \cdots &amp; p_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ p_{n1} &amp; p_{n2} &amp; \cdots &amp; p_{nn} \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>The jth column of P<sub>B→C</sub> is the coordinate vector of the jth basis vector of B with respect to the basis C.</p>
+<h4><span style="color: #c13d40;"><strong>Example: Finding a Change of Basis Matrix</strong></span></h4>
+<p>Consider the standard basis E = {e<sub>1</sub>, e<sub>2</sub>} for R<sup>2</sup> and the basis B = {b<sub>1</sub>, b<sub>2</sub>} where:</p>
+<p><img class="equation_image" title="e_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad e_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/e_1%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25200%2520%255Cend%257Bpmatrix%257D%252C%2520%255Cquad%2520e_2%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25200%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D" alt="Standard basis vectors" data-equation-content="e_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad e_2 = \begin{pmatrix} 0 \\ 1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p><img class="equation_image" title="b_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/b_1%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%252C%2520%255Cquad%2520b_2%2520%253D%2520%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D" alt="Basis B vectors" data-equation-content="b_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Let's find the change of basis matrix P<sub>E→B</sub> that converts coordinates with respect to E to coordinates with respect to B.</p>
+<p>Step 1: Express each standard basis vector as a linear combination of the basis vectors in B.</p>
+<p>For e<sub>1</sub> = (1, 0):</p>
+<p><img class="equation_image" title="\begin{pmatrix} 1 \\ 0 \end{pmatrix} = c_{11}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{21}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25200%2520%255Cend%257Bpmatrix%257D%2520%253D%2520c_%257B11%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%252B%2520c_%257B21%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D" alt="Equation for e_1" data-equation-content="\begin{pmatrix} 1 \\ 0 \end{pmatrix} = c_{11}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{21}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>This gives us the system:</p>
+<p>c<sub>11</sub> + c<sub>21</sub> = 1</p>
+<p>c<sub>11</sub> - c<sub>21</sub> = 0</p>
+<p>Solving this system: c<sub>11</sub> = 1/2, c<sub>21</sub> = 1/2</p>
+<p>For e<sub>2</sub> = (0, 1):</p>
+<p><img class="equation_image" title="\begin{pmatrix} 0 \\ 1 \end{pmatrix} = c_{12}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{22}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bpmatrix%257D%25200%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%253D%2520c_%257B12%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%25201%2520%255Cend%257Bpmatrix%257D%2520%252B%2520c_%257B22%257D%255Cbegin%257Bpmatrix%257D%25201%2520%255C%255C%2520-1%2520%255Cend%257Bpmatrix%257D" alt="Equation for e_2" data-equation-content="\begin{pmatrix} 0 \\ 1 \end{pmatrix} = c_{12}\begin{pmatrix} 1 \\ 1 \end{pmatrix} + c_{22}\begin{pmatrix} 1 \\ -1 \end{pmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>This gives us the system:</p>
+<p>c<sub>12</sub> + c<sub>22</sub> = 0</p>
+<p>c<sub>12</sub> - c<sub>22</sub> = 1</p>
+<p>Solving this system: c<sub>12</sub> = 1/2, c<sub>22</sub> = -1/2</p>
+<p>Step 2: Form the change of basis matrix P<sub>E→B</sub>.</p>
+<p><img class="equation_image" title="P_{E \to B} = \begin{bmatrix} c_{11} &amp; c_{12} \\ c_{21} &amp; c_{22} \end{bmatrix} = \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/P_%257BE%2520%255Cto%2520B%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520c_%257B11%257D%2520%2526%2520c_%257B12%257D%2520%255C%255C%2520c_%257B21%257D%2520%2526%2520c_%257B22%257D%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%252F2%2520%2526%25201%252F2%2520%255C%255C%25201%252F2%2520%2526%2520-1%252F2%2520%255Cend%257Bbmatrix%257D" alt="Change of basis matrix E to B" data-equation-content="P_{E \to B} = \begin{bmatrix} c_{11} &amp; c_{12} \\ c_{21} &amp; c_{22} \end{bmatrix} = \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>This matrix converts coordinates with respect to the standard basis E to coordinates with respect to the basis B.</p>
+<p>Similarly, we can find the change of basis matrix P<sub>B→E</sub> that converts coordinates with respect to B to coordinates with respect to E:</p>
+<p><img class="equation_image" title="P_{B \to E} = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/P_%257BB%2520%255Cto%2520E%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25201%2520%255C%255C%25201%2520%2526%2520-1%2520%255Cend%257Bbmatrix%257D" alt="Change of basis matrix B to E" data-equation-content="P_{B \to E} = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Note that P<sub>B→E</sub> = (P<sub>E→B</sub>)<sup>-1</sup>, which is a general property of change of basis matrices.</p>
+<div style="background-color: #f8f9fa; border-left: 5px solid #C13D40; padding: 10px; margin: 15px 0;">
+<p><strong>Key Relationship:</strong> If P is the change of basis matrix from basis B to basis C, then P<sup>-1</sup> is the change of basis matrix from basis C to basis B. This inverse relationship is fundamental to understanding how coordinate systems relate to each other.</p>
+</div>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Relating Matrix Representations of Linear Transformations</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>The Similarity Transformation</strong></span></h4>
+<p>If T: V → V is a linear transformation with matrix representations [T]<sub>B,B</sub> and [T]<sub>C,C</sub> with respect to bases B and C, respectively, then these matrices are related by:</p>
+<p><img class="equation_image" title="[T]_{C,C} = P^{-1} [T]_{B,B} P" src="https://ilearn.laccd.edu/equation_images/%255BT%255D_%257BC%252CC%257D%2520%253D%2520P%255E%257B-1%257D%2520%255BT%255D_%257BB%252CB%257D%2520P" alt="Similarity transformation" data-equation-content="[T]_{C,C} = P^{-1} [T]_{B,B} P" data-ignore-a11y-check="" loading="lazy"></p>
+<p>where P = P<sub>B→C</sub> is the change of basis matrix from B to C.</p>
+<p>This relationship is called a similarity transformation, and matrices related in this way are said to be similar. Similar matrices represent the same linear transformation with respect to different bases.</p>
+<h4><span style="color: #c13d40;"><strong>General Case: Different Domain and Codomain Bases</strong></span></h4>
+<p>For a linear transformation T: V → W with matrix representations [T]<sub>C,B</sub> and [T]<sub>E,D</sub> with respect to bases B, C, D, and E, the relationship is:</p>
+<p><img class="equation_image" title="[T]_{E,D} = Q^{-1} [T]_{C,B} P" src="https://ilearn.laccd.edu/equation_images/%255BT%255D_%257BE%252CD%257D%2520%253D%2520Q%255E%257B-1%257D%2520%255BT%255D_%257BC%252CB%257D%2520P" alt="General relationship between matrix representations" data-equation-content="[T]_{E,D} = Q^{-1} [T]_{C,B} P" data-ignore-a11y-check="" loading="lazy"></p>
+<p>where P = P<sub>D→B</sub> is the change of basis matrix from D to B, and Q = P<sub>C→E</sub> is the change of basis matrix from C to E.</p>
+<h4><span style="color: #c13d40;"><strong>Example: Verifying the Similarity Relationship</strong></span></h4>
+<p>Let's verify the similarity relationship for our earlier example of the 90° rotation transformation T.</p>
+<p>We found:</p>
+<p>[T]<sub>E,E</sub> = [[0, -1], [1, 0]]</p>
+<p>[T]<sub>B,B</sub> = [[0, 1], [-1, 0]]</p>
+<p>P<sub>E→B</sub> = [[1/2, 1/2], [1/2, -1/2]]</p>
+<p>P<sub>B→E</sub> = [[1, 1], [1, -1]]</p>
+<p>According to the similarity relationship:</p>
+<p><img class="equation_image" title="[T]_{E,E} = P_{B \to E} [T]_{B,B} P_{E \to B}" src="https://ilearn.laccd.edu/equation_images/%255BT%255D_%257BE%252CE%257D%2520%253D%2520P_%257BB%2520%255Cto%2520E%257D%2520%255BT%255D_%257BB%252CB%257D%2520P_%257BE%2520%255Cto%2520B%257D" alt="Similarity relationship for the example" data-equation-content="[T]_{E,E} = P_{B \to E} [T]_{B,B} P_{E \to B}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>Let's compute the right-hand side:</p>
+<p><img class="equation_image" title="\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix} \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{bmatrix} = \begin{bmatrix} -1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{bmatrix} = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}" src="https://ilearn.laccd.edu/equation_images/%255Cbegin%257Bbmatrix%257D%25201%2520%2526%25201%2520%255C%255C%25201%2520%2526%2520-1%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%25201%2520%255C%255C%2520-1%2520%2526%25200%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%25201%252F2%2520%2526%25201%252F2%2520%255C%255C%25201%252F2%2520%2526%2520-1%252F2%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%2520-1%2520%2526%25201%2520%255C%255C%25201%2520%2526%25201%2520%255Cend%257Bbmatrix%257D%2520%255Cbegin%257Bbmatrix%257D%25201%252F2%2520%2526%25201%252F2%2520%255C%255C%25201%252F2%2520%2526%2520-1%252F2%2520%255Cend%257Bbmatrix%257D%2520%253D%2520%255Cbegin%257Bbmatrix%257D%25200%2520%2526%2520-1%2520%255C%255C%25201%2520%2526%25200%2520%255Cend%257Bbmatrix%257D" alt="Verification calculation" data-equation-content="\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix} \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{bmatrix} = \begin{bmatrix} -1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{bmatrix} = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}" data-ignore-a11y-check="" loading="lazy"></p>
+<p>This confirms that [T]<sub>E,E</sub> = P<sub>B→E</sub> [T]<sub>B,B</sub> P<sub>E→B</sub>, verifying the similarity relationship.</p>
+<div style="background-color: #f8f9fa; border-left: 5px solid #C13D40; padding: 10px; margin: 15px 0;">
+<p><strong>Practical Significance:</strong> The similarity relationship allows us to convert between different matrix representations of the same linear transformation. This is particularly useful when one representation reveals properties that are not obvious in another. For instance, a diagonal matrix representation makes it easy to compute powers of the transformation, which is valuable in many applications.</p>
+</div>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Applications in Data Science</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<h4><span style="color: #c13d40;"><strong>Principal Component Analysis (PCA)</strong></span></h4>
+<p>PCA involves finding a new basis (the principal components) that better represents the data. This is essentially a change of basis transformation:</p>
+<ul>
+<li>The original data is represented in the standard basis.</li>
+<li>PCA finds a new basis where the axes align with the directions of maximum variance.</li>
+<li>The change of basis matrix consists of the eigenvectors of the covariance matrix.</li>
+<li>In the new basis, the covariance matrix becomes diagonal, revealing the independent components of variation.</li>
+</ul>
+<h4><span style="color: #c13d40;"><strong>Linear Regression</strong></span></h4>
+<p>In linear regression, we model the relationship between variables as a linear transformation:</p>
+<ul>
+<li>The design matrix X represents a linear transformation from the parameter space to the observation space.</li>
+<li>Different parameterizations (bases for the parameter space) lead to different matrices representing the same model.</li>
+<li>Orthogonal parameterizations can improve the numerical stability and interpretability of the model.</li>
+</ul>
+<h4><span style="color: #c13d40;"><strong>Feature Engineering</strong></span></h4>
+<p>Feature engineering often involves transforming the feature space:</p>
+<ul>
+<li>Linear combinations of features create new features that may better represent the underlying patterns.</li>
+<li>These transformations can be represented as matrices acting on the feature vectors.</li>
+<li>Different bases for the feature space can reveal different aspects of the data, such as correlations or independence.</li>
+<li>Techniques like whitening transform the data to have uncorrelated features with unit variance, which is a change of basis operation.</li>
+</ul>
+<h4><span style="color: #c13d40;"><strong>Image and Signal Processing</strong></span></h4>
+<p>Many image and signal processing operations are linear transformations:</p>
+<ul>
+<li>The Fourier transform represents signals in the frequency domain basis rather than the time domain basis.</li>
+<li>The Discrete Cosine Transform (DCT) used in JPEG compression is a linear transformation with a specific matrix representation.</li>
+<li>Wavelet transforms provide multi-resolution analysis by projecting signals onto a wavelet basis.</li>
+<li>Convolutional filters in image processing are local linear transformations represented by small matrices.</li>
+</ul>
+<h4><span style="color: #c13d40;"><strong>Recommender Systems</strong></span></h4>
+<p>Matrix factorization techniques in recommender systems involve linear transformations:</p>
+<ul>
+<li>The user-item interaction matrix is factorized into user and item matrices.</li>
+<li>These matrices represent transformations between the user space, item space, and a latent feature space.</li>
+<li>Different factorizations correspond to different bases for the latent space, capturing different aspects of user preferences and item characteristics.</li>
+</ul>
+<div style="background-color: #f8f9fa; border-left: 5px solid #C13D40; padding: 10px; margin: 15px 0;">
+<p><strong>Real-World Example:</strong> In natural language processing, word embedding techniques like Word2Vec and GloVe represent words as vectors in a high-dimensional space. These embeddings are learned through linear transformations that capture semantic relationships between words. Different embedding spaces (bases) can emphasize different aspects of meaning, such as syntactic similarity, semantic similarity, or contextual relationships.</p>
+</div>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Practice Problems</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p>Test your understanding of matrices for linear transformations with these practice problems:</p>
+<ol>
+<li>Consider the linear transformation T: R<sup>2</sup> → R<sup>2</sup> that reflects vectors across the line y = x.
+<ul>
+<li>Find the standard matrix of T.</li>
+<li>Verify that T<sup>2</sup> = I (applying T twice is the identity transformation).</li>
+<li>Find the matrix of T with respect to the basis B = {(1, 0), (1, 1)}.</li>
+</ul>
+</li>
+<li>Let T: R<sup>3</sup> → R<sup>2</sup> be defined by T(x, y, z) = (x + y, y + z).
+<ul>
+<li>Find the standard matrix of T.</li>
+<li>Find the kernel and range of T using the matrix.</li>
+<li>Verify the Rank-Nullity Theorem for this transformation.</li>
+</ul>
+</li>
+<li>Consider the linear transformation T: P<sub>2</sub> → P<sub>2</sub> that maps a polynomial p(x) to its derivative p'(x).
+<ul>
+<li>Find the matrix of T with respect to the standard basis {1, x, x<sup>2</sup>} for P<sub>2</sub>.</li>
+<li>Is T invertible? Justify your answer.</li>
+<li>Find the matrix of T<sup>2</sup> (the second derivative operator).</li>
+</ul>
+</li>
+<li>Let B = {b<sub>1</sub>, b<sub>2</sub>} and C = {c<sub>1</sub>, c<sub>2</sub>} be bases for R<sup>2</sup> where:
+<p>b<sub>1</sub> = (1, 1), b<sub>2</sub> = (1, -1)</p>
+<p>c<sub>1</sub> = (2, 0), c<sub>2</sub> = (0, 2)</p>
+<ul>
+<li>Find the change of basis matrix P<sub>B→C</sub>.</li>
+<li>Find the change of basis matrix P<sub>C→B</sub>.</li>
+<li>Verify that P<sub>C→B</sub> = (P<sub>B→C</sub>)<sup>-1</sup>.</li>
+</ul>
+</li>
+<li>Data Science Application: Consider a dataset with two features x<sub>1</sub> and x<sub>2</sub> that have a correlation coefficient of 0.8.
+<ul>
+<li>Describe a linear transformation that would convert these correlated features into uncorrelated features.</li>
+<li>How would you represent this transformation as a matrix?</li>
+<li>What is the relationship between this transformation and PCA?</li>
+<li>How would the matrix representation change if you wanted the transformed features to have unit variance?</li>
+</ul>
+</li>
+</ol>
+</div>
+<h3 style="color: #c13d40; border-bottom: 2px solid #305589; padding-bottom: 5px;"><strong>Summary</strong></h3>
+<div style="border-left: 5px solid #305589; padding: 20px; margin-bottom: 25px; border-radius: 5px;">
+<p>In this section, we've explored the relationship between matrices and linear transformations:</p>
+<ul>
+<li><strong>Matrix Representation:</strong> Every linear transformation between finite-dimensional vector spaces can be represented by a matrix, which depends on the chosen bases for the domain and codomain.</li>
+<li><strong>Standard Matrix:</strong> The standard matrix of a linear transformation is constructed by applying the transformation to each standard basis vector and using the results as the columns of the matrix.</li>
+<li><strong>Different Bases:</strong> The same linear transformation can have different matrix representations with respect to different bases.</li>
+<li><strong>Coordinate Vectors:</strong> Vectors can be expressed in terms of their coordinates with respect to a given basis.</li>
+<li><strong>Change of Basis:</strong> Change of basis matrices allow us to convert between different coordinate systems.</li>
+<li><strong>Similarity Transformations:</strong> Matrix representations of the same linear transformation with respect to different bases are related by similarity transformations.</li>
+<li><strong>Applications:</strong> These concepts have important applications in data science, including PCA, linear regression, feature engineering, and signal processing.</li>
+</ul>
+<p>Understanding the matrix representation of linear transformations is crucial for data scientists as it provides a concrete way to implement and analyze transformations in computational systems. By mastering these concepts, we can better understand the geometric meaning of matrix operations, choose appropriate bases for different problems, and develop more effective algorithms for data analysis and modeling.</p>
+<p>In the next section, we'll explore eigenvalues and eigenvectors, which provide special insights into the behavior of linear transformations and have numerous applications in data science.</p>
+</div>
+</div>
+</body>
+</html>
