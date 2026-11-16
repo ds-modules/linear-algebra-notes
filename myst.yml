@@ -3,13 +3,22 @@ version: 1
 project:
   id: 0fa41216-53f0-4115-ac6b-cdbdf6ba1143
   title: Linear Algebra Notes
+  subtitle: An applied introduction for data science
   github: ds-modules/linear-algebra-notes
   jupyter: true
   toc:
     - file: intro.md
+    - file: chapters/chapter-0.md
+      children:
+        - file: chapters/chapter-0/getting-started.md
+        - file: chapters/chapter-0/python-basics.md
+        - file: chapters/chapter-0/numpy-arrays.md
+        - file: chapters/chapter-0/linear-algebra-tools.md
+        - file: chapters/chapter-0/visualization.md
+        - file: chapters/chapter-0/lab-0.md
 
 site:
-  template: book-theme
+  template: https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip
   actions:
     - title: Open Issue
       url: https://github.com/ds-modules/linear-algebra-notes/issues/new
