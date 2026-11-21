@@ -4,9 +4,9 @@ kernelspec:
   display_name: Python 3
 ---
 
-# NumPy arrays
+# 0.3 NumPy Arrays
 
-Think of a NumPy array as a **grid of numbers** (1D = a list of values; 2D = a table). Later we will call some of these vectors and matrices — for now, focus on creating them and reading values out.
+A NumPy array is a **grid of numbers**: 1D for a sequence of values, 2D for a table. Later chapters call some of these vectors and matrices; here the goal is only to create arrays and read values out.
 
 ```{code-cell} python
 import numpy as np
@@ -24,7 +24,7 @@ print("v:", v, "  shape", v.shape)
 print("A:\n", A, "\nshape", A.shape)
 ```
 
-Useful constructors:
+Common constructors:
 
 ```{code-cell} python
 print("zeros(3):")
@@ -41,7 +41,7 @@ print(np.linspace(0.0, 1.0, 5))
 
 ## Indexing and slicing
 
-Rows first, then columns — same idea as a spreadsheet.
+For a 2D array, the first index is the row and the second is the column.
 
 ```{code-cell} python
 A = np.array([[10, 11, 12],
@@ -54,7 +54,7 @@ print(A[:2, 1:])    # top-right block
 ```
 
 ```{caution}
-A 1D array of length $n$ has shape `(n,)`, not `(n, 1)`. Use `reshape` when you need an explicit column or row layout.
+A length-$n$ 1D array has shape `(n,)`, not `(n, 1)`. Use `reshape` when an explicit column or row layout is needed.
 ```
 
 ```{code-cell} python
@@ -68,25 +68,19 @@ print("row shape:", row.shape)
 
 ## Elementwise operations
 
-These act **entry by entry** (or with a scalar). That is different from the matrix multiplication you will learn later.
+These act **entry by entry** (or with a scalar). That is different from matrix multiplication, which appears later.
 
 ```{code-cell} python
 u = np.array([1.0, 2.0, 3.0])
 w = np.array([10.0, 20.0, 30.0])
 print("u + w =", u + w)
 print("2 * u =", 2 * u)
-print("u * w =", u * w)   # still entry by entry
-print("u + 1 =", u + 1)   # 1 is added to every entry
+print("u * w =", u * w)   # entry by entry
+print("u + 1 =", u + 1)
 ```
 
 ```{tip}
-Remember: `*` is elementwise. The linear-algebra product of arrays comes later (and uses a different symbol).
+In NumPy, `*` is elementwise. The linear-algebra product uses a different operator and will be introduced with matrices.
 ```
 
-## Mini-check
-
-1. Build a $3\times 3$ array of numbers `1` through `9` (`np.arange` + `reshape`).  
-2. Print the middle row, the last column, and a $2\times 2$ corner block.  
-3. Add two length-3 arrays and multiply one of them by `10`.  
-
-Next: [Simple plots](matplotlib.md).
+Next: [0.4 Plots](matplotlib.md).

@@ -4,20 +4,9 @@ kernelspec:
   display_name: Python 3
 ---
 
-# Jupyter and Python basics
+# 0.2 Python in the Textbook
 
-## Jupyter notebooks
-
-A notebook is a sequence of **cells**:
-
-- **Markdown cells** — notes and math (like this page)
-- **Code cells** — Python that you run; output appears below
-
-Typical workflow: change a cell → run it → read the output → fix → re-run. Restarting the kernel clears all variables.
-
-```{tip}
-Run cells **in order** the first time through. Later cells often depend on earlier ones.
-```
+Some textbook pages mix explanatory text with short Python examples. Their output appears underneath. These are worked demonstrations to read; you do not need to edit or run them.
 
 ## Variables and types
 
@@ -33,14 +22,14 @@ print(x + y)
 
 ## Lists
 
-Lists are ordered and mutable. For serious numeric work we will prefer NumPy arrays, but lists appear in everyday Python.
+Lists store ordered collections. Numeric work in this book mostly uses NumPy arrays, but lists show up in ordinary Python.
 
 ```{code-cell} python
 coords = [1, 2, 3]
 coords.append(4)
 print(coords)
 print(coords[0], coords[-1])
-print(coords[1:3])  # slicing: start inclusive, end exclusive
+print(coords[1:3])  # start inclusive, end exclusive
 ```
 
 ## Loops and comprehensions
@@ -79,13 +68,4 @@ def describe_n(n):
 print(describe_n(3), describe_n(-1), describe_n(0))
 ```
 
-## Mini-check
-
-Before moving on, make sure you can:
-
-1. Assign variables and print their types  
-2. Index and slice a list  
-3. Write a short `for` loop and a list comprehension  
-4. Define a function with a docstring and return value  
-
-Next: [NumPy arrays](numpy.md).
+Next: [0.3 NumPy Arrays](numpy.md).

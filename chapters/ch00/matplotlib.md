@@ -4,9 +4,9 @@ kernelspec:
   display_name: Python 3
 ---
 
-# Simple plots
+# 0.4 Plots
 
-We will often draw an arrow from the origin to a pair of numbers $(x, y)$. You do not need the full theory of vectors yet — treat this as plotting two coordinates.
+Many figures in this book draw an arrow from the origin to a pair of numbers $(x, y)$. For now, treat that as plotting two coordinates — the full language of vectors comes later.
 
 ```{code-cell} python
 %matplotlib inline
@@ -34,7 +34,7 @@ plt.show()
 
 ## Adding coordinate pairs
 
-Adding arrays adds each coordinate. The plot is a quick visual check.
+Adding arrays adds matching coordinates. The figure is a visual check of that arithmetic.
 
 ```{code-cell} python
 u = np.array([2.0, 0.5])
@@ -54,8 +54,22 @@ ax.set_title("Adding two pairs of coordinates")
 plt.show()
 ```
 
-## Mini-check
+Scaling by a positive number lengthens an arrow without rotating it:
 
-Plot the arrow to $(3, 1)$ and the arrow to $2\cdot(3, 1) = (6, 2)$. Check that scaling by a positive number lengthens the arrow without turning it.
+```{code-cell} python
+a = np.array([3.0, 1.0])
+b = 2 * a
 
-Next: [Exercises](exercises.md).
+fig, ax = plt.subplots(figsize=(4, 4))
+ax.quiver(0, 0, *a, angles="xy", scale_units="xy", scale=1, color="C0", label="$(3,1)$")
+ax.quiver(0, 0, *b, angles="xy", scale_units="xy", scale=1, color="C1", label="$(6,2)$")
+ax.set_xlim(-1, 7)
+ax.set_ylim(-1, 3)
+ax.set_aspect("equal")
+ax.grid(True, alpha=0.3)
+ax.legend()
+ax.set_title("Scaling a coordinate pair")
+plt.show()
+```
+
+Next: [0.5 Check Your Understanding](exercises.md).

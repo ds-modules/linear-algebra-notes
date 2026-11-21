@@ -4,19 +4,100 @@ project:
   id: 0fa41216-53f0-4115-ac6b-cdbdf6ba1143
   title: Linear Algebra Notes
   github: ds-modules/linear-algebra-notes
-  # Enables the in-page "power" button (Binder) so readers can re-run cells live.
-  jupyter: true
+  # No Binder / power-button kernel: demos will use anywidget in-page.
+  jupyter: false
   toc:
     - file: intro.md
-    - title: Chapter 0. Coding Readiness
+    - title: 0 Getting Ready
       children:
         - file: chapters/ch00/index.md
+          title: 0 Getting Ready
+        - file: chapters/ch00/readiness.md
+          title: 0.1 Mathematical Readiness
         - file: chapters/ch00/jupyter-python.md
+          title: 0.2 Python in the Textbook
         - file: chapters/ch00/numpy.md
-          title: NumPy arrays
+          title: 0.3 NumPy Arrays
         - file: chapters/ch00/matplotlib.md
-          title: Simple plots
+          title: 0.4 Plots
         - file: chapters/ch00/exercises.md
+          title: 0.5 Check Your Understanding
+    - title: 1 Systems of Linear Equations
+      children:
+        - file: chapters/ch01/index.md
+          title: 1 Systems of Linear Equations
+        - file: chapters/ch01/linear-equations.md
+          title: 1.1 Linear Equations and Systems
+        - file: chapters/ch01/substitution-elimination.md
+          title: 1.2 Substitution and Elimination
+        - file: chapters/ch01/matrix-form.md
+          title: 1.3 Matrix Form
+    - title: 2 Row Reduction
+      children:
+        - file: chapters/ch02/index.md
+          title: 2 Row Reduction
+        - file: chapters/ch02/augmented-rref.md
+          title: 2.1 Augmented Matrices and RREF
+        - file: chapters/ch02/gauss-jordan.md
+          title: 2.2 Gauss–Jordan Elimination
+        - file: chapters/ch02/consistency.md
+          title: 2.3 Consistency and Parametric Solutions
+    - title: 3 Matrix Operations
+      children:
+        - file: chapters/ch03/index.md
+          title: 3 Matrix Operations
+        - file: chapters/ch03/ops.md
+          title: 3.1 Addition, Scaling, Multiplication
+        - file: chapters/ch03/transpose.md
+          title: 3.2 Transpose
+        - file: chapters/ch03/inverse.md
+          title: 3.3 Inverse
+    - title: 4 Elementary Matrices and LU
+      children:
+        - file: chapters/ch04/index.md
+          title: 4 Elementary Matrices and LU
+        - file: chapters/ch04/elementary.md
+          title: 4.1 Elementary Matrices
+        - file: chapters/ch04/lu.md
+          title: 4.2 LU and PLU
+    - title: 5 Determinants
+      children:
+        - file: chapters/ch05/index.md
+          title: 5 Determinants
+        - file: chapters/ch05/compute.md
+          title: 5.1 Computing Determinants
+        - file: chapters/ch05/properties.md
+          title: 5.2 Properties
+    - title: 6 Vectors and Spaces
+      children:
+        - file: chapters/ch06/index.md
+          title: 6 Vectors and Spaces
+        - file: chapters/ch06/vectors.md
+          title: 6.1 Vectors in Rn
+        - file: chapters/ch06/vector-spaces.md
+          title: 6.2 Vector Spaces
+        - file: chapters/ch06/subspaces.md
+          title: 6.3 Subspaces
+    - title: 7 Span, Independence, and Basis
+      children:
+        - file: chapters/ch07/index.md
+          title: 7 Span, Independence, and Basis
+        - file: chapters/ch07/span.md
+          title: 7.1 Span
+        - file: chapters/ch07/independence.md
+          title: 7.2 Linear Independence
+        - file: chapters/ch07/basis.md
+          title: 7.3 Basis and Dimension
+    - title: 8 Rank and Fundamental Subspaces
+      children:
+        - file: chapters/ch08/index.md
+          title: 8 Rank and Fundamental Subspaces
+        - file: chapters/ch08/rank.md
+          title: 8.1 Rank and Column / Row Space
+        - file: chapters/ch08/nullspace.md
+          title: 8.2 Null Space and Rank–Nullity
+        - file: chapters/ch08/coordinates.md
+          title: 8.3 Coordinates and Change of Basis
 
 site:
   template: https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip

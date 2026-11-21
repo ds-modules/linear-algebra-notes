@@ -1,33 +1,31 @@
 # linear-algebra-notes
 
-Online Jupyter Book for linear algebra (Math 279 spine, with Math 56 / EECS 16A enrichment).
+Interactive Jupyter Book for linear algebra (Math 279 spine, Math 56 / EECS 16A enrichment).
 
-## Local preview
+Code examples illustrate ideas with outputs already included; interactive demonstrations run in the page. Readers do not need to install anything or create an environment.
+
+## Contributor preview
+
+These commands are only for contributors building the site locally:
 
 ```bash
 pip install -r requirements-build.txt
-pip install -r requirements.txt
-# Live site + execute code cells so outputs appear
 jupyter book start --execute
 ```
 
-Build static HTML (outputs baked in via `--execute`):
+Static HTML:
 
 ```bash
 jupyter book build --html --execute
 ```
 
-On the published site, use the **power button** on a page (Binder / in-page Jupyter) to re-run cells interactively.
-
-## Content layout
+## Layout
 
 | Path | Role |
 |---|---|
-| `intro.md` | Book landing page |
-| `chapters/ch00/` | Chapter 0 — coding readiness (Week 0) |
+| `intro.md` | Landing page |
+| `chapters/ch00`–`ch08` | Sections 0–8 (through calendar week 8) |
 | `docs/` | Internal curriculum notes (not in book TOC) |
-| `myst.yml` | MyST / Jupyter Book config + TOC |
+| `myst.yml` | TOC + site config |
 
-## Chapter 0
-
-Jupyter, Python basics, NumPy arrays (create / index / slice / reshape / elementwise ops), and simple plots. Matrix multiplication, `solve`, and `inv` come later with the math.
+Naming follows Inferential Thinking style: `1 Systems…`, `1.1 …` (no “Chapter” prefix).

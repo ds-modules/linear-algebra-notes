@@ -2,4 +2,6 @@ jupyter-book>=2.0.0
 mystmd
 numpy
 matplotlib
+scipy
+sympy
 ipykernel

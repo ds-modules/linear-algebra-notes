@@ -31,6 +31,3 @@
 - Canvas HTML readings: [canvas/README.md](canvas/README.md).
 - Still out: 16A circuits / touchscreens; Shazam/DFT as required content.
 - Open: recover 279 Labs 3 and 6 when available.
-
-
-test

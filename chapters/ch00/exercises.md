@@ -1,28 +1,16 @@
-# Chapter 0 exercises
+---
+kernelspec:
+  name: python3
+  display_name: Python 3
+---
 
-No linear-algebra theory required — only Python, NumPy arrays, and a simple plot.
+# 0.5 Check Your Understanding
 
-## Exercise 1 — Python warm-up
+These are short reading checks, not cells to edit or work to submit. Think through each question, then expand its solution.
 
-Write a function `sum_list(values)` that returns the sum of a list of numbers using a `for` loop (no NumPy, no built-in `sum`).
+## Shapes and slicing
 
-````{admonition} Solution
-:class: dropdown
-
-```python
-def sum_list(values):
-    total = 0.0
-    for x in values:
-        total += x
-    return total
-
-assert sum_list([1, 2, 3]) == 6
-```
-````
-
-## Exercise 2 — Shapes and slicing
-
-Create a $3\times 3$ NumPy array filled with `1` through `9`. Extract (a) the middle row, (b) the last column, (c) the upper-left $2\times 2$ block.
+What are the middle row, last column, and upper-left $2\times 2$ block of the array with entries $1$ through $9$?
 
 ````{admonition} Solution
 :class: dropdown
@@ -30,15 +18,16 @@ Create a $3\times 3$ NumPy array filled with `1` through `9`. Extract (a) the mi
 ```python
 import numpy as np
 A = np.arange(1, 10).reshape(3, 3)
-print(A[1, :])      # [4 5 6]
-print(A[:, -1])     # [3 6 9]
-print(A[:2, :2])    # [[1 2] [4 5]]
+print(A)
+print("middle row:", A[1, :])
+print("last column:", A[:, -1])
+print("upper-left 2×2:\n", A[:2, :2])
 ```
 ````
 
-## Exercise 3 — Elementwise arithmetic
+## Elementwise arithmetic
 
-Let `u = np.array([1.0, 2.0, 3.0])` and `w = np.array([10.0, 20.0, 30.0])`. Compute and print `u + w`, `3 * u`, and `u * w`. In one sentence, say how `u * w` differs from what you might expect from “multiplying grids of numbers” in a linear algebra class (you will see that product later).
+If `u = [1, 2, 3]` and `w = [10, 20, 30]` as NumPy arrays, what are `u + w`, `3 * u`, and `u * w`? How does `u * w` differ from matrix multiplication?
 
 ````{admonition} Solution
 :class: dropdown
@@ -49,15 +38,15 @@ u = np.array([1.0, 2.0, 3.0])
 w = np.array([10.0, 20.0, 30.0])
 print(u + w)   # [11. 22. 33.]
 print(3 * u)   # [3. 6. 9.]
-print(u * w)   # [10. 40. 90.]  — entry by entry, not matrix multiplication
+print(u * w)   # [10. 40. 90.] — matching entries only
 ```
 
-`u * w` multiplies matching entries. Linear-algebra matrix multiplication combines whole rows and columns and comes in a later chapter.
+Matrix multiplication combines whole rows and columns; it is introduced with matrices later.
 ````
 
-## Exercise 4 — Reshape
+## Reshape
 
-Start from `v = np.array([1.0, 2.0, 3.0, 4.0])`. Make a $2\times 2$ array with `reshape` and print its shape.
+How can the length-4 array `[1, 2, 3, 4]` become a $2\times 2$ table?
 
 ````{admonition} Solution
 :class: dropdown
@@ -67,36 +56,8 @@ import numpy as np
 v = np.array([1.0, 2.0, 3.0, 4.0])
 M = v.reshape(2, 2)
 print(M)
-print(M.shape)  # (2, 2)
+print(M.shape)
 ```
 ````
 
-## Exercise 5 — Plot
-
-Plot an arrow from the origin to $(2, 1)$ and another to $(4, 2)$ (which is twice the first pair). Use equal aspect ratio.
-
-````{admonition} Solution
-:class: dropdown
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-a = np.array([2.0, 1.0])
-b = 2 * a
-
-fig, ax = plt.subplots(figsize=(4, 4))
-ax.quiver(0, 0, *a, angles="xy", scale_units="xy", scale=1, color="C0", label="$(2,1)$")
-ax.quiver(0, 0, *b, angles="xy", scale_units="xy", scale=1, color="C1", label="$(4,2)$")
-ax.set_xlim(-1, 5)
-ax.set_ylim(-1, 3)
-ax.set_aspect("equal")
-ax.grid(True, alpha=0.3)
-ax.legend()
-plt.show()
-```
-````
-
-## Done with Chapter 0?
-
-Next up is **Chapter 1** (systems of linear equations). Tools like `@`, `np.linalg.solve`, and `inv` will appear when those topics are introduced — not before.
+Next: [1 Systems of Linear Equations](../ch01/index.md).
